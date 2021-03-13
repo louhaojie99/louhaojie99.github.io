@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HJ BLOG</title><meta name="author" content="娄豪杰"><meta name="copyright" content="娄豪杰"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="HJ BLOG">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="HJ BLOG">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/avatar.jpg">
+<meta property="article:author" content="娄豪杰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/avatar.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="yandex-verification" content="{&quot;enable&quot;:true,&quot;main&quot;:&quot;#49B1F5&quot;,&quot;paginator&quot;:&quot;#00c4b6&quot;,&quot;button_hover&quot;:&quot;#FF7242&quot;,&quot;text_selection&quot;:&quot;#00c4b6&quot;,&quot;link_color&quot;:&quot;#99a9bf&quot;,&quot;meta_color&quot;:&quot;#858585&quot;,&quot;hr_color&quot;:&quot;#A4D8FA&quot;,&quot;code_foreground&quot;:&quot;#F47466&quot;,&quot;code_background&quot;:&quot;rgba(27, 31, 35, .05)&quot;,&quot;toc_color&quot;:&quot;#00c4b6&quot;,&quot;blockquote_padding_color&quot;:&quot;#49b1f5&quot;,&quot;blockquote_background_color&quot;:&quot;#49b1f5&quot;}"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-03-13 16:58:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}const fontSizeVal = saveToLocal.get('global-font-size')
+if (fontSizeVal !== undefined) {
+  document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+}})()</script><style type="text/css">#toggle-sidebar {left:100px}</style><meta name="generator" content="Hexo 5.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐下</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/photo"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g3/M09/0C/05/ChMlWF7i5N6IZ4k3ACmkrZOgfhUAAUqvAA9UrsAKaTF251.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">HJ BLOG</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐下</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/photo"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">HJ BLOG</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/louhaojie99" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=oZmUkJeZkJeSkOHQ0I-Czsw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2018/03/06/003_Vue2/010_Methods%20Option%20%E6%96%B9%E6%B3%95%E9%80%89%E9%A1%B9/" title="006_Template 制作模板">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="006_Template 制作模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/06/003_Vue2/010_Methods%20Option%20%E6%96%B9%E6%B3%95%E9%80%89%E9%A1%B9/" title="006_Template 制作模板">006_Template 制作模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-05T16:00:00.000Z" title="发表于 2018-03-06 00:00:00">2018-03-06</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-05T08:04:26.033Z" title="更新于 2021-03-05 16:04:26">2021-03-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2018/03/06/003_Vue2/011_Watch%20%E9%80%89%E9%A1%B9%20%E7%9B%91%E6%8E%A7%E6%95%B0%E6%8D%AE/" title="006_Template 制作模板">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="006_Template 制作模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/06/003_Vue2/011_Watch%20%E9%80%89%E9%A1%B9%20%E7%9B%91%E6%8E%A7%E6%95%B0%E6%8D%AE/" title="006_Template 制作模板">006_Template 制作模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-05T16:00:00.000Z" title="发表于 2018-03-06 00:00:00">2018-03-06</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-05T08:04:26.033Z" title="更新于 2021-03-05 16:04:26">2021-03-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2018/03/06/003_Vue2/012_Minxins%20%E6%B7%B7%E5%85%A5%E9%80%89%E9%A1%B9%E6%93%8D%E4%BD%9C/" title="006_Template 制作模板">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="006_Template 制作模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/06/003_Vue2/012_Minxins%20%E6%B7%B7%E5%85%A5%E9%80%89%E9%A1%B9%E6%93%8D%E4%BD%9C/" title="006_Template 制作模板">006_Template 制作模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-05T16:00:00.000Z" title="发表于 2018-03-06 00:00:00">2018-03-06</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-05T08:04:26.033Z" title="更新于 2021-03-05 16:04:26">2021-03-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2018/03/06/003_Vue2/013_Exends%20Option%20%E6%89%A9%E5%B1%95%E9%80%89%E9%A1%B9/" title="006_Template 制作模板">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="006_Template 制作模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/06/003_Vue2/013_Exends%20Option%20%E6%89%A9%E5%B1%95%E9%80%89%E9%A1%B9/" title="006_Template 制作模板">006_Template 制作模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-05T16:00:00.000Z" title="发表于 2018-03-06 00:00:00">2018-03-06</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-03-05T08:04:26.033Z" title="更新于 2021-03-05 16:04:26">2021-03-05</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2018/03/05/003_Vue2/005_Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%88%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%EF%BC%89/" title="005_Vue的生命周期（钩子函数）">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="005_Vue的生命周期（钩子函数）"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/05/003_Vue2/005_Vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%88%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%EF%BC%89/" title="005_Vue的生命周期（钩子函数）">005_Vue的生命周期（钩子函数）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-04T16:00:00.000Z" title="发表于 2018-03-05 00:00:00">2018-03-05</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-28T11:54:41.706Z" title="更新于 2021-02-28 19:54:41">2021-02-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content">Vue 的生命周期（钩子函数）Vue生命周期
+Vue一共有10个生命周期函数，我们可以利用这些函数在vue的每个阶段都进行操作数据或者改变内容。
+
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;  &lt;title&gt;Document&lt; ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2018/03/04/003_Vue2/004_Vue.set%20%E5%85%A8%E5%B1%80%E6%93%8D%E4%BD%9C/" title="004_Vue.set 全局操作">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="004_Vue.set 全局操作"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/04/003_Vue2/004_Vue.set%20%E5%85%A8%E5%B1%80%E6%93%8D%E4%BD%9C/" title="004_Vue.set 全局操作">004_Vue.set 全局操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-03T16:00:00.000Z" title="发表于 2018-03-04 00:00:00">2018-03-04</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-28T11:38:37.267Z" title="更新于 2021-02-28 19:38:37">2021-02-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content">Vue.set 全局操作
+Vue.set 的作用就是在构造器外部操作构造器内部的数据、属性或者方法。比如在 vue 构造器内部定义了一个 count 为 1 的数据，我们在构造器外部定义了一个方法，要每次点击按钮给值加 1.就需要用到 Vue.set。
+
+一、引用构造器外部数据
+什么是外部数据，就是不在Vue构造器里里的data处声明，而是在构造器外部声明，然后在data处引用就可以了。外部数据的加入让程序更加灵活，我们可以在外部获取任何想要的数据形式，然后让data引用。 看一个简单的代码：
+
+12345678910//在构造器外部声明数据 var outData=&#123;    count:1,    goodName:&#x27;car&#x27;&#125;;var app=new Vue(&#123;    el:&#x27;#app&#x27;,    //引用外部数据    data:outData&#125;)
+二、在外部改变数据的三种方法：1、用Vue.set改变
+123function add()&#123;  Vue.set(outData,&#x27;cou ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2018/03/03/003_Vue2/003_Vue.extend%20%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E5%BB%B6%E7%94%B3/" title="003_Vue.extend 构造器的延申">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="003_Vue.extend 构造器的延申"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/03/003_Vue2/003_Vue.extend%20%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E5%BB%B6%E7%94%B3/" title="003_Vue.extend 构造器的延申">003_Vue.extend 构造器的延申</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-02T16:00:00.000Z" title="发表于 2018-03-03 00:00:00">2018-03-03</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-28T03:41:25.512Z" title="更新于 2021-02-28 11:41:25">2021-02-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content">Vue.extend 构造器的延申一、什么是 Vue.extend
+Vue.extend 返回的是一个“扩展实例构造器”,也就是预设了部分选项的 Vue 实例构造器。经常服务于 Vue.component 用来生成组件，可以简单理解为当在模板中遇到该组件名称作为标签的自定义元素时，会自动调用“扩展实例构造器”来生产组件实例，并挂载到自定义元素上。
+
+二、自定义无参数标签
+我们想象一个需求，需求是这样的，要在博客页面多处显示作者的网名，并在网名上直接有链接地址。我们希望在 html 中只需要写&lt;author&gt;&lt;/author&gt;，这和自定义组件很像，但是他没有传递任何参数，只是个静态标签。
+我们的 Vue.extend 该登场了，我们先用它来编写一个扩展实例构造器。代码如下：
+
+123456789var authorExtend = Vue.extend(&#123;  template: &quot;&lt;p&gt;&lt;a :href=&#x27;authorUrl&#x27;&gt;&#123;&#123;authorName&#125;&#125;&lt ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2018/03/02/003_Vue2/002_Vue.directive%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" title="002_Vue.directive 定义指令">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="002_Vue.directive 定义指令"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/02/003_Vue2/002_Vue.directive%20%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" title="002_Vue.directive 定义指令">002_Vue.directive 定义指令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-03-01T16:00:00.000Z" title="发表于 2018-03-02 00:00:00">2018-03-02</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-28T03:37:04.959Z" title="更新于 2021-02-28 11:37:04">2021-02-28</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content">Vue2.x 自定义指令一、什么是全局 API?
+全局 API 并不在构造器里，而是先声明全局变量或者直接在 Vue 上定义一些新功能，Vue 内置了一些全局 API，比如我们今天要学习的指令 Vue.directive。说的简单些就是，在构造器外部用 Vue 提供给我们的 API 函数来定义新的功能。
+
+二、Vue.directive 自定义指令
+我们在第一季就学习了内部指令，我们也可以定义一些属于自己的指令，比如我们要定义一个 v-jspang 的指令，作用就是让文字变成绿色。
+
+在自定义指令前我们写一个小功能，在页面上有一个数字为 10，数字的下面有一个按钮，我们每点击一次按钮后，数字加 1.
+
+
+123456789101112131415161718192021222324252627282930&lt;div id=&quot;app&quot;&gt;  &lt;h1&gt;Vue.directive 自定义指令&lt;/h1&gt;  &lt;div v-jspang=&quot;color&quot;&gt;&#123;&#123; count &#125;&#125; ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2018/03/01/003_Vue2/001_%E8%B5%B0%E8%B5%B7%E6%88%91%E7%9A%84Vue2.x%20%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="001_走起我的Vue2.x 常用指令">     <img class="post_bg" src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/b4eda213437e9c27079c0a8678c6fd492faed8bf84536b389070bc75b1fd37a287d18e6da89552de5251eacb30ab8198?pictype=scale&amp;from=30113&amp;version=3.3.3.3&amp;uin=851681631&amp;fname=vue2.x.jpg&amp;size=750" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="001_走起我的Vue2.x 常用指令"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/03/01/003_Vue2/001_%E8%B5%B0%E8%B5%B7%E6%88%91%E7%9A%84Vue2.x%20%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="001_走起我的Vue2.x 常用指令">001_走起我的Vue2.x 常用指令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-02-28T16:00:00.000Z" title="发表于 2018-03-01 00:00:00">2018-03-01</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-27T09:45:35.669Z" title="更新于 2021-02-27 17:45:35">2021-02-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Vue2-x/">Vue2.x</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/Vue2-x/">Vue2.x</a></span></div><div class="content">下载 Vue2.0 的两个版本
+官方网站
+开发版本：包含完整的警告和调试模式
+生产版本：删除了警告，进行了压缩
+
+
+
+第 1 节：走起我的 Vue.2.0（编写第一个 Hello Wolrd）1234567891011121314151617181920212223&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;  &lt;head&gt;    &lt;meta charset=&quot;UTF-8&quot; /&gt;    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;    &lt;title&gt;Document&lt;/title&gt;    &lt;script src=&quot;https ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2018/01/20/002_JavaScript/020_Promise/" title="020_Promise">     <img class="post_bg" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2308058821,195757033&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="020_Promise"></a></div><div class="recent-post-info"><a class="article-title" href="/2018/01/20/002_JavaScript/020_Promise/" title="020_Promise">020_Promise</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-01-19T16:00:00.000Z" title="发表于 2018-01-20 00:00:00">2018-01-20</time><span class="article-meta__separator">|</span><i class="fas fa-history"></i><span class="article-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-18T06:01:04.788Z" title="更新于 2021-02-18 14:01:04">2021-02-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/JS/">JS</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag article-meta__icon"></i><a class="article-meta__tags" href="/tags/JS/">JS</a></span></div><div class="content">封装 AJAX
+ajax 使用起来太麻烦，因为每次都要写很多的代码
+那么我们就封装一个 ajax 方法来让我们使用起来简单一些
+
+确定一下使用的方式
+因为有一些内容可以不传递，我们可以使用默认值，所以选择对象传递参数的方式
+1234567// 使用的时候直接调用，传递一个对象就可以ajax(&#123;  url: &quot;&quot;, // 请求的地址  type: &quot;&quot;, // 请求方式  data: &quot;&quot;, // 携带的参数  success: function () &#123;&#125;, // 成功以后执行的函数&#125;);
+
+确定好使用方式以后，就开始书写封装函数
+
+
+
+封装123456789101112131415161718192021function ajax(options) &#123;  // 先准备一个默认值  var defInfo = &#123;    url: &quot;&quot;, // 地址不需要默认值    type: &quot;GET&quot;, // 请求方式的默认值是 GET   ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">娄豪杰</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">40</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/louhaojie99"><i class="fab fa-github"></i><span>关注 Follow</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/louhaojie99" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=oZmUkJeZkJeSkOHQ0I-Czsw" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">人生就像品茗，懂得吃苦，才能回甘啊。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2019/01/07/005_DataDispose/105_%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/" title="数据处理"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2308058821,195757033&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据处理"/></a><div class="content"><a class="title" href="/2019/01/07/005_DataDispose/105_%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF/" title="数据处理">数据处理</a><time datetime="2019-01-06T16:00:00.000Z" title="发表于 2019-01-07 00:00:00">2019-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/01/05/005_DataDispose/104_JS%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C/" title="JS字符串高级操作"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2308058821,195757033&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS字符串高级操作"/></a><div class="content"><a class="title" href="/2019/01/05/005_DataDispose/104_JS%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C/" title="JS字符串高级操作">JS字符串高级操作</a><time datetime="2019-01-04T16:00:00.000Z" title="发表于 2019-01-05 00:00:00">2019-01-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/01/04/005_DataDispose/103_JS%E6%95%B0%E7%BB%84%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C/" title="JS数组高级操作"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2308058821,195757033&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS数组高级操作"/></a><div class="content"><a class="title" href="/2019/01/04/005_DataDispose/103_JS%E6%95%B0%E7%BB%84%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C/" title="JS数组高级操作">JS数组高级操作</a><time datetime="2019-01-03T16:00:00.000Z" title="发表于 2019-01-04 00:00:00">2019-01-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/01/03/005_DataDispose/102_Eslint%E8%A7%84%E8%8C%83%E9%85%8D%E7%BD%AE/" title="Eslint配置"><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=228571824,4204753683&amp;fm=15&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Eslint配置"/></a><div class="content"><a class="title" href="/2019/01/03/005_DataDispose/102_Eslint%E8%A7%84%E8%8C%83%E9%85%8D%E7%BD%AE/" title="Eslint配置">Eslint配置</a><time datetime="2019-01-02T16:00:00.000Z" title="发表于 2019-01-03 00:00:00">2019-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/01/02/005_DataDispose/101_GIT%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="GIT基操"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1036194661,1268183023&amp;fm=26&amp;gp=0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GIT基操"/></a><div class="content"><a class="title" href="/2019/01/02/005_DataDispose/101_GIT%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" title="GIT基操">GIT基操</a><time datetime="2019-01-01T16:00:00.000Z" title="发表于 2019-01-02 00:00:00">2019-01-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Eslint/"><span class="card-category-list-name">Eslint</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JS/"><span class="card-category-list-name">JS</span><span class="card-category-list-count">22</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Js/"><span class="card-category-list-name">Js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Vue2-x/"><span class="card-category-list-name">Vue2.x</span><span class="card-category-list-count">13</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83/"><span class="card-category-list-name">前端环境</span><span class="card-category-list-count">1</span></a></li>
+            
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Eslint/" style="font-size: 1.1em; color: #999">Eslint</a> <a href="/tags/Git/" style="font-size: 1.1em; color: #999">Git</a> <a href="/tags/JS/" style="font-size: 1.5em; color: #99a9bf">JS</a> <a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/Js/" style="font-size: 1.1em; color: #999">Js</a> <a href="/tags/Vue2-x/" style="font-size: 1.3em; color: #99a1ac">Vue2.x</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83/" style="font-size: 1.1em; color: #999">前端环境</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/01/"><span class="card-archive-list-date">一月 2019</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/03/"><span class="card-archive-list-date">三月 2018</span><span class="card-archive-list-count">13</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/01/"><span class="card-archive-list-date">一月 2018</span><span class="card-archive-list-count">20</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/01/"><span class="card-archive-list-date">一月 2017</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">40</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2017-01-08T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-03-13T08:58:25.146Z"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://desk-fd.zol-img.com.cn/t_s1920x1080c5/g3/M09/0C/05/ChMlWF7i5N6IZ4k3ACmkrZOgfhUAAUqvAA9UrsAKaTF251.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2021 By 娄豪杰</div><div class="footer_custom_text">嗨，欢迎来到我的 <a target="_blank" rel="noopener" href="https://louhaojie99.github.io/">博客</a>!<br/><div><a target="_blank" rel="noopener external nofollow noreferrer" ><img class="icp-icon entered loading" alt="ICP" src="https://cdn.jsdelivr.net/gh/sviptzk/StaticFile_HEXO@0c02ff8/butterfly/img/icp.png" data-ll-status="loading"><span>冀ICP备19016383号</span></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>function subtitleType () {
+  if (true) { 
+    var typed = new Typed("#subtitle", {
+      strings: "当你的才华还撑不起你的野心的时候,你就应该静下来学习,When your talent can't support your ambition|,You should just sit down and study".split(","),
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50
+    })
+  } else {
+    document.getElementById("subtitle").innerHTML = '当你的才华还撑不起你的野心的时候'
+  }
+}
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div class="aplayer no-destroy" data-id="000PeZCQ1i4XVs" data-server="tencent" data-type="artist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="false" muted></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config_change',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  if (typeof gtag === 'function') {
+    gtag('config', '', {'page_path': window.location.pathname});
+  }
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+
+document.addEventListener('pjax:send', function () {
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})</script></div></body></html>
