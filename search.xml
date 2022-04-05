@@ -4,6 +4,97 @@
   
     
     <entry>
+      <title>代码评审（CR）指南</title>
+      <link href="/article/93579e54.html"/>
+      <url>/article/93579e54.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>关于代码评审（Code Review），代码评审也已经是许多组织的标准化实践。在许多团队在尝试代码评审实践时，却有如下的疑问：代码评审活动究竟有没有达到期望的实际效果？ 给了我一大堆代码，到底该从哪里看起？哪些方面是我该评审的？哪些不是？ 别人有没有认真评审我的代码？如何让别人更容易的评审代码？</p><ol><li>理解代码评审的核心目标，建立关于代码评审的正确预期。</li><li>了解代码评审为什么可能无效，并采取有针对性的实践来提升代码评审的效果。</li></ol><h2 id="为什么要做代码评审"><a href="#为什么要做代码评审" class="headerlink" title="为什么要做代码评审"></a>为什么要做代码评审</h2><p>不少同学认为代码评审就是用来查错的，甚至希望用代码的缺陷数量来检验代码评审的效果。这低估了代码评审的价值。代码评审最本质的作用不是问题发现。除了代码评审，我们有更多更好的手段来发现问题。<strong>代码评审的作用更多是关于社会学的，是一种长期行为和组织文化</strong>。</p><h2 id="CR-是代码规范性的保证"><a href="#CR-是代码规范性的保证" class="headerlink" title="CR 是代码规范性的保证"></a>CR 是代码规范性的保证</h2><h3 id="编码者视角：良性的社交压力"><a href="#编码者视角：良性的社交压力" class="headerlink" title="编码者视角：良性的社交压力"></a>编码者视角：良性的社交压力</h3><p>你正在紧张的编码，交付时间迫在眉睫。你的组织对代码的单元测试有一个要求：凡是新增的代码，必须有完整的自动化单元测试。但是，这压力之下，你想给自己降低一点要求，不写这部分待的单元测试了，以后再编写吧，或者为了应付工具的覆盖率要求，先写一点不那么有用但是却能带来覆盖率的测试（例如没有断言的测试）。</p><p>但是，一旦想到你的代码发出去将会有你的同事做 Review，有没有为刚才的这种想法产生一丝丝压力？这种压力是良性的，它能给你带来一种即时的反馈，阻止你去选择那些短期收益、长期损失的“投机”行为。如果没有代码评审这个环节，或许你就会真的“为所欲为”了，其实最终还是要为这种取巧行为埋单。</p><h3 id="维护者视角：代码可读性的保证"><a href="#维护者视角：代码可读性的保证" class="headerlink" title="维护者视角：代码可读性的保证"></a>维护者视角：代码可读性的保证</h3><p>有许多方式能实现同一个软件需求。有兴趣的读者可自行搜索“Hello World 的 N 种写法”。 尽管条条大路通罗马，但是，不同的道路代价是不一样的。小到变量命名，大到设计结构，如果你采用的是一种不那么常见的做法，往往就是给给后来的代码维护者挖坑。这种维护活动可能发生在 1 个月以后，也可能发生在 1 年以后，甚至是更久之后。甚至那时候，作为作者的你，已经不在这个团队了，已经没有人能理解当时的软件为什么这样设计。</p><p>代码评审强制提前了这个反馈周期，代码编写完成之后，就立即有了一位或多位读者，他们是这个代码的 Reviewer。所以，这段代码已经在编码完成之后，立即经历了可读性的检验。更理想地，如果组织已经有了编码规范和设计规范，还能确保这段代码遵循了这些规范。如果这时候发现这段代码没有遵循规范，那更是好事，它指向了 CR 的另外一个关键价值：知识传播。</p><h2 id="CR-带来了知识传播和设计共识"><a href="#CR-带来了知识传播和设计共识" class="headerlink" title="CR 带来了知识传播和设计共识"></a>CR 带来了知识传播和设计共识</h2><p>你可能是一个团队的 Leader，正在为如何提升团队成员的编程能力发愁。你希望他们去读书，所以你介绍了诸如《整洁代码》之类的入门书籍，你还介绍了经典名著《设计模式》，还推荐了《领域驱动设计》。你也希望团队成员能理解产品的业务逻辑，所以希望团队成员周期性的分享进行业务分享。</p><p>所有这些努力都很好。但是，也有可能你会被打击。一个月过去了，似乎团队成员对命名规范都建立了概念，但是这怎么命名这件事上，大家并未形成共识。不少同学已经了解了一些设计模式，但是有人过度运用模式，搞的代码臃肿不堪，有人则只知道 singleton。团队成员为什么是实体对象，什么是值对象争的不可开交，没有人说得清楚聚合是什么，应该什么场景下适用。</p><p>你真正缺乏的，是一个场景。抽象的概念如果不落到具体的事情上，就很难形成共识。有人或许知道海洋法系的“判例”，这是这法律层面形成共识的一种非常好的方法。代码评审，其实也是这形成判例：哪一类设计是合理的，哪一类设计是不合理的。通过针对具体的问题进行分析，团队就会逐渐形成设计共识，在过程中，对这些共识不那么熟悉的新同学，也可以慢慢融入。</p><h2 id="当然，CR-也能用来检验逻辑正确性"><a href="#当然，CR-也能用来检验逻辑正确性" class="headerlink" title="当然，CR 也能用来检验逻辑正确性"></a>当然，CR 也能用来检验逻辑正确性</h2><h3 id="保证代码逻辑正确，是设计者的责任"><a href="#保证代码逻辑正确，是设计者的责任" class="headerlink" title="保证代码逻辑正确，是设计者的责任"></a>保证代码逻辑正确，是设计者的责任</h3><p>为了不让 CR 被滥用并被寄予过高期望，我们在此首先申明一点：保证代码的逻辑正确，是设计者的责任。 代码出现来一个空指针错误，究竟是编码做的不好，是 CR 做的不好，还是测试做的不好？那首先肯定是代码作者制造这个问题。把这个板子打在 Reviewer 身上公平吗？或许，Reviewer 确实有责任发现这样的问题，但是，如果代码本来就错误多多呢？如果一次性 Review 了 1000 行代码，根本看不过来呢？我能找到一大把的理由，来说明为什么漏掉这么一个空指针错误。</p><h3 id="发现逻辑错误的其他方法"><a href="#发现逻辑错误的其他方法" class="headerlink" title="发现逻辑错误的其他方法"></a>发现逻辑错误的其他方法</h3><p>你还有许多其他的方法来发现错误，它们的成本往往并不高，例如：</p><ul><li>编写自动化单元测试</li><li>使用代码静态检查工具</li></ul><p>无论是否存在 CR 活动，上述两点都是一名专业的开发者和开发组织应该大力倡导的行为。</p><h3 id="代码评审确实也有错误发现的价值"><a href="#代码评审确实也有错误发现的价值" class="headerlink" title="代码评审确实也有错误发现的价值"></a>代码评审确实也有错误发现的价值</h3><p>在上述两点的前提下，代码评审确实也应该用于发现错误-它本质上建立来一种冗余机制，通过多人来工作在同一段代码上，发现代码中可能发生的认知错误（这对于单个开发者往往是很难发现的）以及疏忽。</p><h2 id="高效高质的代码评审"><a href="#高效高质的代码评审" class="headerlink" title="高效高质的代码评审"></a>高效高质的代码评审</h2><h2 id="哪些因素阻碍了代码评审的效果"><a href="#哪些因素阻碍了代码评审的效果" class="headerlink" title="哪些因素阻碍了代码评审的效果"></a>哪些因素阻碍了代码评审的效果</h2><p>代码评审本身并不困难，但是，如果考虑到如下因素，可能就比较复杂了：</p><ul><li>你可能对要评审对代码的设计上下文一无所知</li><li>你可能非常忙碌</li><li>你一下子收到了几千行需要被评审的代码</li><li>…</li></ul><h2 id="实际操作建议"><a href="#实际操作建议" class="headerlink" title="实际操作建议"></a>实际操作建议</h2><h3 id="小批量：每次-Review-的代码量要少"><a href="#小批量：每次-Review-的代码量要少" class="headerlink" title="小批量：每次 Review 的代码量要少"></a>小批量：每次 Review 的代码量要少</h3><p>研究发现， 成功的 CR 活动一定是小规模的。 例如，《Modern Code Review： A Case at Google》论文介绍说， Google 的 CR 活动中，有 35%的 CR 仅仅修改了一个文件，90%的 CR 修改的文件数在 10 个文件以内，甚至有 10%的 CR 仅仅修改了 1 行代码。</p><p>代码量少的好处显而易见：修改在哪里非常清晰，问题也会一目了然。一次推给别人 1000+行代码，还想得到有价值的 Review，可能性微乎其微。</p><p>当然，一次 Review 它代表的功能应该是有意义的，是完整的，如果不是修复缺陷，这一定程度上也对开发者迭代地开发功能的能力提出了要求。</p><h3 id="找对人：合适的-Reviewer"><a href="#找对人：合适的-Reviewer" class="headerlink" title="找对人：合适的 Reviewer"></a>找对人：合适的 Reviewer</h3><p>谁适合 Review 你的代码？选一个和被 Review 的代码毫不相干的人肯定是不明智的。下面列出了一些潜在的候选人：</p><ul><li>如果你的组织有 Owner 机制，Owner 应该是合适人选</li><li>和你工作在相同上下文的同事</li><li>近期修改过相同代码的同事</li><li>比你更资深的程序员，希望得到他们的专业反馈</li></ul><p>现在已经有一些工具，能够根据上下文推荐 Reviewer，这也为选择合适的 Reviewer 提供了便利。</p><h3 id="综合在线-Review-和线下-Review"><a href="#综合在线-Review-和线下-Review" class="headerlink" title="综合在线 Review 和线下 Review"></a>综合在线 Review 和线下 Review</h3><p>在线 Review 应该是常态化的行为。考虑到 CR 的”知识传播“价值，线下 Review 是有益的补充。有经验的团队，会周期或者不定期的组织线下 Review，这样能获得比在线 Review 更为广泛的知识传播面，也能引起更为热烈的讨论和辩论，有助于形成更高质量的共识。</p><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/189736994">代码评审（CR）实践指南 - 知乎</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目准绳 </category>
+          
+          <category> Code Review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目准绳 </tag>
+            
+            <tag> Code Review </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>React Code Review（一）</title>
+      <link href="/article/12c7d59d.html"/>
+      <url>/article/12c7d59d.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="状态合并"><a href="#状态合并" class="headerlink" title="状态合并"></a>状态合并</h2><p>看一下如下代码，不知道大家会有什么感想？</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Demo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [state1, setState1] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [state2, setState2] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [state3, setState3] = <span class="title class_">React</span>.<span class="title function_">useState</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  <span class="comment">// 4,5,6,7....</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>函数组件通过 useState 更新状态，这就会出现一个组件内出现大量 useState，看上去很不爽，但又没什么毛病。</p><p>是否可以像类组件一样，通过 setState 维护多个状态呢？</p><p>当然，我们改造一下。</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Demo</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> [state, produce] = <span class="title class_">React</span>.<span class="title function_">useState</span>(&#123;</span><br><span class="line">    <span class="attr">state1</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">state2</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="attr">state3</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">setState</span> = (<span class="params">newState</span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">produce</span>(&#123;</span><br><span class="line">      ...state,</span><br><span class="line">      ...newState,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>xxx<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>咋一看代码还多了呢？这是因为我们简写了代码，让你产生了误解，实际项目中可能会有 N 个 useState 。</p><p>是否需要封装 useState 取决于实际情况，如果组件内 useState 过多的话可以仔细考虑下组件拆分是否合理。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目准绳 </category>
+          
+          <category> Code Review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目准绳 </tag>
+            
+            <tag> Code Review </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何解决代码冲突</title>
+      <link href="/article/5ce4f848.html"/>
+      <url>/article/5ce4f848.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>下文分支命名不规范，太山寨，忽略就好，因为不是重点。</p></blockquote><p>很抗拒写这类文章，感觉这是作为开发最基本的技能要求，但现实狠狠的打了我的脸，很多同学并不知道怎么解决冲突，甚至不知道为什么会有冲突？</p><p><img src="https://intranetproxy.alipay.com/skylark/lark/0/2022/png/208487/1647352647347-4e09b6e3-7368-4849-9375-4799ccc252e8.png#clientId=ubb944477-1fd1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=356&id=ueffcd154&margin=%5Bobject%20Object%5D&name=image.png&originHeight=356&originWidth=609&originalType=binary&ratio=1&rotation=0&showTitle=false&size=277688&status=done&style=none&taskId=u3198da35-c1b9-4011-bbec-81e2e439a11&title=&width=609" alt="image.png"></p><h2 id="冲突从何来？"><a href="#冲突从何来？" class="headerlink" title="冲突从何来？"></a>冲突从何来？</h2><p><img src="https://intranetproxy.alipay.com/skylark/lark/0/2022/jpeg/208487/1647357119239-9a0e640b-d3ac-4e8c-804b-6c388e4cb164.jpeg" alt="img"></p><p>不会画图，看文字描述吧</p><p>正常的项目开发我们不会直接基于主干（master）开发，而是基于 master checkout 出我们自己的迭代分支 dev，然后大家基于 dev 分支再次切出自己的开发分支，例如 A 同学基于 dev 分支切出了 a 分支 , B 同学基于 dev 分支切出了 b 分支，然后大家一起愉快的进行代码开发。</p><p>但不巧的是，A 和 B 修改了相同的文件（index.ts）</p><p><strong>branch: a</strong></p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 开发分支 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">NAME</span> = <span class="string">&quot;柯南&quot;</span>;</span><br><span class="line">复制代码;</span><br></pre></td></tr></table></figure><p><strong>branch: b</strong></p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 开发分支 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">NAME</span> = <span class="string">&quot;小敏&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">AGE</span> = <span class="number">18</span>;</span><br><span class="line">复制代码;</span><br></pre></td></tr></table></figure><p>由于 A 效率比较高，先将代码提 PR 合并到 dev 分支上了，当 B 去提 PR 时收到了冲突反馈</p><p><img src="https://intranetproxy.alipay.com/skylark/lark/0/2022/png/208487/1647358126820-818d93a1-c8f6-4609-8abc-98305c81b4f5.png#clientId=ubb944477-1fd1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=232&id=u857477c3&margin=%5Bobject%20Object%5D&name=image.png&originHeight=232&originWidth=886&originalType=binary&ratio=1&rotation=0&showTitle=false&size=101053&status=done&style=none&taskId=uee0ba4a6-6059-4752-bb82-9a4d910c00f&title=&width=886" alt="image.png"></p><p>遇到这种情况，我们一般使用如下方案：</p><ol><li>基于最新的 dev 分支重新拉个分支出来，将 b 的代码 merge 进去</li><li>将最新的 dev 分支直接 merge 到 b 分支</li></ol><p>这里我们介绍第二种，将最新代码 merge 到 b 分支，在 b 分支终端执行如下命令：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git merge --squash origin/dev</span><br><span class="line"></span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure><p>如果我们本地没有远程分支 dev 的话需要先 fetch 一下，<code>git fetch -p</code>；</p><ul><li><strong>–squash</strong>：不携带 a 分支的 commit 信息</li><li><strong>origin</strong>: 远程分支</li></ul><p>执行完成后，我们会得到如下完美代码，这就是代码冲突。</p><p><img src="https://intranetproxy.alipay.com/skylark/lark/0/2022/png/208487/1647358828518-d8c4f404-fc6f-4686-a690-ff46294c49aa.png#clientId=ubb944477-1fd1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=185&id=u47256cf0&margin=%5Bobject%20Object%5D&name=image.png&originHeight=185&originWidth=673&originalType=binary&ratio=1&rotation=0&showTitle=false&size=94218&status=done&style=none&taskId=ud805ea80-5101-478f-aa3d-87ac6c97e60&title=&width=673" alt="image.png"></p><h2 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h2><h3 id="使用当前更改"><a href="#使用当前更改" class="headerlink" title="使用当前更改"></a>使用当前更改</h3><p>这个时候 a 提交到改动会被删除，完全使用 b 的代码，点击<code>Accept Current Change</code>即可。</p><p><img src="https://intranetproxy.alipay.com/skylark/lark/0/2022/png/208487/1647358851078-0acd448b-f69c-4dc1-aab8-6874efc4dbcd.png#clientId=ubb944477-1fd1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=190&id=u6321bc3d&margin=%5Bobject%20Object%5D&name=image.png&originHeight=190&originWidth=690&originalType=binary&ratio=1&rotation=0&showTitle=false&size=103739&status=done&style=none&taskId=u38bac598-161d-4aa4-bfd5-c78e9fc8e44&title=&width=690" alt="image.png"></p><p>结果：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 开发分支 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">NAME</span> = <span class="string">&quot;小敏&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">AGE</span> = <span class="number">18</span>;</span><br><span class="line">复制代码;</span><br></pre></td></tr></table></figure><h3 id="使用远程更改"><a href="#使用远程更改" class="headerlink" title="使用远程更改"></a>使用远程更改</h3><p>这个时候 b 的冲突代码会被删除，完全使用 a 的代码，点击 <code>Accept Incoming Change</code> 即可。</p><p>结果：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 开发分支 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">NAME</span> = <span class="string">&quot;柯南&quot;</span>;</span><br><span class="line"></span><br><span class="line">复制代码;</span><br></pre></td></tr></table></figure><h3 id="两者合并"><a href="#两者合并" class="headerlink" title="两者合并"></a>两者合并</h3><p>前面两种情况都比较简单，而且少见，例如我们期望的最终代码如下：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 开发分支 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">AGE</span> = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">NAME</span> = <span class="string">&quot;柯南&quot;</span>;</span><br><span class="line">复制代码;</span><br></pre></td></tr></table></figure><p>这个时候我们就需要接受 2 者（Accept Both Changes）的改动，来形成一个最终的更改</p><p><img src="https://intranetproxy.alipay.com/skylark/lark/0/2022/png/208487/1647359042480-be6d6965-2c96-4d09-b6f2-e748d68237cb.png#clientId=ubb944477-1fd1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=199&id=u2e75ccab&margin=%5Bobject%20Object%5D&name=image.png&originHeight=199&originWidth=672&originalType=binary&ratio=1&rotation=0&showTitle=false&size=101987&status=done&style=none&taskId=u5075ae92-98e4-4bbc-aa1d-abeaa4f2189&title=&width=672" alt="image.png"></p><p>然后删除无用代码：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** 开发分支 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">AGE</span> = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> <span class="variable constant_">NAME</span> = <span class="string">&quot;柯南&quot;</span>;</span><br><span class="line">复制代码;</span><br></pre></td></tr></table></figure><p>然后再次 commit 并提交 PR 即可。</p><p>这里需要注意，由于不同平台检测代码的方式不一样，我们虽然解决了冲突，但提交 PR 时还有可能提示冲突，这个时候需要在平台上进行处理，例如 GitHub 的 PR。</p><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19ca8e0990f84ecaa72836ffa0581b43~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp" alt="image.png"></p><p>VS Code 提供了很多便捷操作，我们在足够自信的时候可以使用右侧的批量操作，鼠标右键即可，可一次选中多个文件进行操作。</p><p><img src="https://intranetproxy.alipay.com/skylark/lark/0/2022/png/208487/1647359364247-80b5718e-1327-43ea-bdc6-354e9c8de79d.png#clientId=ubb944477-1fd1-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=342&id=u5991db77&margin=%5Bobject%20Object%5D&name=image.png&originHeight=342&originWidth=521&originalType=binary&ratio=1&rotation=0&showTitle=false&size=89074&status=done&style=none&taskId=u8c67add6-cf7f-4709-b7b7-1bec0a813ce&title=&width=521" alt="image.png"></p><h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p>解决冲突的方式很多，但我们应该遵循远程最优原则</p><ol><li>不是自己修改的代码，使用远程代码</li><li>自己没有新增的文件，如果 PR 里面有 diff ，删除</li><li>遇到不确定的点，找线上代码的同学确认</li></ol><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul><li><a href="https://juejin.cn/post/7075510290091081742">掘金分享 - 蚂蚁集团福晋大佬</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目准绳 </category>
+          
+          <category> git </category>
+          
+          <category> Code Review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目准绳 </tag>
+            
+            <tag> Code Review </tag>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>项目准绳-git commit指南</title>
       <link href="/article/613f2a6e.html"/>
       <url>/article/613f2a6e.html</url>
@@ -15,12 +106,18 @@
           
           <category> 项目准绳 </category>
           
+          <category> git </category>
+          
+          <category> Code Review </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> 项目准绳 </tag>
+            
+            <tag> Code Review </tag>
             
             <tag> git </tag>
             
