@@ -1,0 +1,14 @@
+class:
+  class_name: 博友交流
+  class_desc: 
+  link_list:
+    1:
+      name: 后端大佬-刘旭
+      link: https://liuxu921.top
+      avatar: https://img1.baidu.com/it/u=3067712627,919367598&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500
+      descr: 真正的努力，从来都不动声色！
+    2:
+      name: 前端大佬-陈铭
+      link: https://blog.chenming.work
+      avatar: https://img0.baidu.com/it/u=152451064,2138118630&fm=253&fmt=auto&app=138&f=JPEG?w=300&h=300
+      descr: 真正的努力，都不喧嚣！
