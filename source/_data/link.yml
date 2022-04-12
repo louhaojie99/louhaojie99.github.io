@@ -1,14 +1,20 @@
 class:
-  class_name: 博友交流
-  class_desc: 
+  class_name: 博友
+  class_desc:
   link_list:
     1:
-      name: 后端大佬-刘旭
+      name: 刘旭
       link: https://liuxu921.top
-      avatar: https://img1.baidu.com/it/u=3067712627,919367598&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500
-      descr: 真正的努力，从来都不动声色！
+      avatar: https://img1.baidu.com/it/u=810955211,2452678677&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500
+      descr: 一个人最好的状态，不是在别人眼里有多成功，而是当你努力成为自己喜欢的模样后，依然是一个有价值的人，于人于己，都散发着由内而外的人格魅力。
     2:
-      name: 前端大佬-陈铭
+      name: 陈铭
       link: https://blog.chenming.work
-      avatar: https://img0.baidu.com/it/u=152451064,2138118630&fm=253&fmt=auto&app=138&f=JPEG?w=300&h=300
-      descr: 真正的努力，都不喧嚣！
+      avatar: https://img1.baidu.com/it/u=3551186166,203862983&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500
+      descr: 人生的道路上，我们需要一些“弯路”，因为“弯路”是砥砺人才锋芒的硎石，是催人奋进的精神力量。！
+
+    3:
+      name: 抖音电商架构师虹哥
+      link: https://skhon.github.io/
+      avatar: https://img0.baidu.com/it/u=1281787585,633483357&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=501
+      descr: 你的今天比昨天强，那么也就证明你进步了；只要你离自己的目标近了，就说明你成功了。！

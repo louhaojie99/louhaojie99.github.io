@@ -14,7 +14,6 @@ aplayer: true #【可选】在需要的页面加载aplayer的js和css,请参考�
 highlight_shrink: #【可选】配置代码框是否展开(true/false)(默认为设置中highlight_shrink的配置)
 ---
 
-
 <style>
 .checkbox {
     display: -webkit-flex;
@@ -77,6 +76,7 @@ button, input, optgroup, select, textarea {
 </div>
 
 ### 🍀 个人简介
+
 <div class="checkbox green checked">
   <input type="radio" checked /> 坐标杭州🌏，永远热爱🤞
 </div>
@@ -90,153 +90,23 @@ button, input, optgroup, select, textarea {
   <input type="radio" checked /> 对自己的要求是每天都要比昨天进步一点点👊
 </div>
 
-### 🔑 笔者目前近两年工作经验储备清单
-<div class="checkbox blue checked">
-  <input type="radio" checked /> 网络通信 & 高数 & 数据结构 & 算法，欠缺，努力中~
-</div>
-<div class="checkbox blue checked">
-  <input type="radio" checked /> 熟练：超文本标记语言熟练使用（<i>HTML & CSS</i>）
-</div>
-<div class="checkbox blue checked">
-  <input type="radio" checked /> 熟练：精通Vue2、熟悉Vue3、熟悉 React  
-</div>
-<div class="checkbox blue checked">
-  <input type="radio" checked /> 熟练：技术栈杂货箱：Swiper + Echarts + Canvas +Svg + Lodash + Jquery + Less + Sass
-</div>
-<div class="checkbox blue checked">
-  <input type="radio" checked /> 熟练：Git、Gitee、GitHub、HitLab 项目代码管理工具 
-</div>
-<div class="checkbox blue checked">
-  <input type="radio" checked /> 熟练：Bootstrap、Ant-Design-Vue Element-ui Vant 等UI组件库
-</div>
-<div class="checkbox blue checked">
-  <input type="radio" checked /> 了解：C语言、C++、Java语言
-</div>
-
-
-### 📕 最近在看的文档和书籍
+### 🍁 热爱的
 
 <div class="checkbox blue checked">
-	<input type="radio" checked />
-	<a href="https://vue-js.com/learn-vue/lifecycle/newVue.html#_1-%E5%89%8D%E8%A8%80">Vue源码系列-中文社区</a>
-</div>
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-    <a href="https://tailwindcss.com/">tailwindcss - 无需离开您的HTML，即可快速建立现代网站</a>
-</div>
-
-<div class="checkbox red checked">
-	<input type="radio" checked />
-    <a href="https://pdai.tech/">Java 全栈知识体系</a>
-</div>
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-    <a href="#">JavaScript 高级程序设计 - 红宝书</a>
-</div>
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-    <a href="#">ES6 标准程序设计</a>
-</div>
-
-
-### 💻 最近在学的网课技术教程
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/column/intro/100023201">极客时间-重学前端</a>
-    <span>，课程作者：程劭非（winter） 前手机淘宝前端负责人</span>
-</div>
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/course/intro/100024601">极客时间-Vue 开发实战</a>
-    <span>，课程作者：唐金州 一点资讯前端技术专家，Ant Design Vue 作者</span>
-</div>
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/course/intro/100028901">极客时间-玩转webpack</a>
-    <span>，课程作者：程柳锋 腾讯高级工程师，IVWEB 团队社区和工程化负责人</span>
-</div>
-
-<div class="checkbox red checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/course/intro/100036001">极客时间-Node.js 开发实战</a>
-    <span>，课程作者：杨浩 腾讯高级工程师</span>
-</div>
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/course/intro/100032201">极客时间-TypeScript 开发实战</a>
-    <span>，课程作者：梁宵 搜狗营销事业部高级架构师</span>
-</div>
-
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/course/intro/100009301">极客时间-React 实战进阶 45 讲</a>
-    <span>，课程作者：王沛 eBay 中国研发中心资深技术专家</span>
-</div>
-
-<div class="checkbox red checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/resource?m=0&d=5&c=5">极客时间-React Hooks 核心原理与实战</a>
-    <span>，课程作者：王沛 eBay 中国研发中心资深技术专家</span>
-</div>
-
-<div class="checkbox red checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/column/intro/100017301">极客时间-数据结构与算法之美</a>
-    <span>，课程作者：王争 前 Google 工程师</span>
-</div>
-
-<div class="checkbox red checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/course/intro/100019701">极客时间-算法面试通关 40 讲</a>
-    <span>，课程作者：覃超 Sophon Tech 创始人，前 Facebook 工程师，卡内基梅隆大学计算机硕</span>
-</div>
-
-<div class="checkbox red checked">
-	<input type="radio" checked />
-	<a href="https://time.geekbang.org/course/intro/100044201">极客时间-Electron 开发实战</a>
-    <span>，邓耀龙 美团高级前端工程师</span>
-</div>
-
-
-
-### 🧐 深入研究系列
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-    <span>王者荣耀 - 王者小能手</span>
+  <input type="radio" checked /> react
 </div>
 <div class="checkbox blue checked">
-	<input type="radio" checked />
-    <span>DNF地下城与勇士 - 卢克C</span>
-</div>
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-    <span>常买彩票，大乐透 - 双色球</span>
+  <input type="radio" checked /> vue
 </div>
 
-### 😝 准备发展的目标
-<div class="checkbox red checked">
-	<input type="radio" checked />
-    <span>前端开发一套自己的UI组件库，做开源</span>
-</div>
-<div class="checkbox red checked">
-	<input type="radio" checked />
-    <span>为一家公司做前端架构，带领前端团队</span>
-</div>
+### 🌹 我爱你你爱我
 
-### 🏀 笔者微信
-<div class="checkbox blue checked">
-	<input type="radio" checked />
-    <span>Hao19980523</span>
-    <span>，欢迎交流！！！</span>
-</div>
+\*\*\*
+
+### 😄 笔者微信
+
+helloworld_vue
 
 ### ⭐ 碎碎念
 
-"人生建议，多读书，往高处地方走。"
+"酒伴的是孤独，是寂寞。醉后才发现，只是少了身边的那个人我不记得了，只是那场酒浸满了全身，发自肺腑，只入心里。"

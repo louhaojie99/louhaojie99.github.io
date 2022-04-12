@@ -14,6 +14,8 @@ aplayer: true #【可选】在需要的页面加载aplayer的js和css,请参考�
 highlight_shrink: #【可选】配置代码框是否展开(true/false)(默认为设置中highlight_shrink的配置)
 ---
 
+## 功能暂无使用, 期待更新...
+
 <div class="gallery-group-main">
 {% galleryGroup '壁紙' '收藏的一些壁紙' 
 '/photo/ohmygirl' 
