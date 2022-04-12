@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何统计代码行数</title>
+      <link href="/article/7fc9133d.html"/>
+      <url>/article/7fc9133d.html</url>
+      
+        <content type="html"><![CDATA[<p>刚接手了一个项目，老板让我统计一下代码行数，不看不知道，一看吓一跳，一起看看你写了多少代码吧。</p><p>Node Version: <code>14.18.1</code></p><p>终端执行<code>node ./line.js</code> 即可。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// line.js</span></span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> folderPaths = [path.<span class="title function_">resolve</span>(<span class="string">&#x27;./&#x27;</span>, <span class="string">&#x27;src&#x27;</span>)];</span><br><span class="line"><span class="keyword">const</span> excludes = [<span class="string">&#x27;nide_modules&#x27;</span>, <span class="string">&#x27;demo&#x27;</span>, <span class="string">&#x27;static&#x27;</span>, <span class="string">&#x27;docs&#x27;</span>, <span class="string">&#x27;__mocks__&#x27;</span>, <span class="string">&#x27;dist&#x27;</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fileCount = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> lineCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取行数</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">getLines</span> = filePath =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> res = fs.<span class="title function_">readFileSync</span>(filePath);</span><br><span class="line">  <span class="keyword">const</span> lines = res.<span class="title function_">toString</span>().<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">  <span class="keyword">return</span> lines.<span class="property">length</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 去除 excludes 目录</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">avaliableFile</span> = filePath =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> currentSplitPaths = filePath.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> paths = <span class="keyword">new</span> <span class="title class_">Set</span>(excludes.<span class="title function_">concat</span>(currentSplitPaths));</span><br><span class="line">  <span class="keyword">return</span> <span class="title class_">Array</span>.<span class="title function_">from</span>(paths).<span class="property">length</span> === excludes.<span class="property">length</span> + currentSplitPaths.<span class="property">length</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">scanDir</span> = (<span class="params">folderPath, dir</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> files = fs.<span class="title function_">readdirSync</span>(folderPath);</span><br><span class="line">    files.<span class="title function_">forEach</span>(<span class="function"><span class="params">filename</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> director = path.<span class="title function_">join</span>(<span class="string">`<span class="subst">$&#123;folderPath&#125;</span>/`</span>, filename);</span><br><span class="line">      <span class="keyword">const</span> stats = fs.<span class="title function_">statSync</span>(director);</span><br><span class="line">      <span class="keyword">if</span> (stats.<span class="title function_">isDirectory</span>()) &#123;</span><br><span class="line">        <span class="title function_">scanDir</span>(director, dir ? <span class="string">`<span class="subst">$&#123;dir&#125;</span>.<span class="subst">$&#123;filename&#125;</span>`</span> : filename);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (stats.<span class="title function_">isFile</span>() &amp;&amp; <span class="title function_">avaliableFile</span>(director)) &#123;</span><br><span class="line">        fileCount += <span class="number">1</span>;</span><br><span class="line">        lineCount += <span class="title function_">getLines</span>(director);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">folderPaths.<span class="title function_">forEach</span>(<span class="function"><span class="params">folderPath</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">scanDir</span>(folderPath);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(fileCount, lineCount);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> node </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> node </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>新的产物-依赖包管理工具（pnpm）</title>
       <link href="/article/d4c1ef6f.html"/>
       <url>/article/d4c1ef6f.html</url>
@@ -74,8 +99,6 @@
       
         <tags>
             
-            <tag> 项目准绳 </tag>
-            
             <tag> Code Review </tag>
             
         </tags>
@@ -100,8 +123,6 @@
       
       
         <tags>
-            
-            <tag> 项目准绳 </tag>
             
             <tag> Code Review </tag>
             
@@ -162,7 +183,7 @@
     
     
     <entry>
-      <title>项目准绳-git commit指南</title>
+      <title>git commit 规范化指南</title>
       <link href="/article/613f2a6e.html"/>
       <url>/article/613f2a6e.html</url>
       
@@ -171,18 +192,18 @@
       
       <categories>
           
-          <category> 项目准绳 </category>
+          <category> git commit 规范化指南 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 项目准绳 </tag>
-            
             <tag> git </tag>
             
             <tag> Code Review </tag>
+            
+            <tag> git commit 规范化指南 </tag>
             
         </tags>
       
