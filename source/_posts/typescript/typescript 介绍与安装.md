@@ -1,12 +1,13 @@
 ---
-title: typescript 介绍与安装
+title: 【基础积累】typescript 介绍与安装
 tags: typescript
-categories: typescript
+categories:
+  - 【基础积累】
+  - typescript
 comments: false
-cover: >-
-  https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/fdbe621f6b31fb31333381d541533fe2e8a61025b4acebb1f10c9f948a9ffce78a532557a1a789d30807b98f07b23952?pictype=scale&from=30113&version=3.3.3.3&uin=851681631&fname=10_ts.jpg&size=750
+cover: https://img0.baidu.com/it/u=4167016203,3166254551&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=311
 abbrlink: 84fa722f
-date: 2022-02-15 00:00:00
+date: 2022-01-01 00:00:00
 top_img:
 ---
 

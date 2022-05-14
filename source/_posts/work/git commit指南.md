@@ -1,15 +1,14 @@
 ---
-title: git commit 规范化指南
-tags:
-  - git commit 规范化指南
+title: 【规范建设】git commit 规范化指南
+tags: git
+categories:
+  - 【规范建设】
   - git
-  - Code Review
-categories: git commit 规范化指南
 comments: false
 cover: "https://rmt.ladydaily.com/fetch/tzk/storage/20210302234030.png"
-sticky: 100
+# sticky: 1000
 abbrlink: 613f2a6e
-date: 2019-07-29 00:00:00
+date: 2022-01-06 00:00:00
 top_img:
 ---
 

@@ -14,21 +14,9 @@ aplayer: true #【可选】在需要的页面加载aplayer的js和css,请参考�
 highlight_shrink: #【可选】配置代码框是否展开(true/false)(默认为设置中highlight_shrink的配置)
 ---
 
-## 功能暂无使用, 期待更新...
-
 <div class="gallery-group-main">
-{% galleryGroup '壁紙' '收藏的一些壁紙' 
-'/photo/ohmygirl' 
-https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png %}
-
-{% galleryGroup '漫威' '關於漫威的圖片'
-'/photo/marvel'
-https://i.loli.net/2019/12/25/8t97aVlp4hgyBGu.jpg
-%}
-
-{% galleryGroup 'OH MY GIRL' '關於OH MY GIRL的圖片'
-'/photo/ohmygirlw'
-https://i.loli.net/2019/12/25/hOqbQ3BIwa6KWpo.jpg
-%}
+{% galleryGroup '生活日常' '展示的都是一些生活相关的照片' 
+'/photo/life' 
+https://img2.baidu.com/it/u=3074509764,3316832343&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500 %}
 
 </div>

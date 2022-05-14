@@ -1,12 +1,13 @@
 ---
-title: typescript 开发整理
+title: 【基础积累】typescript 开发整理
 tags: typescript
-categories: typescript
+categories:
+  - 【基础积累】
+  - typescript
 comments: false
-cover: >-
-  https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/fdbe621f6b31fb31333381d541533fe2e8a61025b4acebb1f10c9f948a9ffce78a532557a1a789d30807b98f07b23952?pictype=scale&from=30113&version=3.3.3.3&uin=851681631&fname=10_ts.jpg&size=750
+cover: https://img0.baidu.com/it/u=4167016203,3166254551&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=311
 abbrlink: 9b52ebc9
-date: 2022-02-15 12:00:00
+date: 2022-01-02 00:00:00
 top_img:
 ---
 
@@ -27,13 +28,12 @@ const num: number = 1;
 **1.3 String 类型**
 
 ```typescript
-const str: number = 'hello';
+const str: number = "hello";
 ```
 
 **1.4 undefined 类型**
 
 `undefined` 和 `null` 两者有各自的类型分别为 `undefined` 和 `null`
-
 
 ```typescript
 let u: undefined = undefined;
@@ -55,15 +55,15 @@ n = undefined;
 ```typescript
 const sym1 = Symbol("hello");
 const sym2 = Symbol("hello");
-console.log(sym1 === sym2);				// false
-console.log(Symbol("hello") === Symbol("hello"));	// false
+console.log(sym1 === sym2); // false
+console.log(Symbol("hello") === Symbol("hello")); // false
 ```
 
 **1.7 数组类型(array)**
 
 ```typescript
 const arr1: number[] = [1, 2, 3];
-const arr2: Array<number> = [1, 2, 3]; 
+const arr2: Array<number> = [1, 2, 3];
 ```
 
 **1.8 元组类型(tuple)**
@@ -130,7 +130,7 @@ an = {}; // ok
 ...
 ```
 
-**2.1 unknown类型**
+**2.1 unknown 类型**
 
 `unknown` 和 `any` 的主要区别是 `unknown` 类型会更加严格 在对 `unknown` 类型的值执行大多数操作之前 我们必须进行某种形式的检查 而在对 `any` 类型的值执行操作之前 我们不必进行任何检查 所有类型都可以被归为 `unknown` 但`unknown`类型只能被赋值给 `any` 类型和 `unknown` 类型本身 而 `any` 啥都能分配和被分配
 
@@ -151,7 +151,7 @@ let value5: string = value; // Error
 let value6: object = value; // Error
 ```
 
-**2.2 void类型**
+**2.2 void 类型**
 
 `void` 表示没有任何类型 当一个函数没有返回值时 TS 会认为它的返回值是 `void` 类型。
 
@@ -218,6 +218,9 @@ name = 1;
 console.log(name.toFixed(2));
 name = "hello";
 console.log(name.length);
+
+let hj: Array<string | number | {}>;
+hj = ["hello", 200, {}];
 ```
 
 ## ts 类型断言
@@ -227,7 +230,7 @@ console.log(name.length);
 类型断言有两种形式：
 
 ```typescript
- // 尖括号 语法
+// 尖括号 语法
 let someValue: any = "this is a string";
 let strLength: number = (<string>someValue).length;
 
@@ -283,7 +286,7 @@ type Flag2 = Flag1 & { y: string };
 
 let flag3: Flag2 = {
   x: 1,
-  y: "hello"
+  y: "hello",
 };
 ```
 
@@ -363,4 +366,3 @@ function fn(x: string | object) {
   }
 }
 ```
-

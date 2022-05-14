@@ -1,11 +1,13 @@
 ---
-title: Grid Laout 网格布局系统
+title: 【基础积累】Grid 网格布局系统
 tags: css
-categories: css
+categories:
+  - 【基础积累】
+  - css
 comments: false
-cover: https://img1.baidu.com/it/u=3171561178,4155704829&fm=253&fmt=auto&app=138&f=PNG?w=500&h=332
+cover: https://img0.baidu.com/it/u=424616749,1759440791&fm=253&fmt=auto&app=138&f=JPEG?w=900&h=453
 abbrlink: c5073f42
-date: 2018-01-02 00:00:00
+date: 2021-01-01 00:00:00
 top_img:
 ---
 
@@ -328,7 +330,7 @@ grid-template-columns: repeat(2, 1fr 2fr);
 </main>
 ```
 
-###  minmax
+### minmax
 
 使用 `minmax` 方法可以设置取值范围，下列在行高在 `最小100px ~ 最大1fr` 间取值。
 
@@ -378,7 +380,7 @@ column-gap: 20px;
 
 使用 `gap` 规则可以一次定义行、列间距，如果间距一样可以只设置一个值。
 
-**设置行列间距为20px与10px**
+**设置行列间距为 20px 与 10px**
 
 ![image-20190829153208166](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAADaCAYAAAA/mi4QAAABRmlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8zAwSDLwMNgyKCUmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisO4J/Dnxfv/IxX7Bils89/UuY6lEAV0pqcTKQ/gPE6ckFRSUMDIwpQLZyeUkBiN0BZIsUAR0FZM8BsdMh7A0gdhKEfQSsJiTIGci+AWQLJGckAs1gfAFk6yQhiacjsaH2ggCvj7tCqE9IkGO4p4srAfeSDEpSK0pAtHN+QWVRZnpGiYIjMJRSFTzzkvV0FIwMDC0ZGEBhDlH9+QY4LBnFOBBiBWIMDBYzgIIPEWLxQD9sl2Ng4O9DiKkB/SvgxcBwcF9BYlEi3AGM31iK04yNIGzu7QwMrNP+//8czsDArsnA8Pf6//+/t////3cZAwPzLQaGA98AKQFiLoqX2IEAAAjKSURBVHgB7d1RbhNJGIXRYZSF5M1iJVkWyrKykshv3gkDAy9mmlRHU+Fzl0/e3C7qdp0frmyhVj59/fbzlx8CBAjckcDfd3RWRyVAgMC/AorPXwQCBO5OQPHd3cgdmACBh18JXl5efr3kNQECBA4t8PT0dHX/PvFdcXhBgMA9CCi+e5iyMxIgcCWg+K44vCBA4B4EFN89TNkZCRC4EvjPf25cvfvzxePj49Zl1z5Q4HQ67dr9fD7vWmfRXAHzmes5c7fL5TLcblfxfd9l76CHiRYMBd5bZmYzJJ26wHymck7dbO9sfNWdym4zAgSOIKD4jjAl90iAwFQBxTeV02YECBxBQPEdYUrukQCBqQKKbyqnzQgQOIKA4jvClNwjAQJTBRTfVE6bESBwBAHFd4QpuUcCBKYKKL6pnDYjQOAIAruf3Nh7mC+fPUL1O6vn132Pof3uz//f62bztqD5vO1Tvjt7Nj7xldOUTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIqD4EnahBAiUAoqv1JdNgEAioPgSdqEECJQCiq/Ul02AQCKg+BJ2oQQIlAKKr9SXTYBAIvAwO/X59TR7S/tNEjCbSZAftI35fBDsxrY+8W2guESAwNoCim/t+TodAQIbAopvA8UlAgTWFlB8a8/X6QgQ2BBQfBsoLhEgsLaA4lt7vk5HgMCGgOLbQHGJAIG1BRTf2vN1OgIENgQU3waKSwQIrC2w+8mN8/m8tsSBT2c2tz0887m9+ewqvtPJY2i3N7ofd2Q2tzoZ86kmc7lchtG+6g6JLCBAYDUBxbfaRJ2HAIGhgOIbEllAgMBqAopvtYk6DwECQwHFNySygACB1QQU32oTdR4CBIYCim9IZAEBAqsJKL7VJuo8BAgMBRTfkMgCAgRWE1B8q03UeQgQGAooviGRBQQIrCag+FabqPMQIDAUUHxDIgsIEFhNQPGtNlHnIUBgKKD4hkQWECCwmoDiW22izkOAwFBA8Q2JLCBAYDUBxbfaRJ2HAIGhgOIbEllAgMBqArt+54ZflvLnx773d2mYzZ+fzfdE82ncZ6XuKr73DHrWjd3zPu8ts73/CO/ZdObZzWem5ty99s7GV9257nYjQOAAAorvAENyiwQIzBVQfHM97UaAwAEEFN8BhuQWCRCYK6D45nrajQCBAwgovgMMyS0SIDBXQPHN9bQbAQIHEFB8BxiSWyRAYK6A4pvraTcCBA4gsPvJjb1n+fL5vHfp3a17fj2lZzabt/nN522f8t3Zs/GJr5ymbAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEgHFl7ALJUCgFFB8pb5sAgQSAcWXsAslQKAUUHylvmwCBBIBxZewCyVAoBRQfKW+bAIEEoGH2anPr6fZW9pvkoDZTIL8oG3M54NgN7b1iW8DxSUCBNYWUHxrz9fpCBDYEFB8GyguESCwtoDiW3u+TkeAwIaA4ttAcYkAgbUFFN/a83U6AgQ2BBTfBopLBAisLaD41p6v0xEgsCGg+DZQXCJAYG2B3U9unM/ntSUOfDqzue3hmc/tzWdX8V0ul9u788XviPltD9h8bns+o7vzVXck5H0CBJYTUHzLjdSBCBAYCSi+kZD3CRBYTkDxLTdSByJAYCTw6eu3n9Ei7xMgQGAlAZ/4VpqmsxAgsEtA8e1isogAgZUEFN9K03QWAgR2CfwDux9ma4or8cgAAAAASUVORK5CYII=)
 
@@ -391,7 +393,7 @@ grid-template-columns: repeat(3, 1fr);
 gap: 20px 10px;
 ```
 
-**统一设置行列间距为20px**
+**统一设置行列间距为 20px**
 
 ![image-20190829153241158](data:image/png;base64,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)
 
@@ -525,42 +527,42 @@ gap: 20px;
 
 ```html
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-    body {
-        padding-left: 200px;
-        padding-top: 200px;
-    }
+  body {
+    padding-left: 200px;
+    padding-top: 200px;
+  }
 
-    article {
-        border: solid 5px blueviolet;
-        width: 400px;
-        height: 400px;
-        display: grid;
-        grid-template-rows: repeat(4, 1fr);
-        grid-template-columns: repeat(4, 1fr);
-    }
+  article {
+    border: solid 5px blueviolet;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-    article div {
-        background: blueviolet;
-        grid-row-start: 2;
-        grid-row-end: 4;
-        grid-column-start: 2;
-        grid-column-end: 4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 35px;
-        color: white;
-    }
+  article div {
+    background: blueviolet;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    color: white;
+  }
 </style>
 ...
 
 <article>
-    <div>后盾人</div>
+  <div>后盾人</div>
 </article>
 ```
 
@@ -570,36 +572,35 @@ gap: 20px;
 
 ```html
 <style>
-    article {
-        margin: 0 auto;
-        width: 300px;
-        height: 300px;
-        border: solid 5px silver;
-        display: grid;
-        grid-template-rows: [r1-start] 100px [r1-end r2-start] 100px [r2-end r3-start] 100px [r3-end];
-        grid-template-columns: [c1-start] 100px [c1-end c2-start] 100px [c2-start c3-start] 100px [c3-end];
+  article {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    border: solid 5px silver;
+    display: grid;
+    grid-template-rows: [r1-start] 100px [r1-end r2-start] 100px [r2-end r3-start] 100px [r3-end];
+    grid-template-columns: [c1-start] 100px [c1-end c2-start] 100px [c2-start c3-start] 100px [c3-end];
+  }
 
-    }
+  div {
+    background: blueviolet;
+    background-clip: content-box;
+    border: solid 1px blueviolet;
+    padding: 10px;
+    box-sizing: border-box;
+  }
 
-    div {
-        background: blueviolet;
-        background-clip: content-box;
-        border: solid 1px blueviolet;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    div:first-child {
-        grid-row-start: r1-end;
-        grid-column-start: c2-start;
-        grid-row-end: r3-start;
-        grid-column-end: c3-start;
-    }
+  div:first-child {
+    grid-row-start: r1-end;
+    grid-column-start: c2-start;
+    grid-row-end: r3-start;
+    grid-column-end: c3-start;
+  }
 </style>
 ...
 
 <article>
-	<div>houdunren</div>
+  <div>houdunren</div>
 </article>
 ```
 
@@ -611,36 +612,36 @@ gap: 20px;
 
 ```html
 <style>
-    article {
-        margin: 0 auto;
-        width: 300px;
-        height: 300px;
-        border: solid 5px silver;
-        display: grid;
-        grid-template-rows: repeat(3, [r-start] 100px [r-end]);
-        grid-template-columns: repeat(3, [c-start] 100px [c-end]);
-    }
+  article {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    border: solid 5px silver;
+    display: grid;
+    grid-template-rows: repeat(3, [r-start] 100px [r-end]);
+    grid-template-columns: repeat(3, [c-start] 100px [c-end]);
+  }
 
-    div {
-        background: blueviolet;
-        background-clip: content-box;
-        border: solid 1px blueviolet;
-        padding: 10px;
-        box-sizing: border-box;
-        color: white;
-    }
+  div {
+    background: blueviolet;
+    background-clip: content-box;
+    border: solid 1px blueviolet;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+  }
 
-    div:first-child {
-        grid-row-start: r-start 2;
-        grid-column-start: c-start 2;
-        grid-row-end: r-start 2;
-        grid-column-end: c-end 2;
-    }
+  div:first-child {
+    grid-row-start: r-start 2;
+    grid-column-start: c-start 2;
+    grid-row-end: r-start 2;
+    grid-column-end: c-end 2;
+  }
 </style>
 ...
 
 <article>
-	<div>houdunren</div>
+  <div>houdunren</div>
 </article>
 ```
 
@@ -648,48 +649,48 @@ gap: 20px;
 
 使用 `span` 可以设置包含栅格的数量或包含到的区域名称。
 
-| 示例                | 说明        |
-| ------------------- | ----------- |
-| grid-row-end:2      | 向下包含2行 |
-| grid-row-start:2    | 向上包含2行 |
-| grid-column-end:2   | 向右包含2行 |
-| grid-column-start:2 | 向左包含2行 |
+| 示例                | 说明          |
+| ------------------- | ------------- |
+| grid-row-end:2      | 向下包含 2 行 |
+| grid-row-start:2    | 向上包含 2 行 |
+| grid-column-end:2   | 向右包含 2 行 |
+| grid-column-start:2 | 向左包含 2 行 |
 
 ![image-20190831171434085](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAY0AAAGQCAYAAABS7zyUAAABRmlDQ1BJQ0MgUHJvZmlsZQAAKJFjYGASSSwoyGFhYGDIzSspCnJ3UoiIjFJgf8zAwSDPwM3AyaCdmFxc4BgQ4ANUwgCjUcG3awyMIPqyLsisxAt1NgqTxWeGzcnmfKXoUoWpHgVwpaQWJwPpP0CcllxQVMLAwJgCZCuXlxSA2B1AtkgR0FFA9hwQOx3C3gBiJ0HYR8BqQoKcgewbQLZAckYi0AzGF0C2ThKSeDoSG2ovCPC4uPr4KIQamRiaexBwLumgJLWiBEQ75xdUFmWmZ5QoOAJDKVXBMy9ZT0fByMDQkoEBFOYQ1Z9vgMOSUYwDIVYgxsBg6cLAwLwYIZYkxcCwHeh+SU6EmMpyBgb+CAaGbQ0FiUWJcAcwfmMpTjM2grC5tzMwsE77//9zOAMDuyYDw9/r////3v7//99lQPNvMTAc+AYAR0Zc4r2qW8AAABErSURBVHgB7dxNjpxFEARQQL4IO27iYyGONTdhx1H4W0IjDVJnfhHp5x2jVlXUC4tgjDXf//7nr+/8IkCAAAECnxD44ROf8RECBAgQIPC3gNHwG4EAAQIEPi1gND5N5YMECBAgYDT8HiBAgACBTwsYjU9T+SABAgQIfPknwcfHxz+/5J8JECBA4BsT+Pr168sX+07jJYsvEiBAgMArAaPxSsXXCBAgQOClgNF4yeKLBAgQIPBKwGi8UvE1AgQIEHgpYDResvgiAQIECLwS+Nffnnr1ob++9l//J/2/Pu/rBAgQIJAv8H//xqzvNPI7lZAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpBCBAgkC9gNPI7kpAAAQIxAkYjpgpB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)
 
 ```html
 <style>
-    article {
-        margin: 0 auto;
-        width: 300px;
-        height: 300px;
-        border: solid 5px silver;
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: repeat(3, 1fr);
-    }
+  article {
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    border: solid 5px silver;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    div {
-        background: blueviolet;
-        background-clip: content-box;
-        border: solid 1px blueviolet;
-        padding: 10px;
-        box-sizing: border-box;
-        color: white;
-        font-size: 25px;
-    }
+  div {
+    background: blueviolet;
+    background-clip: content-box;
+    border: solid 1px blueviolet;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 25px;
+  }
 
-    div:first-child {
-        grid-row-start: 2;
-        grid-column-start: 2;
-        grid-row-end: span 1;
-        grid-column-end: span 1;
-    }
+  div:first-child {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-row-end: span 1;
+    grid-column-end: span 1;
+  }
 </style>
 ...
 
 <article>
-	<div></div>
+  <div></div>
 </article>
 ```
 
@@ -720,119 +721,119 @@ grid-row-start/grid-column-start/grid-row-end/grid-column-end。
 
 ```html
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-    body {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template: repeat(3, 1fr)/repeat(3, 1fr);
-    }
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  }
 
-    header {
-        grid-area: 2/2/3/3;
-        background: #e67e22;
-    }
+  header {
+    grid-area: 2/2/3/3;
+    background: #e67e22;
+  }
 </style>
 
 <body>
-    <header></header>
+  <header></header>
 </body>
 ```
 
 ### BOOTSTRAP
 
-下面是bootstrap栅格系统的开发，根据指定的样式自动设置栅格大小。
+下面是 bootstrap 栅格系统的开发，根据指定的样式自动设置栅格大小。
 
 ![image-20190830124033140](https://doc.houdunren.com/assets/img/image-20190830124033140.86f72379.png)
 
 ```html
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-    body {
-        padding-top: 200px;
-    }
+  body {
+    padding-top: 200px;
+  }
 
-    .container {
-        margin: 0 auto;
-        border: solid 5px silver;
-        width: 1020px;
-        height: 320px;
-    }
+  .container {
+    margin: 0 auto;
+    border: solid 5px silver;
+    width: 1020px;
+    height: 320px;
+  }
 
-    .row {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 10px 10px;
-    }
+  .row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 10px 10px;
+  }
 
-    div {
-        background: blueviolet;
-        height: 100px;
-        background-clip: content-box;
-        padding: 10px;
-        box-sizing: border-box;
-        border: solid 1px blueviolet;
-        font-size: 35px;
-    }
+  div {
+    background: blueviolet;
+    height: 100px;
+    background-clip: content-box;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 1px blueviolet;
+    font-size: 35px;
+  }
 
-    .c-1 {
-        grid-column: span 1;
-    }
+  .c-1 {
+    grid-column: span 1;
+  }
 
-    .c-2 {
-        grid-column-end: span 2;
-    }
+  .c-2 {
+    grid-column-end: span 2;
+  }
 
-    .c-3 {
-        grid-column-end: span 3;
-    }
+  .c-3 {
+    grid-column-end: span 3;
+  }
 
-    .c-4 {
-        grid-column-end: span 4;
-    }
+  .c-4 {
+    grid-column-end: span 4;
+  }
 
-    .c-5 {
-        grid-column-end: span 5;
-    }
+  .c-5 {
+    grid-column-end: span 5;
+  }
 
-    .c-6 {
-        grid-column-end: span 6;
-    }
+  .c-6 {
+    grid-column-end: span 6;
+  }
 
-    .c-7 {
-        grid-column-end: span 7;
-    }
+  .c-7 {
+    grid-column-end: span 7;
+  }
 
-    .blue {
-        background: #904FA9;
-    }
+  .blue {
+    background: #904fa9;
+  }
 
-    .green {
-        background: #EEBC31;
-    }
+  .green {
+    background: #eebc31;
+  }
 </style>
 ...
 
 <article class="container">
-    <section class="row">
-        <div class="c-1 blue">1</div>
-        <div class="c-3 blue">3</div>
-        <div class="c-6 blue">6</div>
-        <div class="c-2 blue">2</div>
-    </section>
-    <section class="row">
-        <div class="c-4 green">4</div>
-        <div class="c-4 green">4</div>
-        <div class="c-4 green">4</div>
-    </section>
+  <section class="row">
+    <div class="c-1 blue">1</div>
+    <div class="c-3 blue">3</div>
+    <div class="c-6 blue">6</div>
+    <div class="c-2 blue">2</div>
+  </section>
+  <section class="row">
+    <div class="c-4 green">4</div>
+    <div class="c-4 green">4</div>
+    <div class="c-4 green">4</div>
+  </section>
 </article>
 ```
 
@@ -848,33 +849,33 @@ grid-row-start/grid-column-start/grid-row-end/grid-column-end。
 
 ```html
 <style>
-    article {
-        margin: 0 auto;
-        width: 400px;
-        height: 400px;
-        border: solid 5px silver;
-        display: grid;
-        grid-template-rows: repeat(4, 100px);
-        grid-template-columns: repeat(4, 100px);
-    }
+  article {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    border: solid 5px silver;
+    display: grid;
+    grid-template-rows: repeat(4, 100px);
+    grid-template-columns: repeat(4, 100px);
+  }
 
-    div {
-        background: blueviolet;
-        background-clip: content-box;
-        padding: 10px;
-        border: solid 1px blueviolet;
-        font-size: 30px;
-        color: white;
-    }
+  div {
+    background: blueviolet;
+    background-clip: content-box;
+    padding: 10px;
+    border: solid 1px blueviolet;
+    font-size: 30px;
+    color: white;
+  }
 
-    article div:first-child {
-        grid-area: 2/2/4/4;
-    }
+  article div:first-child {
+    grid-area: 2/2/4/4;
+  }
 </style>
 ...
 
 <article class="container">
-    <div>1</div>
+  <div>1</div>
 </article>
 ```
 
@@ -884,24 +885,24 @@ grid-row-start/grid-column-start/grid-row-end/grid-column-end。
 
 ```css
 article {
-    margin: 0 auto;
-    width: 400px;
-    height: 400px;
-    border: solid 5px silver;
-    display: grid;
-    grid-template-rows: repeat(auto-fill, [r] 100px);
-    grid-template-columns: repeat(auto-fill, [l] 100px);
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border: solid 5px silver;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, [r] 100px);
+  grid-template-columns: repeat(auto-fill, [l] 100px);
 }
 article div {
-    background: blueviolet;
-    background-clip: content-box;
-    padding: 10px;
-    border: solid 1px blueviolet;
-    font-size: 30px;
-    color: white;
+  background: blueviolet;
+  background-clip: content-box;
+  padding: 10px;
+  border: solid 1px blueviolet;
+  font-size: 30px;
+  color: white;
 }
 article div:first-child {
-		grid-area: r 2/l 2/r 4/l 4;
+  grid-area: r 2 / l 2 / r 4 / l 4;
 }
 ```
 
@@ -917,68 +918,69 @@ article div:first-child {
 
 ```html
 <style>
-    body {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-rows: 80px 1fr 50px;
-        grid-template-columns: 100px 1fr 50px 60px;
-        grid-template-areas: "header header header header"
-            "nav main main aside"
-            "footer footer footer footer";
-    }
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 80px 1fr 50px;
+    grid-template-columns: 100px 1fr 50px 60px;
+    grid-template-areas:
+      "header header header header"
+      "nav main main aside"
+      "footer footer footer footer";
+  }
 
-    main {
-    		/* 完整的写法，推荐使用下面的简写方式*/
-				/* grid-area: main-start/main-start/main-end/main-end; */
-        grid-area: main;
-        background: #E9EEEF;
-    }
+  main {
+    /* 完整的写法，推荐使用下面的简写方式*/
+    /* grid-area: main-start/main-start/main-end/main-end; */
+    grid-area: main;
+    background: #e9eeef;
+  }
 
-    header {
-        background: #2EC56C;
-        grid-area: header;
-    }
+  header {
+    background: #2ec56c;
+    grid-area: header;
+  }
 
-    nav {
-        background: #E1732C;
-        grid-area: nav;
-    }
+  nav {
+    background: #e1732c;
+    grid-area: nav;
+  }
 
-    aside {
-        grid-area: aside;
-        background: #EEBC31;
-    }
+  aside {
+    grid-area: aside;
+    background: #eebc31;
+  }
 
-    footer {
-        grid-area: footer;
-        background: #904FA9;
-    }
+  footer {
+    grid-area: footer;
+    background: #904fa9;
+  }
 </style>
 
 <body>
-    <header></header>
-    <nav></nav>
-    <main></main>
-    <aside></aside>
-    <footer></footer>
+  <header></header>
+  <nav></nav>
+  <main></main>
+  <aside></aside>
+  <footer></footer>
 </body>
 ```
 
 ### 简写形式
 
-使用grid-template进行栅格划分会更简洁。
+使用 grid-template 进行栅格划分会更简洁。
 
 语法格式为：
 
 ```css
- grid-template:
-      '栅格名称 栅格名称 栅格名称 栅格名称' 行高
-      '栅格名称 栅格名称 栅格名称 栅格名称' 行高
-      '栅格名称 栅格名称 栅格名称 栅格名称' 行高/列宽 列宽 列宽 列宽;
+grid-template:
+  "栅格名称 栅格名称 栅格名称 栅格名称" 行高
+  "栅格名称 栅格名称 栅格名称 栅格名称" 行高
+  "栅格名称 栅格名称 栅格名称 栅格名称" 行高/列宽 列宽 列宽 列宽;
 ```
 
-下面是使用grid-template进行简写的示例
+下面是使用 grid-template 进行简写的示例
 
 ```html
 <style>
@@ -987,9 +989,9 @@ article div:first-child {
     height: 100vh;
     display: grid;
     grid-template:
-      'header header header header' 80px
-      'nav main main aside' auto
-      'footer footer footer footer' 50px/100px auto 50px 60px;
+      "header header header header" 80px
+      "nav main main aside" auto
+      "footer footer footer footer" 50px/100px auto 50px 60px;
   }
 
   main {
@@ -1041,40 +1043,41 @@ article div:first-child {
 
 ```html
 <style>
-    article {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-rows: 80px 1fr 50px;
-        grid-template-columns: 80 1fr;
-        grid-template-areas: "header header header"
-            "nav main main"
-            "footer footer footer";
-    }
+  article {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 80px 1fr 50px;
+    grid-template-columns: 80 1fr;
+    grid-template-areas:
+      "header header header"
+      "nav main main"
+      "footer footer footer";
+  }
 
-    div {
-        background: blueviolet;
-        background-clip: content-box;
-        border: solid 1px blueviolet;
-        padding: 10px;
-        box-sizing: border-box;
-        color: white;
-        font-size: 25px;
-    }
+  div {
+    background: blueviolet;
+    background-clip: content-box;
+    border: solid 1px blueviolet;
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 25px;
+  }
 
-    div:nth-child(1) {
-        grid-area: header-start/nav-start/main-end/main-end;
-    }
+  div:nth-child(1) {
+    grid-area: header-start/nav-start/main-end/main-end;
+  }
 
-    div:nth-child(2) {
-        grid-area: footer-start/footer-start/footer-end/footer-end;
-    }
+  div:nth-child(2) {
+    grid-area: footer-start/footer-start/footer-end/footer-end;
+  }
 </style>
 ...
 
 <article>
-	<div></div>
-	<div></div>
+  <div></div>
+  <div></div>
 </article>
 ```
 
@@ -1086,51 +1089,48 @@ article div:first-child {
 
 ```html
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-    article {
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-rows: repeat(3, 33.3%);
-        grid-template-columns: repeat(3, 33.3%);
-        grid-template-areas: "top . ."
-            "top . ."
-            "bottom bottom bottom";
-    }
+  article {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: repeat(3, 33.3%);
+    grid-template-columns: repeat(3, 33.3%);
+    grid-template-areas:
+      "top . ."
+      "top . ."
+      "bottom bottom bottom";
+  }
 
-    .top {
-        background: blueviolet;
-        grid-area: top;
-        font-size: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-    }
+  .top {
+    background: blueviolet;
+    grid-area: top;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
 
-    .bottom {
-        background: orange;
-        grid-area: bottom;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 35px;
-    }
+  .bottom {
+    background: orange;
+    grid-area: bottom;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+  }
 </style>
 ...
 
 <article>
-    <div class="top">
-        houdunren.com
-    </div>
-    <div class="bottom">
-        后盾人
-    </div>
+  <div class="top">houdunren.com</div>
+  <div class="bottom">后盾人</div>
 </article>
 ```
 
@@ -1153,30 +1153,30 @@ article div:first-child {
 ```html
 <style>
   article {
-      width: 400px;
-      height: 400px;
-      display: grid;
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-columns: repeat(2, 1fr);
-      border: solid 5px silver;
-      grid-auto-flow: column;
+    width: 400px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    border: solid 5px silver;
+    grid-auto-flow: column;
   }
 
   div {
-      background: blueviolet;
-      background-clip: content-box;
-      padding: 10px;
-      font-size: 35px;
-      color: white;
+    background: blueviolet;
+    background-clip: content-box;
+    padding: 10px;
+    font-size: 35px;
+    color: white;
   }
 </style>
 ...
 
 <article>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
 </article>
 ```
 
@@ -1188,50 +1188,50 @@ article div:first-child {
 
 ```html
 <style>
-    * {
-        padding: 0;
-        margin: 0;
-    }
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
-    body {
-        padding-left: 200px;
-        padding-top: 200px;
-    }
+  body {
+    padding-left: 200px;
+    padding-top: 200px;
+  }
 
-    article {
-        width: 600px;
-        height: 600px;
-        display: grid;
-        grid-template-rows: repeat(3, 200px);
-        grid-template-columns: repeat(3, 200px);
-        border: solid 5px silver;
-        grid-auto-flow: row dense;
-    }
+  article {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-rows: repeat(3, 200px);
+    grid-template-columns: repeat(3, 200px);
+    border: solid 5px silver;
+    grid-auto-flow: row dense;
+  }
 
-    div {
-        background: blueviolet;
-        background-clip: content-box;
-        padding: 10px;
-        font-size: 35px;
-        color: white;
-    }
+  div {
+    background: blueviolet;
+    background-clip: content-box;
+    padding: 10px;
+    font-size: 35px;
+    color: white;
+  }
 
-    article div:nth-child(1) {
-        grid-column: 1/span 2;
-        background: #000;
-    }
+  article div:nth-child(1) {
+    grid-column: 1 / span 2;
+    background: #000;
+  }
 
-    article div:nth-child(2) {
-        grid-column: 2/span 1;
-    }
+  article div:nth-child(2) {
+    grid-column: 2 / span 1;
+  }
 </style>
 ...
 
 <article>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
 </article>
 ```
 
@@ -1252,31 +1252,31 @@ article div:first-child {
 
 ### 栅格对齐
 
-justify-content与align-content用于控制栅格的对齐方式，比如在栅格的尺寸小于容器的心里时，控制栅格的布局方式。
+justify-content 与 align-content 用于控制栅格的对齐方式，比如在栅格的尺寸小于容器的心里时，控制栅格的布局方式。
 
-justify-content属性的值如下
+justify-content 属性的值如下
 
-| 值            | 说明                                                         |
-| ------------- | ------------------------------------------------------------ |
-| start         | 容器左边                                                     |
-| end           | 容器右边                                                     |
-| center        | 容器中间                                                     |
-| stretch       | 撑满容器                                                     |
-| space-between | 第一个栅格靠左边，最后一个栅格靠右边，余下元素平均分配空间   |
+| 值            | 说明                                                                     |
+| ------------- | ------------------------------------------------------------------------ |
+| start         | 容器左边                                                                 |
+| end           | 容器右边                                                                 |
+| center        | 容器中间                                                                 |
+| stretch       | 撑满容器                                                                 |
+| space-between | 第一个栅格靠左边，最后一个栅格靠右边，余下元素平均分配空间               |
 | space-around  | 每个元素两侧的间隔相等。所以，栅格之间的间隔比栅格与容器边距的间隔大一倍 |
-| space-evenly  | 栅格间距离完全平均分配                                       |
+| space-evenly  | 栅格间距离完全平均分配                                                   |
 
-align-content属性的值如下
+align-content 属性的值如下
 
-| 值            | 说明                                                         |
-| ------------- | ------------------------------------------------------------ |
-| start         | 容器顶边                                                     |
-| end           | 容器底边                                                     |
-| center        | 容器垂直中间                                                 |
-| stretch       | 撑满容器                                                     |
-| space-between | 第一个栅格靠左边，最后一个栅格靠右边，余下元素平均分配空间   |
+| 值            | 说明                                                                     |
+| ------------- | ------------------------------------------------------------------------ |
+| start         | 容器顶边                                                                 |
+| end           | 容器底边                                                                 |
+| center        | 容器垂直中间                                                             |
+| stretch       | 撑满容器                                                                 |
+| space-between | 第一个栅格靠左边，最后一个栅格靠右边，余下元素平均分配空间               |
 | space-around  | 每个元素两侧的间隔相等。所以，栅格之间的间隔比栅格与容器边距的间隔大一倍 |
-| space-evenly  | 栅格间距离完全平均分配                                       |
+| space-evenly  | 栅格间距离完全平均分配                                                   |
 
 ![image-20190829231259807](https://doc.houdunren.com/assets/img/image-20190829231259807.2b1db179.png)
 
@@ -1335,9 +1335,9 @@ align-content: space-evenly;
 
 ### 元素对齐
 
-justify-items与align-items用于控制所有栅格内元素的对齐方式
+justify-items 与 align-items 用于控制所有栅格内元素的对齐方式
 
-justify-items用于控制元素的水平对齐方式，可用的属性值如下
+justify-items 用于控制元素的水平对齐方式，可用的属性值如下
 
 | 值      | 说明               |
 | ------- | ------------------ |
@@ -1346,7 +1346,7 @@ justify-items用于控制元素的水平对齐方式，可用的属性值如下
 | center  | 元素对齐栅格的中间 |
 | stretch | 水平撑满栅格       |
 
-align-items用于控制元素的垂直对齐方式，可用的属性值如下
+align-items 用于控制元素的垂直对齐方式，可用的属性值如下
 
 | 值      | 说明                   |
 | ------- | ---------------------- |
@@ -1443,7 +1443,7 @@ align-items用于控制元素的垂直对齐方式，可用的属性值如下
 
 ### 元素独立控制
 
-justify-self与align-self控制单个栅格内元素的对齐方式，属性值与justify-items和align-items是一致的。
+justify-self 与 align-self 控制单个栅格内元素的对齐方式，属性值与 justify-items 和 align-items 是一致的。
 
 ![image-20190928161449880](data:image/png;base64,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)
 
@@ -1466,7 +1466,7 @@ div:nth-child(4) {
 用于控制栅格的对齐方式，语法如下：
 
 ```css
-place-content: <align-content> <justify-content>
+place-content: <align-content> <justify-content>;
 ```
 
 #### place-items
@@ -1474,7 +1474,7 @@ place-content: <align-content> <justify-content>
 控制所有元素的对齐方式，语法结构如下：
 
 ```css
-place-items: <align-items> <justify-items>
+place-items: <align-items> <justify-items>;
 ```
 
 #### place-self
@@ -1482,7 +1482,7 @@ place-items: <align-items> <justify-items>
 控制单个元素的对齐方式
 
 ```css
-place-self: <align-self> <justify-self>
+place-self: <align-self> <justify-self>;
 ```
 
 ## 自动排列
@@ -1498,7 +1498,7 @@ place-self: <align-self> <justify-self>
 
 ### 自动栅格行
 
-下面定义了2X2的栅格，但有多个元素，系统将自动创建栅格用于放置额外元素。我们使用grid-auto-rows来控制增加栅格的行高。
+下面定义了 2X2 的栅格，但有多个元素，系统将自动创建栅格用于放置额外元素。我们使用 grid-auto-rows 来控制增加栅格的行高。
 
 ![image-20201017142201592](https://doc.houdunren.com/assets/img/image-20201017142201592.6f7e0324.png)
 
@@ -1530,7 +1530,7 @@ place-self: <align-self> <justify-self>
 
 ### 自动行列
 
-下面创建了2X2栅格，我们将第2个DIV设置的格栅已经超过了四个栅格，所以系统会自动创建栅格。
+下面创建了 2X2 栅格，我们将第 2 个 DIV 设置的格栅已经超过了四个栅格，所以系统会自动创建栅格。
 
 ![image-20201017142907082](https://doc.houdunren.com/assets/img/image-20201017142907082.74d40353.png)
 
@@ -1561,11 +1561,11 @@ place-self: <align-self> <justify-self>
 
 ## 终级简写
 
-grid是简写属性，可以用来设置：
+grid 是简写属性，可以用来设置：
 
-- 显式网格属性 grid-template-rows、grid-template-columns和 grid-template-areas，
+- 显式网格属性 grid-template-rows、grid-template-columns 和 grid-template-areas，
 - 隐式网格属性 grid-auto-rows、grid-auto-columns 和 grid-auto-flow，
-- 间距属性 grid-column-gap和 grid-row-gap
+- 间距属性 grid-column-gap 和 grid-row-gap
 
 使用语法:
 
@@ -1575,7 +1575,7 @@ grid是简写属性，可以用来设置：
 
 ### 行列划分
 
-下面使用grid布局内容，将body容器的栅格居中排列，将main容器内的栅格内的元素居中排列。
+下面使用 grid 布局内容，将 body 容器的栅格居中排列，将 main 容器内的栅格内的元素居中排列。
 
 ![image-20201017171935040](https://doc.houdunren.com/assets/img/image-20201017171935040.c8734550.png)
 
@@ -1622,7 +1622,7 @@ grid是简写属性，可以用来设置：
 
 ### 定义区域
 
-使用grid也可以定义栅格区域
+使用 grid 也可以定义栅格区域
 
 ![image-20201017172625960](https://doc.houdunren.com/assets/img/image-20201017172625960.1082a8f5.png)
 
@@ -1633,9 +1633,9 @@ grid是简写属性，可以用来设置：
     height: 100vh;
     display: grid;
     grid:
-      'header header' 50px
-      'nav main' auto
-      'footer footer' 60px/100px auto;
+      "header header" 50px
+      "nav main" auto
+      "footer footer" 60px/100px auto;
   }
   div {
     border: solid 1px #ddd;
@@ -1668,10 +1668,7 @@ grid是简写属性，可以用来设置：
 </main>
 ```
 
-
-
 ## 文献参考
 
 - [向军大叔 CSS Grid 网格布局教程](https://doc.houdunren.com/css/11%20%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F.html#%E6%A0%B9%E6%8D%AE%E6%A0%85%E6%A0%BC%E7%BA%BF)
 - [阮一峰 CSS Grid 网格布局教程](http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html)
-

@@ -1,14 +1,13 @@
 ---
-title: React Code Review（一）
-tags:
-  - Code Review
-categories: Code Review
+title: 【规范建设】如何做好代码评审？
+tags: git
+categories:
+  - 【规范建设】
+  - git
 comments: false
-cover: >-
-  https://img1.baidu.com/it/u=3096240423,462637224&fm=253&fmt=auto&app=138&f=JPEG?w=1141&h=500
-sticky: 98
+cover: https://img1.baidu.com/it/u=2360602401,1741290578&fm=253&fmt=auto&app=138&f=JPEG?w=490&h=275
 abbrlink: 12c7d59d
-date: 2022-03-20 00:00:00
+date: 2022-01-08 00:00:00
 top_img:
 ---
 

@@ -1,12 +1,13 @@
 ---
-title: 新的产物-依赖包管理工具（pnpm）
-tags: package
-categories: package
+title: 【基础积累】包管理工具（pnpm）
+tags: pnpm
+categories:
+  - 【基础积累】
+  - pnpm
 comments: false
 cover: "https://doc.houdunren.com/assets/img/image-20220402214722541.a35c4246.png"
-sticky: 101
 abbrlink: d4c1ef6f
-date: 2022-03-26 00:00:00
+date: 2022-01-03 00:00:00
 top_img:
 ---
 
