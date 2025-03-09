@@ -128,4 +128,4 @@ live2d:
 deploy:
   type: git
   repo: git@github.com:louhaojie99/louhaojie99.github.io.git
-  branch: master
+  branch: gh-pages
