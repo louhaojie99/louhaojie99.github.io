@@ -127,5 +127,5 @@ live2d:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/louhaojie99/Blog.git
+  repo: https://github.com/louhaojie99/louhaojie99.github.io.git
   branch: gh-pages
