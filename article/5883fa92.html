@@ -1,0 +1,532 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>十、DOM（下） | HJ BLOG</title><meta name="keywords" content="JavaScript"><meta name="author" content="娄豪杰"><meta name="copyright" content="娄豪杰"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="DOM（下） DOM 树就是我们 html 结构中一个一个的节点构成的 不光我们的标签是一个节点，我们写的文本内容也是一个节点，注释，包括空格都是节点  DOM 节点 DOM 的节点我们一般分为常用的三大类 元素节点 &#x2F; 文本节点 &#x2F; 属性节点 什么是分类，比如我们在获取元素的时候，通过各种方法获取到的我们叫做元素节点（标签节点） 比如我们标签里面写的文字，那么就是文本节点 写在每一个标签上的属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="十、DOM（下）">
+<meta property="og:url" content="http://example.com/article/5883fa92.html">
+<meta property="og:site_name" content="HJ BLOG">
+<meta property="og:description" content="DOM（下） DOM 树就是我们 html 结构中一个一个的节点构成的 不光我们的标签是一个节点，我们写的文本内容也是一个节点，注释，包括空格都是节点  DOM 节点 DOM 的节点我们一般分为常用的三大类 元素节点 &#x2F; 文本节点 &#x2F; 属性节点 什么是分类，比如我们在获取元素的时候，通过各种方法获取到的我们叫做元素节点（标签节点） 比如我们标签里面写的文字，那么就是文本节点 写在每一个标签上的属性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870">
+<meta property="article:published_time" content="2019-03-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-23T11:55:35.540Z">
+<meta property="article:author" content="娄豪杰">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/article/5883fa92"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '十、DOM（下）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-01-23 19:55:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-book"></i><span> 阅读</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-bars"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-fw fas fa-heart card-announcement-animation"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&amp;refer=http%3A%2F%2Fpic1.zhimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1645530798&amp;t=e5c6ac493d1c8b04cd2a4740e1cc9870')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">HJ BLOG</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-book"></i><span> 阅读</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-bars"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photo"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-fw fas fa-heart card-announcement-animation"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">十、DOM（下）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-03-09T16:00:00.000Z" title="发表于 2019-03-10 00:00:00">2019-03-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-23T11:55:35.540Z" title="更新于 2022-01-23 19:55:35">2022-01-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/JavaScript/">JavaScript</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="十、DOM（下）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="DOM（下）"><a href="#DOM（下）" class="headerlink" title="DOM（下）"></a>DOM（下）</h1><ul>
+<li><code>DOM</code> 树就是我们 <code>html</code> 结构中一个一个的节点构成的</li>
+<li>不光我们的标签是一个节点，我们写的文本内容也是一个节点，注释，包括空格都是节点</li>
+</ul>
+<h2 id="DOM-节点"><a href="#DOM-节点" class="headerlink" title="DOM 节点"></a>DOM 节点</h2><ul>
+<li><code>DOM</code> 的节点我们一般分为常用的三大类 <strong>元素节点</strong> / <strong>文本节点</strong> / <strong>属性节点</strong></li>
+<li>什么是分类，比如我们在获取元素的时候，通过各种方法获取到的我们叫做元素节点（标签节点）</li>
+<li>比如我们标签里面写的文字，那么就是文本节点</li>
+<li>写在每一个标签上的属性，就是属性节点</li>
+</ul>
+<h3 id="元素节点"><a href="#元素节点" class="headerlink" title="元素节点"></a>元素节点</h3><ul>
+<li>我们通过 <code>getElementBy...</code> 获取到的都是元素节点</li>
+</ul>
+<h3 id="属性节点"><a href="#属性节点" class="headerlink" title="属性节点"></a>属性节点</h3><ul>
+<li>我们通过 <code>getAttribute</code> 获取的就是元素的属性节点</li>
+</ul>
+<h3 id="文本节点"><a href="#文本节点" class="headerlink" title="文本节点"></a>文本节点</h3><ul>
+<li>我们通过 <code>innerText</code> 获取到的就是元素的文本节点</li>
+</ul>
+<h3 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h3><ul>
+<li><p><code>childNodes</code>：获取某一个节点下 <strong>所有的子一级节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oDiv 获取的是页面中的 div 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">childNodes</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    	NodeList(3) [text, p, text]</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      0: text</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      1: p</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      2: text</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      length: 3</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      __proto__: NodeList</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    */</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们会发现，拿到以后是一个伪数组，里面有三个节点</li>
+<li>一个 <code>text</code>：从 <code>&lt;div&gt; 一直到 &lt;p&gt;</code> 中间有一个换行和一堆空格，这个是第一个节点，是一个文本节点</li>
+<li>一个 <code>p</code>：这个 <code>p</code> 标签就是第二个节点，这个是一个元素节点</li>
+<li>一个 <code>text</code>：从 <code>&lt;/p&gt; 一直到 &lt;/div&gt;</code> 中间有一个换行和一堆空格，这个是第三个节点，是一个文本节点</li>
+<li>这个时候就能看到我们有不同的节点类型了</li>
+</ul>
+</li>
+<li><p><code>children</code> ：获取某一节点下所有的子一级 <strong>元素节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oDiv 获取的是页面中的 div 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">children</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    	HTMLCollection [p]</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      0: p</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      length: 1</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      __proto__: HTMLCollection</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    */</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>我们发现只有一个节点了，因为 <code>children</code> 只要元素节点</li>
+<li>div 下面又只有一个元素节点，就是 <code>p</code></li>
+<li>所以就只有一个，虽然只有一个，但是也是一个 <strong>伪数组</strong></li>
+</ul>
+</li>
+<li><p><code>firstChild</code>：获取某一节点下子一级的 <strong>第一个节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oDiv 获取的是页面中的 div 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">firstChild</span>); <span class="comment">// #text</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这个是只获取一个节点，不再是伪数组了</li>
+<li>获取的是第一个</li>
+<li>第一个就是 <code>&lt;div&gt; 一直到 &lt;p&gt;</code> 的那个换行和空格，是个文本节点</li>
+</ul>
+</li>
+<li><p><code>lastChild</code>：获取某一节点下子一级的 <strong>最后一个节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oDiv 获取的是页面中的 div 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">lastChild</span>); <span class="comment">// #text</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不再是伪数组</li>
+<li>获取的是最后一个</li>
+<li>最后一个就是 <code>&lt;/p&gt; 一直到 &lt;/div&gt;</code> 之间的换行和空格，是个文本节点</li>
+</ul>
+</li>
+<li><p><code>firstElementChild</code>：获取某一节点下子一级 <strong>第一个元素节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oDiv 获取的是页面中的 div 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">firstElementChild</span>); <span class="comment">// &lt;p&gt;hello&lt;/p&gt;</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不在是伪数组</li>
+<li>获取的是第一个 <strong>元素节点</strong></li>
+<li>第一个元素节点就是 <code>p</code> 标签，是一个元素节点</li>
+</ul>
+</li>
+<li><p><code>lastElementChild</code>：获取某一节点下子一级 <strong>最后一个元素节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>world<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oDiv 获取的是页面中的 div 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">lastElementChild</span>); <span class="comment">// &lt;p&gt;world&lt;/p&gt;</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不在是伪数组</li>
+<li>获取的是最后一个 <strong>元素节点</strong></li>
+<li>最后一个元素节点是 <code>&lt;p&gt;world&lt;/p&gt;</code>，是一个元素节点</li>
+</ul>
+</li>
+<li><p><code>nextSibling</code>：获取某一个节点的 <strong>下一个兄弟节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span>world<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span>!!!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oLi 获取的是页面中的 li 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oLi = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#b&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oLi.<span class="property">nextSibling</span>); <span class="comment">// #text</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不在是伪数组</li>
+<li>获取的是 <code>id=&quot;b&quot;</code> 这个 <code>li</code> 的下一个兄弟节点</li>
+<li>因为 <code>id=&quot;b&quot;</code> 的下一个节点，是两个 <code>li</code> 标签之间的换行和空格，所以是一个文本节点</li>
+</ul>
+</li>
+<li><p><code>previousSibling</code>：获取某一个节点的 <strong>上一个兄弟节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span>world<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span>!!!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oLi 获取的是页面中的 li 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oLi = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#b&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oLi.<span class="property">previousSibling</span>); <span class="comment">// #text</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不在是伪数组</li>
+<li>获取的是 <code>id=&quot;b&quot;</code> 这个 <code>li</code> 的上一个兄弟节点</li>
+<li>因为 <code>id=&quot;b&quot;</code> 的上一个节点，是两个 <code>li</code> 标签之间的换行和空格，所以是一个文本节点</li>
+</ul>
+</li>
+<li><p><code>nextElementSibling</code>：获取某一个节点的 <strong>下一个元素节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span>world<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span>!!!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oLi 获取的是页面中的 li 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oLi = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#b&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oLi.<span class="property">nextElementSibling</span>); <span class="comment">// &lt;li id=&quot;c&quot;&gt;!!!&lt;/li&gt;</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不在是伪数组</li>
+<li>获取的是 <code>id=&quot;b&quot;</code> 这个 <code>li</code> 的下一个兄弟元素节点</li>
+<li>因为 <code>id=&quot;b&quot;</code> 的下一个兄弟元素节点就是 <code>id=&quot;c&quot;</code> 的 <code>li</code>，是一个元素节点</li>
+</ul>
+</li>
+<li><p><code>previousElementSibling</code>：获取某一个节点的 <strong>上一个元素节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span>world<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span>!!!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oLi 获取的是页面中的 li 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oLi = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#b&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oLi.<span class="property">previousElementSibling</span>); <span class="comment">// &lt;li id=&quot;a&quot;&gt;hello&lt;/li&gt;</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不在是伪数组</li>
+<li>获取的是 <code>id=&quot;b&quot;</code> 这个 <code>li</code> 的上一个兄弟元素节点</li>
+<li>因为 <code>id=&quot;b&quot;</code> 的上一个兄弟元素节点就是 <code>id=&quot;a&quot;</code> 的 <code>li</code>，是一个元素节点</li>
+</ul>
+</li>
+<li><p><code>parentNode</code>：获取某一个节点的 <strong>父节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;b&quot;</span>&gt;</span>world<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;c&quot;</span>&gt;</span>!!!<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oLi 获取的是页面中的 li 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oLi = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#b&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oLi.<span class="property">parentNode</span>); <span class="comment">// &lt;ul&gt;...&lt;/ul&gt;</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只获取一个节点，不在是伪数组</li>
+<li>获取的是当前这个 <code>li</code> 的父元素节点</li>
+<li>因为这个 <code>li</code> 的父亲就是 <code>ul</code>，所以获取到的就是 <code>ul</code>，是一个元素节点</li>
+</ul>
+</li>
+<li><p><code>attributes</code>：获取某一个 <strong>元素节点</strong> 的所有 <strong>属性节点</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">&quot;a&quot;</span> <span class="attr">a</span>=<span class="string">&quot;100&quot;</span> <span class="attr">test</span>=<span class="string">&quot;test&quot;</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 这个 oLi 获取的是页面中的 li 元素，就是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oLi = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;#a&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oLi.<span class="property">attributes</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    	NamedNodeMap &#123;0: id, 1: a, 2: test, id: id, a: a, test: test, length: 3&#125;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      0: id</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      1: a</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      2: test</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      length: 3</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      a: a</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      id: id</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      test: test</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">      __proto__: NamedNodeMap</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    </span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    */</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取的是一组数据，是该元素的所有属性，也是一个伪数组</li>
+<li>这个 <code>li</code> 有三个属性，<code>id</code> / <code>a</code> / <code>test</code> 三个，所以就获取到了这三个</li>
+</ul>
+</li>
+</ul>
+<h3 id="节点属性"><a href="#节点属性" class="headerlink" title="节点属性"></a>节点属性</h3><ul>
+<li><p>我们已经知道节点会分成很多种，而且我们也能获取到各种不同的节点</p>
+</li>
+<li><p>接下来我们就来聊一些各种节点之间属性的区别</p>
+</li>
+<li><p>我们先准备一段代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">test</span>=<span class="string">&quot;我是 ul 的一个属性&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 先获取 ul</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oUl = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;ul&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 获取到 ul 下的第一个子元素节点，是一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> eleNode = oUl.<span class="property">firstElementChild</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 获取到 ul 的属性节点组合，因为是个组合，我们要拿到节点的话要用索引</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> attrNode = oUl.<span class="property">attributes</span>[<span class="number">0</span>];</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 获取到 ul 下的第一个子节点，是一个文本节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> textNode = oUl.<span class="property">firstChild</span>;</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="nodeType"><a href="#nodeType" class="headerlink" title="nodeType"></a>nodeType</h4><ul>
+<li><p><code>nodeType</code>：获取节点的节点类型，用数字表示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(eleNode.<span class="property">nodeType</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(attrNode.<span class="property">nodeType</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(textNode.<span class="property">nodeType</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>nodeType === 1</code> 就表示该节点是一个 <strong>元素节点</strong></li>
+<li><code>nodeType === 2</code> 就表示该节点是一个 <strong>属性节点</strong></li>
+<li><code>nodeType === 3</code> 就表示该节点是一个 <strong>注释节点</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="nodeName"><a href="#nodeName" class="headerlink" title="nodeName"></a>nodeName</h4><ul>
+<li><p><code>nodeName</code>：获取节点的节点名称</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(eleNode.<span class="property">nodeName</span>); <span class="comment">// LI</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(attrNode.<span class="property">nodeName</span>); <span class="comment">// test</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(textNode.<span class="property">nodeName</span>); <span class="comment">// #text</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素节点的 <code>nodeName</code> 就是 <strong>大写标签名</strong></li>
+<li>属性节点的 <code>nodeName</code> 就是 <strong>属性名</strong></li>
+<li>文本节点的 <code>nodeName</code> 都是 <strong>#text</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="nodeValue"><a href="#nodeValue" class="headerlink" title="nodeValue"></a>nodeValue</h4><ul>
+<li><p><code>nodeValue</code>： 获取节点的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(eleNode.<span class="property">nodeValue</span>); <span class="comment">// null</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(attrNode.<span class="property">nodeValue</span>); <span class="comment">// 我是 ul 的一个属性</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(textNode.<span class="property">nodeValue</span>); <span class="comment">// 换行 + 空格</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元素节点没有 <code>nodeValue</code></li>
+<li>属性节点的 <code>nodeValue</code> 就是 <strong>属性值</strong></li>
+<li>文本节点的 <code>nodeValue</code> 就是 <strong>文本内容</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h4><table>
+<thead>
+<tr>
+<th>-</th>
+<th>nodeType</th>
+<th>nodeName</th>
+<th>nodeValue</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>元素节点</td>
+<td>1</td>
+<td>大写标签名</td>
+<td>null</td>
+</tr>
+<tr>
+<td>属性节点</td>
+<td>2</td>
+<td>属性名</td>
+<td>属性值</td>
+</tr>
+<tr>
+<td>文本节点</td>
+<td>3</td>
+<td>#text</td>
+<td>文本内容</td>
+</tr>
+</tbody></table>
+<h2 id="操作-DOM-节点"><a href="#操作-DOM-节点" class="headerlink" title="操作 DOM 节点"></a>操作 DOM 节点</h2><ul>
+<li>我们所说的操作无非就是 <strong>增删改查（CRUD）</strong></li>
+<li>创建一个节点（因为向页面中增加之前，我们需要先创建一个节点出来）</li>
+<li>向页面中增加一个节点</li>
+<li>删除页面中的某一个节点</li>
+<li>修改页面中的某一个节点</li>
+<li>获取页面中的某一个节点</li>
+</ul>
+<h3 id="创建一个节点"><a href="#创建一个节点" class="headerlink" title="创建一个节点"></a>创建一个节点</h3><ul>
+<li><p><code>createElement</code>：用于创建一个元素节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 div 元素节点</span></span><br><span class="line"><span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv); <span class="comment">// &lt;div&gt;&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建出来的就是一个可以使用的 div 元素</li>
+</ul>
+</li>
+<li><p><code>createTextNode</code>：用于创建一个文本节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个文本节点</span></span><br><span class="line"><span class="keyword">var</span> oText = <span class="variable language_">document</span>.<span class="title function_">createTextNode</span>(<span class="string">&quot;我是一个文本&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oText); <span class="comment">// &quot;我是一个文本&quot;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="向页面中加入一个节点"><a href="#向页面中加入一个节点" class="headerlink" title="向页面中加入一个节点"></a>向页面中加入一个节点</h3><ul>
+<li><p><code>appendChild</code>：是向一个元素节点的末尾追加一个节点</p>
+</li>
+<li><p>语法： <code>父节点.appendChild(要插入的子节点)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个 div 元素节点</span></span><br><span class="line"><span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;div&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> oText = <span class="variable language_">document</span>.<span class="title function_">createTextNode</span>(<span class="string">&quot;我是一个文本&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 向 div 中追加一个文本节点</span></span><br><span class="line">oDiv.<span class="title function_">appendChild</span>(oText);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv); <span class="comment">// &lt;div&gt;我是一个文本&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>insertBefore</code>：向某一个节点前插入一个节点</p>
+</li>
+<li><p>语法： <code>父节点.insertBefore(要插入的节点，插入在哪一个节点的前面)</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是一个 p 标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oP = oDiv.<span class="title function_">querySelector</span>(<span class="string">&quot;p&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 创建一个元素节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oSpan = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;span&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 将这个元素节点添加到 div 下的 p 的前面</span></span></span><br><span class="line"><span class="language-javascript">    oDiv.<span class="title function_">insertBefore</span>(oSpan, oP);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    	&lt;div&gt;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    		&lt;span&gt;&lt;/span&gt;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    		&lt;p&gt;我是一个 p 标签&lt;/p&gt;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    	&lt;/div&gt;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    */</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="删除页面中的某一个节点"><a href="#删除页面中的某一个节点" class="headerlink" title="删除页面中的某一个节点"></a>删除页面中的某一个节点</h3><ul>
+<li><p><code>removeChild</code>：移除某一节点下的某一个节点</p>
+</li>
+<li><p>语法：<code>父节点.removeChild(要移除的字节点)</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是一个 p 标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oP = oDiv.<span class="title function_">querySelector</span>(<span class="string">&quot;p&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 移除 div 下面的 p 标签</span></span></span><br><span class="line"><span class="language-javascript">    oDiv.<span class="title function_">removeChild</span>(oP);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv); <span class="comment">// &lt;div&gt;&lt;/div&gt;</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="修改页面中的某一个节点"><a href="#修改页面中的某一个节点" class="headerlink" title="修改页面中的某一个节点"></a>修改页面中的某一个节点</h3><ul>
+<li><p><code>replaceChild</code>：将页面中的某一个节点替换掉</p>
+</li>
+<li><p>语法： <code>父节点.replaceChild(新节点，旧节点)</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是一个 p 标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oP = oDiv.<span class="title function_">querySelector</span>(<span class="string">&quot;p&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 创建一个 span 节点</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oSpan = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;span&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 向 span 元素中加点文字</span></span></span><br><span class="line"><span class="language-javascript">    oSpan.<span class="property">innerHTML</span> = <span class="string">&quot;我是新创建的 span 标签&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 用创建的 span 标签替换原先 div 下的 p 标签</span></span></span><br><span class="line"><span class="language-javascript">    oDiv.<span class="title function_">replaceChild</span>(oSpan, oP);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">/*</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    	&lt;div&gt;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    		&lt;span&gt;我是新创建的 span 标签&lt;/span&gt;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    	&lt;/div&gt;</span></span></span><br><span class="line"><span class="comment"><span class="language-javascript">    */</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="获取元素的非行间样式"><a href="#获取元素的非行间样式" class="headerlink" title="获取元素的非行间样式"></a>获取元素的非行间样式</h2><ul>
+<li><p>我们在操作 <code>DOM</code> 的时候，很重要的一点就是要操作元素的 <code>css</code> 样式</p>
+</li>
+<li><p>那么在操作 <code>css</code> 样式的时候，我们避免不了就要获取元素的样式</p>
+</li>
+<li><p>之前我们说过可以用 <code>元素.style.xxx</code> 来获取</p>
+</li>
+<li><p>但是这个方法只能获取到元素 <strong>行间样式</strong>，也就是写在行内的样式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 100px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是一个 p 标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">style</span>.<span class="property">height</span>); <span class="comment">// 100px</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDIv.<span class="property">style</span>.<span class="property">width</span>); <span class="comment">// &#x27;&#x27;</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不管是外链式还是内嵌式，我们都获取不到该元素的样式</p>
+</li>
+<li><p>这里我们就要使用方法来获取了 <strong><code>getComputedStyle</code></strong> 和 <strong><code>currentStyle</code></strong></p>
+</li>
+<li><p>这两个方法的作用是一样的，只不过一个在 <strong>非 IE</strong> 浏览器，一个在 <strong>IE</strong> 浏览器</p>
+</li>
+</ul>
+<h3 id="getComputedStyle（非-IE-使用）"><a href="#getComputedStyle（非-IE-使用）" class="headerlink" title="getComputedStyle（非 IE 使用）"></a>getComputedStyle（非 IE 使用）</h3><ul>
+<li><p>语法：<code>window.getComputedStyle(元素, null).要获取的属性</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 100px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是一个 p 标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="title function_">getComputedStyle</span>(oDiv).<span class="property">width</span>); <span class="comment">// 100px</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">window</span>.<span class="title function_">getComputedStyle</span>(oDiv).<span class="property">height</span>); <span class="comment">// 100px</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这个方法获取行间样式和非行间样式都可以</li>
+</ul>
+</li>
+</ul>
+<h3 id="currentStyle（IE-使用）"><a href="#currentStyle（IE-使用）" class="headerlink" title="currentStyle（IE 使用）"></a>currentStyle（IE 使用）</h3><ul>
+<li><p>语法： <code>元素.currentStyle.要获取的属性</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 100px;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是一个 p 标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> oDiv = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;div&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">currentStyle</span>.<span class="property">width</span>); <span class="comment">// 100px</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(oDiv.<span class="property">currentStyle</span>.<span class="property">height</span>); <span class="comment">// 100px</span></span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="获取元素的偏移量"><a href="#获取元素的偏移量" class="headerlink" title="获取元素的偏移量"></a>获取元素的偏移量</h2><ul>
+<li>就是元素在页面上的什么位置</li>
+<li>我们有几个属性来获取，**<code>offsetLeft</code>** 和 <strong><code>offsetTop</code></strong> 和 <strong><code>offsetWidth</code></strong> 和 <strong><code>offsetHeight</code></strong></li>
+</ul>
+<h3 id="offsetLeft-和-offsetTop"><a href="#offsetLeft-和-offsetTop" class="headerlink" title="offsetLeft 和 offsetTop"></a>offsetLeft 和 offsetTop</h3><ul>
+<li>获取的是元左边的偏移量和上边的偏移量</li>
+<li>分成两个情况来看</li>
+<li>没有定位的情况下<ul>
+<li>获取元素边框外侧到页面内侧的距离</li>
+</ul>
+</li>
+<li>有定位的情况下<ul>
+<li>获取元素边框外侧到定位父级边框内侧的距离（其实就是我们写的 <code>left</code> 和 <code>top</code> 值）</li>
+</ul>
+</li>
+</ul>
+<h3 id="offsetWidth-和-offsetHeight"><a href="#offsetWidth-和-offsetHeight" class="headerlink" title="offsetWidth 和 offsetHeight"></a>offsetWidth 和 offsetHeight</h3><ul>
+<li>获取元素 <code>内容宽高 + padding宽高 + border宽高</code> 的和</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">娄豪杰</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/article/5883fa92.html">http://example.com/article/5883fa92.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">HJ BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&amp;refer=http%3A%2F%2Fpic1.zhimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1645530798&amp;t=e5c6ac493d1c8b04cd2a4740e1cc9870" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/article/e80cdd3.html"><img class="prev-cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&amp;refer=http%3A%2F%2Fpic1.zhimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1645530798&amp;t=e5c6ac493d1c8b04cd2a4740e1cc9870" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">十一、事件-Event（上）</div></div></a></div><div class="next-post pull-right"><a href="/article/a253b181.html"><img class="next-cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&amp;refer=http%3A%2F%2Fpic1.zhimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1645530798&amp;t=e5c6ac493d1c8b04cd2a4740e1cc9870" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">九、BOM和DOM</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/article/23cb5f5f.html" title="一、初识JavaScript"><img class="cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-01</div><div class="title">一、初识JavaScript</div></div></a></div><div><a href="/article/bdf08e07.html" title="二、JS分支结构"><img class="cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-02</div><div class="title">二、JS分支结构</div></div></a></div><div><a href="/article/4200b2b0.html" title="三、JS循环结构"><img class="cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-03</div><div class="title">三、JS循环结构</div></div></a></div><div><a href="/article/2c83c14b.html" title="四、JS函数（上）"><img class="cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-04</div><div class="title">四、JS函数（上）</div></div></a></div><div><a href="/article/dcee35d7.html" title="五、JS函数（下）"><img class="cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-05</div><div class="title">五、JS函数（下）</div></div></a></div><div><a href="/article/23ec2cd1.html" title="六、JS数组[Array]"><img class="cover" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-06</div><div class="title">六、JS数组[Array]</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">娄豪杰</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">15</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/louhaojie99"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">常常在思考, 喜欢做的事.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM%EF%BC%88%E4%B8%8B%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">DOM（下）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM-%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">DOM 节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E7%B4%A0%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.1.</span> <span class="toc-text">元素节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.2.</span> <span class="toc-text">属性节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.3.</span> <span class="toc-text">文本节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%8A%82%E7%82%B9"><span class="toc-number">1.1.4.</span> <span class="toc-text">获取节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8A%82%E7%82%B9%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.5.</span> <span class="toc-text">节点属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#nodeType"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">nodeType</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodeName"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">nodeName</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nodeValue"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">nodeValue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%87%E6%80%BB"><span class="toc-number">1.1.5.4.</span> <span class="toc-text">汇总</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C-DOM-%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">操作 DOM 节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">创建一个节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%A1%B5%E9%9D%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">向页面中加入一个节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.3.</span> <span class="toc-text">删除页面中的某一个节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%A1%B5%E9%9D%A2%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-number">1.2.4.</span> <span class="toc-text">修改页面中的某一个节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E7%9A%84%E9%9D%9E%E8%A1%8C%E9%97%B4%E6%A0%B7%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">获取元素的非行间样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getComputedStyle%EF%BC%88%E9%9D%9E-IE-%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">getComputedStyle（非 IE 使用）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#currentStyle%EF%BC%88IE-%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">currentStyle（IE 使用）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%85%83%E7%B4%A0%E7%9A%84%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="toc-number">1.4.</span> <span class="toc-text">获取元素的偏移量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#offsetLeft-%E5%92%8C-offsetTop"><span class="toc-number">1.4.1.</span> <span class="toc-text">offsetLeft 和 offsetTop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#offsetWidth-%E5%92%8C-offsetHeight"><span class="toc-number">1.4.2.</span> <span class="toc-text">offsetWidth 和 offsetHeight</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/7fc9133d.html" title="【工作日常】如何统计代码行数？"><img src="https://img0.baidu.com/it/u=342263118,2081131381&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=667&amp;h=500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【工作日常】如何统计代码行数？"/></a><div class="content"><a class="title" href="/article/7fc9133d.html" title="【工作日常】如何统计代码行数？">【工作日常】如何统计代码行数？</a><time datetime="2022-01-08T16:00:00.000Z" title="发表于 2022-01-09 00:00:00">2022-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/12c7d59d.html" title="【规范建设】如何做好代码评审？"><img src="https://img1.baidu.com/it/u=2360602401,1741290578&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=490&amp;h=275" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【规范建设】如何做好代码评审？"/></a><div class="content"><a class="title" href="/article/12c7d59d.html" title="【规范建设】如何做好代码评审？">【规范建设】如何做好代码评审？</a><time datetime="2022-01-07T16:00:00.000Z" title="发表于 2022-01-08 00:00:00">2022-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/93579e54.html" title="【规范建设】什么是code review?"><img src="https://img1.baidu.com/it/u=2360602401,1741290578&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=490&amp;h=275" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【规范建设】什么是code review?"/></a><div class="content"><a class="title" href="/article/93579e54.html" title="【规范建设】什么是code review?">【规范建设】什么是code review?</a><time datetime="2022-01-06T16:00:00.000Z" title="发表于 2022-01-07 00:00:00">2022-01-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/613f2a6e.html" title="【规范建设】git commit 规范化指南"><img src="https://img0.baidu.com/it/u=3345458127,1818551582&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=889&amp;h=500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【规范建设】git commit 规范化指南"/></a><div class="content"><a class="title" href="/article/613f2a6e.html" title="【规范建设】git commit 规范化指南">【规范建设】git commit 规范化指南</a><time datetime="2022-01-05T16:00:00.000Z" title="发表于 2022-01-06 00:00:00">2022-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/5ce4f848.html" title="【工作日常】Git如何解决代码冲突"><img src="https://img0.baidu.com/it/u=342263118,2081131381&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=667&amp;h=500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="【工作日常】Git如何解决代码冲突"/></a><div class="content"><a class="title" href="/article/5ce4f848.html" title="【工作日常】Git如何解决代码冲突">【工作日常】Git如何解决代码冲突</a><time datetime="2022-01-04T16:00:00.000Z" title="发表于 2022-01-05 00:00:00">2022-01-05</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&amp;refer=http%3A%2F%2Fpic1.zhimg.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg?sec=1645530798&amp;t=e5c6ac493d1c8b04cd2a4740e1cc9870')"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2025 By 娄豪杰</div><div class="footer_custom_text"><div>嗨，欢迎来到我的博客，希望能帮助到您！</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治" data-fontsize="15px" data-random="true" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/music/"]):not([href="/no-pjax/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener toc scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
