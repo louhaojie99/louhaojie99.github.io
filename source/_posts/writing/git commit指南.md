@@ -5,7 +5,7 @@ categories:
   - 【规范建设】
   - git
 comments: false
-cover: "https://rmt.ladydaily.com/fetch/tzk/storage/20210302234030.png"
+cover: "https://img0.baidu.com/it/u=3345458127,1818551582&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500"
 # sticky: 1000
 abbrlink: 613f2a6e
 date: 2022-01-06 00:00:00

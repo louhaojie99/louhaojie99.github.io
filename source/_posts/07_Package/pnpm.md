@@ -5,7 +5,7 @@ categories:
   - 【基础积累】
   - pnpm
 comments: false
-cover: "https://doc.houdunren.com/assets/img/image-20220402214722541.a35c4246.png"
+cover: "https://img1.baidu.com/it/u=1613010712,646193984&fm=253&fmt=auto&app=138&f=JPEG?w=891&h=500"
 abbrlink: d4c1ef6f
 date: 2022-01-03 00:00:00
 top_img:
