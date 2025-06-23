@@ -6,15 +6,15 @@ categories:
 comments: false
 cover: https://img0.baidu.com/it/u=4167016203,3166254551&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=311
 abbrlink: ts01
-date: 2022-01-01 00:00:00
+date: 2022-01-01 12:00:00
 top_img:
 ---
 
 ## 前言
 
-作为一款由 TypeScript 编写的编辑器，VS Code 天然为 TypeScript 开发提供了卓越的支持，包括智能类型检查、代码补全和语法高亮等功能。为了进一步提升开发体验，社区贡献了许多优秀的插件，以下是几款特别推荐的 TypeScript 开发增强工具：
+> 作为一款由 TypeScript 编写的编辑器，VS Code 天然为 TypeScript 开发提供了卓越的支持，包括智能类型检查、代码补全和语法高亮等功能。为了进一步提升开发体验，社区贡献了许多优秀的插件，以下是几款特别推荐的 TypeScript 开发增强工具：
 
-### TypeScript Importer - 智能类型导入助手、
+### TypeScript Importer - 智能类型导入助手
 
 点击安装：https://marketplace.visualstudio.com/items?itemName=pmneo.tsimporter
 
