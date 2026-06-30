@@ -1,0 +1,152 @@
+# Site-specific overrides for hexo-theme-butterfly 5.5.3.
+# Theme defaults remain in the npm package so future upgrades stay reviewable.
+
+menu:
+  首页: / || fas fa-home
+  阅读||fa-fw fa fa-book:
+    归档: /archives/ || fas fa-archive
+    标签: /tags/ || fas fa-tags
+    分类: /categories/ || fas fa-folder-open
+  娱乐||fa-fw fa fa-bars:
+    相册: /photo || fas fa-image
+    音乐: /music/ || fas fa-music
+    电影: /movies/ || fas fa-video
+  友链: /link/ || fas fa-link
+  关于: /about/ || fa-fw fas fa-heart card-announcement-animation
+
+code_blocks:
+  theme: light
+  macStyle: true
+  copy: true
+  language: true
+  shrink: false
+
+search:
+  use: local_search
+
+favicon: /img/favicon.png
+
+avatar:
+  img: /img/avatar.jpg
+  effect: false
+
+index_img: https://pic.netbian.com/uploads/allimg/241128/180832-173278851272ba.jpg
+archive_img: https://tva1.sinaimg.cn/large/832afe33ly1gbi1ubygflj21kw11y460.jpg
+footer_img: true
+
+index_layout: 1
+
+reward:
+  enable: false
+  QR_code:
+    - img: /img/wechat.jpg
+      link:
+      text: 微信
+    - img: /img/alipay.jpg
+      link:
+      text: 支付宝
+
+footer:
+  owner:
+    enable: true
+    since: 2017
+  copyright:
+    enable: false
+  custom_text: <div>嗨，欢迎来到我的博客，希望能帮助到您！</div>
+
+subtitle:
+  enable: true
+  effect: true
+  source: false
+  sub:
+    - 科比·布莱恩特（Kobe Bryant）
+    - "你知道洛杉矶林晨4点钟是什么样子吗?"
+
+aside:
+  card_author:
+    button:
+      enable: true
+      icon: fab fa-github
+      text: Follow Me
+      link: https://github.com/louhaojie99
+  card_announcement:
+    enable: true
+    content: 常常在思考, 喜欢做的事.
+  card_newest_comments:
+    enable: true
+    limit: 6
+    storage: 10
+    avatar: true
+  card_webinfo:
+    runtime_date: 01/09/2017 00:00:00
+
+translate:
+  enable: true
+  default: 繁
+  defaultEncoding: 2
+  translateDelay: 0
+  msgToTraditionalChinese: "繁"
+  msgToSimplifiedChinese: "簡"
+
+readmode: true
+
+theme_color:
+  enable: true
+  main: "#49B1F5"
+  paginator: "#00c4b6"
+  button_hover: "#FF7242"
+  text_selection: "#00c4b6"
+  link_color: "#49b1f5"
+  meta_color: "#858585"
+  hr_color: "#A4D8FA"
+  code_foreground: "#F47466"
+  code_background: "rgba(27, 31, 35, .05)"
+  toc_color: "#00c4b6"
+  blockquote_padding_color: "#49b1f5"
+  blockquote_background_color: "#49b1f5"
+
+activate_power_mode:
+  enable: true
+  colorful: true
+  shake: true
+  mobile: false
+
+canvas_nest:
+  enable: true
+  color: "0,0,255"
+  opacity: 0.7
+  zIndex: -1
+  count: 99
+  mobile: false
+
+clickShowText:
+  enable: true
+  text:
+    - 富强
+    - 民主
+    - 文明
+    - 和谐
+    - 自由
+    - 平等
+    - 公正
+    - 法治
+  fontSize: 15px
+  random: true
+  mobile: false
+
+pjax:
+  enable: true
+  exclude:
+    - /music/
+    - /no-pjax/
+
+aplayerInject:
+  enable: true
+  per_page: true
+
+instantpage: true
+
+inject:
+  head:
+    - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">
+    - <link rel="stylesheet" href="/css/custom.css">

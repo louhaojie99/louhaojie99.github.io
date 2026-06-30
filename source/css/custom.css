@@ -37,3 +37,29 @@ body {
 #aside-content .card-widget {
   background: var(--light_bg_color)
 }
+
+/* Keep the About menu heart animation local instead of relying on the
+ * external static-butterfly stylesheet, which no longer defines it. */
+.card-announcement-animation {
+  color: #ff4d4f;
+  transform-origin: center;
+  animation: butterfly-heartbeat 1.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes butterfly-heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  15%,
+  45% {
+    transform: scale(1.28);
+  }
+
+  30%,
+  60% {
+    transform: scale(0.92);
+  }
+}

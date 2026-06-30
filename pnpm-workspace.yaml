@@ -2,7 +2,7 @@ allowBuilds:
   core-js: true
   ejs: true
   fsevents: true
-  hexo-helper-live2d: strue
+  hexo-helper-live2d: false
   hexo-util: true
   highlight.js: true
   live2d-widget: true
