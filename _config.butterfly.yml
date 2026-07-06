@@ -30,8 +30,7 @@ avatar:
   img: /img/avatar.jpg
   effect: false
 
-# index_img: https://pic.netbian.com/uploads/allimg/241128/180832-173278851272ba.jpg
-index_img: https://w.wallhaven.cc/full/1p/wallhaven-1p6lm1.jpg
+index_img: https://pic.netbian.com/uploads/allimg/241128/180832-173278851272ba.jpg
 archive_img: https://tva1.sinaimg.cn/large/832afe33ly1gbi1ubygflj21kw11y460.jpg
 footer_img: true
 
@@ -151,3 +150,5 @@ inject:
   head:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">
     - <link rel="stylesheet" href="/css/custom.css">
+  bottom:
+    - <script src="/js/live2d.js"></script>
