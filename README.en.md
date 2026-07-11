@@ -6,23 +6,23 @@
 ╚═════╝   ╚══════╝   ╚═════╝    ╚═════╝
 ```
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> 简体中文 | [English](/README.en.md)
+<img src="https://gw.alipayobjects.com/zos/antfincdn/R8sN%24GNdh6/language.svg" width="18"> English | [简体中文](/README.md)
 
-> 基于 [Hexo](https://hexo.io/) 和 [Butterfly](https://butterfly.js.org/) 主题构建的个人博客。
+> A personal blog built with [Hexo](https://hexo.io/) and the [Butterfly](https://butterfly.js.org/) theme.
 
-## 💻 开发环境
+## 💻 Setup
 
 - Node.js 22+
 - pnpm 11
 
-## 🚀 本地运行
+## 🚀 Usage
 
 ```bash
 pnpm install
 pnpm run server
 ```
 
-## 📦 构建部署
+## 📦 Deploy
 
 ```bash
 pnpm run clean
