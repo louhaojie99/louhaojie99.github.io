@@ -140,10 +140,6 @@ pjax:
     - /music/
     - /no-pjax/
 
-aplayerInject:
-  enable: true
-  per_page: true
-
 instantpage: true
 
 lazyload:
