@@ -12,6 +12,7 @@ categories:
 comments: false
 abbrlink: 82781b43
 description: Linux 常用命令、目录、环境变量与 SSH 私钥。
+cover: /img/covers/tech-linux.png
 ---
 
 本文是一份面向开发工作的 Linux 速查手册，不追求收录所有命令，只保留高频、实用、值得记住的部分。示例默认使用 Bash；不同发行版、macOS 和 BusyBox 的个别参数可能不同，拿不准时先看帮助：

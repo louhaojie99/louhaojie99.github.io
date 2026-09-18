@@ -5,7 +5,7 @@ categories:
   - 【规范建设】
   - git
 comments: false
-cover: https://img1.baidu.com/it/u=2360602401,1741290578&fm=253&fmt=auto&app=138&f=JPEG?w=490&h=275
+cover: /img/covers/tech-react.png
 abbrlink: 12c7d59d
 date: 2022-01-08 00:00:00
 top_img:

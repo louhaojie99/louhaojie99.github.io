@@ -4,7 +4,7 @@ tags: AI
 categories:
   - AI
 comments: false
-cover: https://img2.baidu.com/it/u=862671645,3517925409&fm=253&fmt=auto?w=607&h=370
+cover: /img/covers/tech-mcp.png
 abbrlink: "mcp"
 date: 2025-06-23 09:12:00
 top_img:

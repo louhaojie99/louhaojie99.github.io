@@ -5,7 +5,7 @@ categories:
   - 【基础积累】
   - css
 comments: false
-cover: https://img0.baidu.com/it/u=424616749,1759440791&fm=253&fmt=auto&app=138&f=JPEG?w=900&h=453
+cover: /img/covers/tech-css.png
 abbrlink: c5073f42
 date: 2021-01-01 00:00:00
 top_img:

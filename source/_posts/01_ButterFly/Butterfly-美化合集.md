@@ -10,7 +10,7 @@ categories:
   - 合集
 keywords: "hexo,butterfly,主題,doc,教程,文件"
 description: Butterfly 美化/優化/魔改 合集
-cover: "https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/butterfly-diy-cover.png"
+cover: /img/covers/tech-butterfly.png
 abbrlink: 7670b080
 top_img:
 copyright: false

@@ -4,7 +4,7 @@ tags: TypeScript
 categories:
   - TypeScript
 comments: false
-cover: https://img0.baidu.com/it/u=4167016203,3166254551&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=311
+cover: /img/covers/tech-vscode.png
 abbrlink: ts01
 date: 2022-01-01 12:00:00
 top_img:

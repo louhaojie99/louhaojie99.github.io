@@ -2,7 +2,7 @@
 title: 十八、初次认识浏览器中Cookies
 tags: JavaScript
 categories: JavaScript
-cover: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.zhimg.com%2Fv2-25182ac6197d798d6d8b22d3b0710cbf_1200x500.jpg&refer=http%3A%2F%2Fpic1.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1645530798&t=e5c6ac493d1c8b04cd2a4740e1cc9870'
+cover: /img/covers/tech-javascript.png
 abbrlink: e8cb078e
 date: 2019-03-18 00:00:00
 ---

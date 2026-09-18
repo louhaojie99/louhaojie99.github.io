@@ -146,6 +146,11 @@ aplayerInject:
 
 instantpage: true
 
+lazyload:
+  enable: true
+  native: true
+  field: site
+
 inject:
   head:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">

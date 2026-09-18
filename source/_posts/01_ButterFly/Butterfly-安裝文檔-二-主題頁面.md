@@ -10,7 +10,7 @@ categories:
   - Docs文檔
 keywords: "hexo,butterfly,主題,doc,教程,文檔"
 description: Butterfly安裝文檔-主題頁面
-cover: https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/Butterfly-docs-02-cover.png
+cover: /img/covers/tech-butterfly.png
 abbrlink: dc584b87
 comments: false
 ---

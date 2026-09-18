@@ -7,7 +7,7 @@ tags:
 categories:
   - Python
 comments: false
-cover: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&h=675&q=85"
+cover: /img/covers/tech-python.png
 abbrlink: python
 description: Python 基础语法、核心机制与工程实践精讲。
 toc: true

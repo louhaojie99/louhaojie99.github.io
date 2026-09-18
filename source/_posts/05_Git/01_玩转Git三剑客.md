@@ -2,7 +2,7 @@
 title: 【极客笔记】玩转Git三剑客
 tags: git
 categories: git
-cover: "https://img1.baidu.com/it/u=1144986904,836932890&fm=253&fmt=auto&app=120&f=JPEG?w=640&h=301"
+cover: /img/covers/tech-git.png
 abbrlink: baa0aba5
 date: 2019-04-01 00:00:00
 ---

@@ -11,7 +11,8 @@
     "build": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "covers:generate": "node tools/generate-post-covers.js"
   },
   "hexo": {
     "version": "8.1.2"
