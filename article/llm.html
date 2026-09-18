@@ -1,0 +1,530 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大模型微调硬件入门 | HJ BLOG</title><meta name="author" content="娄豪杰"><meta name="copyright" content="娄豪杰"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从参数量、精度和微调方式出发，建立大模型微调显存需求的基础认知。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大模型微调硬件入门">
+<meta property="og:url" content="http://example.com/article/llm.html">
+<meta property="og:site_name" content="HJ BLOG">
+<meta property="og:description" content="从参数量、精度和微调方式出发，建立大模型微调显存需求的基础认知。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/covers/tech-ai-gpu.png">
+<meta property="article:published_time" content="2026-08-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-10T00:00:00.000Z">
+<meta property="article:author" content="娄豪杰">
+<meta property="article:tag" content="GPU">
+<meta property="article:tag" content="大模型">
+<meta property="article:tag" content="微调">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/covers/tech-ai-gpu.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "大模型微调硬件入门",
+  "url": "http://example.com/article/llm.html",
+  "image": "http://example.com/img/covers/tech-ai-gpu.png",
+  "datePublished": "2026-08-10T00:00:00.000Z",
+  "dateModified": "2026-08-10T00:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "娄豪杰",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/article/llm.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '大模型微调硬件入门',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><link rel="stylesheet" href="/css/custom.css?v=20260918-compact6"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">44</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-book"></i><span> 阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-bars"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/photo"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-fw fas fa-heart card-announcement-animation"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/covers/tech-ai-gpu.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">HJ BLOG</span></a><a class="nav-page-title" href="/"><span class="site-name">大模型微调硬件入门</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-book"></i><span> 阅读</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-fw fa fa-bars"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/photo"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-fw fas fa-heart card-announcement-animation"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">大模型微调硬件入门</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-10T00:00:00.000Z" title="发表于 2026-08-10 00:00:00">2026-08-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-10T00:00:00.000Z" title="更新于 2026-08-10 00:00:00">2026-08-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>先说结论：个人第一次学习微调，优先选择 <strong>7B 模型 + 4bit QLoRA</strong>。8～12GB 显存更适合入门；24GB 显存可以进一步尝试 16bit LoRA 或更大的模型。</p>
+<span id="more"></span>
+
+<h2 id="微调为什么需要显卡"><a href="#微调为什么需要显卡" class="headerlink" title="微调为什么需要显卡"></a>微调为什么需要显卡</h2><p>大模型已经通过大量数据学会了通用知识。<strong>微调（Fine-tuning）</strong> 是在现有模型上继续训练，让它更适合某个任务。例如，用客服问答数据训练通用模型，让它学会特定的回答方式。</p>
+<p>可以把大模型理解为已经毕业的学生，微调就是入职后的岗位培训。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>含义</th>
+<th>硬件开销</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>预训练</td>
+<td>从零训练一个模型</td>
+<td>最高，通常需要大规模集群</td>
+</tr>
+<tr>
+<td>微调</td>
+<td>对现有模型进行专项训练</td>
+<td>居中，个人可以使用 LoRA 或 QLoRA</td>
+</tr>
+<tr>
+<td>推理</td>
+<td>只让模型回答问题，不更新参数</td>
+<td>最低</td>
+</tr>
+</tbody></table>
+<p>本文讨论的是微调。能运行一个模型，不代表能微调它，因为训练还要保存许多中间数据。</p>
+<h2 id="决定显存的四个因素"><a href="#决定显存的四个因素" class="headerlink" title="决定显存的四个因素"></a>决定显存的四个因素</h2><h3 id="1-模型参数量"><a href="#1-模型参数量" class="headerlink" title="1. 模型参数量"></a>1. 模型参数量</h3><p><strong>参数（Parameter）</strong> 是模型学习到的大量数字，可以理解为模型积累的“经验值”。<strong>权重（Weight）</strong> 是最常见的一类参数，入门阶段可以先把二者看成一回事。</p>
+<p><code>B</code> 是 Billion（十亿）的缩写：</p>
+<ul>
+<li>7B：约 70 亿参数</li>
+<li>13B：约 130 亿参数</li>
+<li>30B：约 300 亿参数</li>
+<li>70B：约 700 亿参数</li>
+</ul>
+<p>参数越多，通常越占显存，训练也越慢。模型更大不代表在所有任务上一定更好。</p>
+<h3 id="2-数值精度"><a href="#2-数值精度" class="headerlink" title="2. 数值精度"></a>2. 数值精度</h3><p><code>bit</code>（位）表示保存一个数字使用多少信息。位数越高，记录越精细，占用空间也越大：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32bit &gt; 16bit &gt; 8bit &gt; 4bit &gt; 2bit</span><br></pre></td></tr></table></figure>
+
+<p><strong>量化（Quantization）</strong> 就是用更低的位数保存模型权重，类似压缩图片：文件变小了，但可能损失一些细节。4bit 常用于平衡显存和效果；2bit 更省显存，效果和兼容性风险也更高。</p>
+<p>仅计算权重时，可以这样估算：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">权重大小（GB）≈ 参数量（B）× 位数 ÷ 8</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>7B 模型精度</th>
+<th align="right">仅权重约占空间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>16bit</td>
+<td align="right">14GB</td>
+</tr>
+<tr>
+<td>8bit</td>
+<td align="right">7GB</td>
+</tr>
+<tr>
+<td>4bit</td>
+<td align="right">3.5GB</td>
+</tr>
+</tbody></table>
+<p>这只是权重大小，不是训练所需的全部显存。4bit QLoRA 也不是所有计算都使用 4bit，通常只是用 4bit 保存基础模型权重。</p>
+<h3 id="3-微调方式"><a href="#3-微调方式" class="headerlink" title="3. 微调方式"></a>3. 微调方式</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>大白话解释</th>
+<th>显存开销</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full</td>
+<td>更新模型的全部参数，相当于重写整本书</td>
+<td>最高</td>
+</tr>
+<tr>
+<td>Freeze</td>
+<td>冻结大部分参数，只修改部分章节</td>
+<td>较高</td>
+</tr>
+<tr>
+<td>LoRA</td>
+<td>不改原模型，额外训练一本“小笔记”</td>
+<td>较低</td>
+</tr>
+<tr>
+<td>QLoRA</td>
+<td>先压缩原模型，再训练“小笔记”</td>
+<td>最低</td>
+</tr>
+</tbody></table>
+<p>LoRA 新增的少量可训练参数称为<strong>适配器（Adapter）</strong>。训练完成后通常只需保存适配器，使用时再和原模型一起加载。</p>
+<p>QLoRA 可以理解为“量化 + LoRA”。个人学习常用 4bit QLoRA，显存充足时可以选择 16bit LoRA。</p>
+<p>表格中还会出现两个精度名词：</p>
+<ul>
+<li><strong>AMP</strong>：自动混合精度，由训练框架混合使用不同精度，不等于全程使用 32bit。</li>
+<li><strong>BF16 &#x2F; FP16</strong>：两种 16 位数字格式，都比常规 32 位格式更省空间。</li>
+</ul>
+<p>GaLore、BAdam 也是降低训练开销的方法，但原理与 LoRA 不同。第一次学习先掌握 LoRA 和 QLoRA 即可。</p>
+<h3 id="4-训练配置"><a href="#4-训练配置" class="headerlink" title="4. 训练配置"></a>4. 训练配置</h3><ul>
+<li><strong>Token</strong>：模型读取文本的基本单位，可以是字、词或词的一部分。</li>
+<li><strong>上下文长度</strong>：一次送入模型的 Token 数量。文本越长，通常越占显存。</li>
+<li><strong>批次大小（Batch Size）</strong>：一次处理的样本数量。批次越大，通常越占显存。</li>
+<li><strong>梯度检查点</strong>：少保存部分中间结果，需要时重新计算，用时间换显存。</li>
+<li><strong>梯度累积</strong>：分多次处理小批次，再统一更新参数，用于模拟较大的批次。</li>
+<li><strong>参数卸载（Offload）</strong>：把部分数据放到系统内存或硬盘，用速度换显存。</li>
+</ul>
+<p>数据集总量主要影响训练时间和磁盘占用；单条数据长度、上下文长度和批次大小更直接影响峰值显存。</p>
+<h2 id="为什么训练显存高于权重大小"><a href="#为什么训练显存高于权重大小" class="headerlink" title="为什么训练显存高于权重大小"></a>为什么训练显存高于权重大小</h2><p>先分清三个硬件名词：</p>
+<ul>
+<li><strong>显存（VRAM）</strong>：显卡自带的高速空间，模型和训练数据主要放在这里。</li>
+<li><strong>系统内存（RAM）</strong>：用于加载模型、处理数据和参数卸载，不能直接代替显存。</li>
+<li><strong>硬盘</strong>：用于保存模型、数据集、日志和训练结果，也不能代替显存。</li>
+</ul>
+<p>训练时，显存除了保存模型权重，还要保存：</p>
+<ul>
+<li><strong>激活值</strong>：模型计算时产生的中间结果</li>
+<li><strong>梯度</strong>：告诉参数应该如何调整的数据</li>
+<li><strong>优化器状态</strong>：更新参数时需要的历史信息</li>
+<li>临时计算缓冲区</li>
+</ul>
+<p>因此，7B 模型的 4bit 权重约为 3.5GB，实际微调显存会明显高于 3.5GB。</p>
+<h2 id="显存需求估算表"><a href="#显存需求估算表" class="headerlink" title="显存需求估算表"></a>显存需求估算表</h2><p>先找模型大小所在的列，再找微调方式所在的行，交叉位置就是估算显存。</p>
+<table>
+<thead>
+<tr>
+<th>微调方式</th>
+<th align="right">精度</th>
+<th align="right">7B</th>
+<th align="right">13B</th>
+<th align="right">30B</th>
+<th align="right">70B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full</td>
+<td align="right">AMP</td>
+<td align="right">120GB</td>
+<td align="right">240GB</td>
+<td align="right">600GB</td>
+<td align="right">1200GB</td>
+</tr>
+<tr>
+<td>Full</td>
+<td align="right">16bit</td>
+<td align="right">60GB</td>
+<td align="right">120GB</td>
+<td align="right">300GB</td>
+<td align="right">600GB</td>
+</tr>
+<tr>
+<td>Freeze</td>
+<td align="right">16bit</td>
+<td align="right">20GB</td>
+<td align="right">40GB</td>
+<td align="right">80GB</td>
+<td align="right">200GB</td>
+</tr>
+<tr>
+<td>LoRA &#x2F; GaLore &#x2F; BAdam</td>
+<td align="right">16bit</td>
+<td align="right">16GB</td>
+<td align="right">32GB</td>
+<td align="right">64GB</td>
+<td align="right">160GB</td>
+</tr>
+<tr>
+<td>QLoRA</td>
+<td align="right">8bit</td>
+<td align="right">10GB</td>
+<td align="right">20GB</td>
+<td align="right">40GB</td>
+<td align="right">80GB</td>
+</tr>
+<tr>
+<td>QLoRA</td>
+<td align="right">4bit</td>
+<td align="right">6GB</td>
+<td align="right">12GB</td>
+<td align="right">24GB</td>
+<td align="right">48GB</td>
+</tr>
+<tr>
+<td>QLoRA</td>
+<td align="right">2bit</td>
+<td align="right">4GB</td>
+<td align="right">8GB</td>
+<td align="right">16GB</td>
+<td align="right">24GB</td>
+</tr>
+</tbody></table>
+<p>这张表用于初步选型，不是绝对最低配置。模型结构、软件版本、上下文长度和批次大小都会改变实际占用。</p>
+<p>例如，表中 7B 4bit QLoRA 约需 6GB，但这更接近极限配置。8～12GB 显存更适合稳定学习。13B 也不能直接代表所有 14B 模型，两者的实际占用可能不同。</p>
+<h2 id="根据显存选择方案"><a href="#根据显存选择方案" class="headerlink" title="根据显存选择方案"></a>根据显存选择方案</h2><table>
+<thead>
+<tr>
+<th align="right">GPU 显存</th>
+<th>推荐学习方案</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">6GB</td>
+<td>7B 4bit QLoRA</td>
+<td>仅适合极限实验，需要短上下文和小批次</td>
+</tr>
+<tr>
+<td align="right">8～12GB</td>
+<td>7B 4bit QLoRA</td>
+<td>适合完成基础微调流程</td>
+</tr>
+<tr>
+<td align="right">16GB</td>
+<td>7B QLoRA</td>
+<td>可以增加上下文长度或批次大小</td>
+</tr>
+<tr>
+<td align="right">24GB</td>
+<td>7B 16bit LoRA；13B 4bit QLoRA</td>
+<td>个人学习中较均衡</td>
+</tr>
+<tr>
+<td align="right">48GB 及以上</td>
+<td>13B 16bit LoRA；30B 4bit QLoRA</td>
+<td>适合更大的模型和训练配置</td>
+</tr>
+</tbody></table>
+<p>推荐从高于估算值一档的配置开始，为临时数据留出余量。例如，24GB 显卡学习微调时，7B 4bit QLoRA 最轻松；需要提高精度或模型规模时，再尝试 7B 16bit LoRA 或 13B 4bit QLoRA。</p>
+<p>还要注意以下硬件条件：</p>
+<ul>
+<li><strong>CPU</strong>：负责读取和预处理数据，通常不是微调的主要瓶颈，预算应优先留给 GPU 和显存。</li>
+<li><strong>系统内存</strong>：7B 入门建议 16GB 起，32GB 更宽松；更大模型建议 32～64GB。</li>
+<li><strong>磁盘空间</strong>：7B 入门建议至少预留 30～50GB，更大模型和多个检查点需要更多空间。</li>
+<li><strong>GPU 兼容性</strong>：很多训练工具依赖 NVIDIA 的 CUDA 计算平台。老显卡即使显存够，也可能不兼容或速度过慢。</li>
+<li><strong>GPU 算力</strong>：显存决定“能不能装下”，算力影响“训练要等多久”。</li>
+<li><strong>多卡训练</strong>：两张 24GB 显卡不会自动变成一张 48GB 显卡，必须由训练框架正确切分模型和训练状态。</li>
+<li><strong>电源与散热</strong>：本地长时间训练会让显卡持续高负载，装机时要确认电源功率和散热能力。</li>
+</ul>
+<p>如果只是学习，可以先使用现有设备或按需租用云 GPU，确认会长期训练后再购买硬件。</p>
+<h2 id="爆显存时怎么处理"><a href="#爆显存时怎么处理" class="headerlink" title="爆显存时怎么处理"></a>爆显存时怎么处理</h2><p>出现 <code>CUDA out of memory</code>，说明当前配置超过了可用显存。按下面的顺序处理：</p>
+<ol>
+<li>关闭其他 GPU 程序，用 <code>nvidia-smi</code> 查看显存占用。</li>
+<li>将批次大小降到 <code>1</code>，需要更大有效批次时使用梯度累积。</li>
+<li>缩短上下文长度，例如从 4096 降到 2048 或 1024。</li>
+<li>开启梯度检查点。</li>
+<li>将 16bit LoRA 改为 8bit 或 4bit QLoRA。</li>
+<li>换用参数量更小的模型。</li>
+<li>最后再考虑参数卸载或多卡切分。</li>
+</ol>
+<p>一次只调整一项配置并记录显存变化，方便判断真正的影响因素。</p>
+<h2 id="最后记住五点"><a href="#最后记住五点" class="headerlink" title="最后记住五点"></a>最后记住五点</h2><ol>
+<li><code>B</code> 表示参数量，数字越大，通常越吃硬件。</li>
+<li><code>bit</code> 表示数值精度，位数越低越省空间，但可能损失更多信息。</li>
+<li>训练显存不只有模型权重，还包括激活值、梯度和优化器状态。</li>
+<li>Full 成本最高，LoRA 更均衡，QLoRA 的显存门槛最低。</li>
+<li>新手优先选择 <strong>7B + 4bit QLoRA</strong>，先跑通流程，再升级模型和硬件。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">娄豪杰</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/article/llm.html">http://example.com/article/llm.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">HJ BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a><a class="post-meta__tags" href="/tags/%E5%BE%AE%E8%B0%83/">微调</a><a class="post-meta__tags" href="/tags/GPU/">GPU</a></div><div class="post-share"><div class="social-share" data-image="/img/covers/tech-ai-gpu.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/article/golang-basics.html" title="Go 基础入门"><img class="cover" src="/img/covers/tech-go.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Go 基础入门</div></div><div class="info-2"><div class="info-item-1">Go 是一门静态类型、编译型语言。它的语法不复杂，标准工具链完整，并发能力是语言的一部分，尤其适合编写 Web 服务、命令行工具、云原生基础设施和网络程序。 这篇文章从零开始介绍 Go 的核心知识。读完后，你应该能够创建 Go 项目、读懂常见代码，并独立写出一个带测试的小型程序。   安装与环境检查从 Go 官网 安装当前稳定版本，然后检查环境： 12go versiongo env GOROOT GOPATH GOPROXY   GOROOT：Go SDK 的安装目录，通常不需要手动修改。 GOPATH：下载依赖、安装命令等内容的工作目录。 GOPROXY：模块代理地址。  现代 Go 项目使用 Go Modules 管理依赖，不需要把项目放进 GOPATH。 创建第一个项目123mkdir hello-gocd hello-gogo mod init example.com/hello-go  创建 main.go： 1234567package mainimport &quot;fmt&quot;func main() &#123;	fmt.Println(&quot;He...</div></div></div></a><a class="pagination-related" href="/article/82781b43.html" title="Linux 常用命令、目录、环境变量与 SSH 私钥"><img class="cover" src="/img/covers/tech-linux.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Linux 常用命令、目录、环境变量与 SSH 私钥</div></div><div class="info-2"><div class="info-item-1">本文是一份面向开发工作的 Linux 速查手册，不追求收录所有命令，只保留高频、实用、值得记住的部分。示例默认使用 Bash；不同发行版、macOS 和 BusyBox 的个别参数可能不同，拿不准时先看帮助： 1234man commandcommand --helptype command          # 判断是命令、别名、函数还是 Shell 内建命令command -v node       # 查看实际执行的程序路径  一、目录与文件目录操作   命令 作用    pwd 显示当前目录   ls -lah 查看文件、权限、大小和隐藏文件   cd /path 进入指定目录   cd ~ 返回当前用户家目录   cd - 返回上一次所在目录   mkdir -p logs/app 创建多级目录   路径中，~ 表示家目录，. 表示当前目录，.. 表示上一级目录，/ 表示文件系统根目录。 文件操作1234567touch app.log                       # 创建空文件或更新时间cp config.example.yml config.yml ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">娄豪杰</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">44</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">20</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/louhaojie99"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">常常在思考, 喜欢做的事.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E8%B0%83%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%98%BE%E5%8D%A1"><span class="toc-number">1.</span> <span class="toc-text">微调为什么需要显卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E5%AE%9A%E6%98%BE%E5%AD%98%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%9B%A0%E7%B4%A0"><span class="toc-number">2.</span> <span class="toc-text">决定显存的四个因素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">1. 模型参数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E5%80%BC%E7%B2%BE%E5%BA%A6"><span class="toc-number">2.2.</span> <span class="toc-text">2. 数值精度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BE%AE%E8%B0%83%E6%96%B9%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">3. 微调方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AE%AD%E7%BB%83%E9%85%8D%E7%BD%AE"><span class="toc-number">2.4.</span> <span class="toc-text">4. 训练配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%AD%E7%BB%83%E6%98%BE%E5%AD%98%E9%AB%98%E4%BA%8E%E6%9D%83%E9%87%8D%E5%A4%A7%E5%B0%8F"><span class="toc-number">3.</span> <span class="toc-text">为什么训练显存高于权重大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%AD%98%E9%9C%80%E6%B1%82%E4%BC%B0%E7%AE%97%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">显存需求估算表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%98%BE%E5%AD%98%E9%80%89%E6%8B%A9%E6%96%B9%E6%A1%88"><span class="toc-number">5.</span> <span class="toc-text">根据显存选择方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%88%86%E6%98%BE%E5%AD%98%E6%97%B6%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">爆显存时怎么处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E8%AE%B0%E4%BD%8F%E4%BA%94%E7%82%B9"><span class="toc-number">7.</span> <span class="toc-text">最后记住五点</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/golang-basics.html" title="Go 基础入门"><img src="/img/covers/tech-go.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Go 基础入门"/ loading='lazy'></a><div class="content"><a class="title" href="/article/golang-basics.html" title="Go 基础入门">Go 基础入门</a><time datetime="2026-09-18T13:16:52.000Z" title="发表于 2026-09-18 13:16:52">2026-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/llm.html" title="大模型微调硬件入门"><img src="/img/covers/tech-ai-gpu.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大模型微调硬件入门"/ loading='lazy'></a><div class="content"><a class="title" href="/article/llm.html" title="大模型微调硬件入门">大模型微调硬件入门</a><time datetime="2026-08-10T00:00:00.000Z" title="发表于 2026-08-10 00:00:00">2026-08-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/82781b43.html" title="Linux 常用命令、目录、环境变量与 SSH 私钥"><img src="/img/covers/tech-linux.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux 常用命令、目录、环境变量与 SSH 私钥"/ loading='lazy'></a><div class="content"><a class="title" href="/article/82781b43.html" title="Linux 常用命令、目录、环境变量与 SSH 私钥">Linux 常用命令、目录、环境变量与 SSH 私钥</a><time datetime="2026-01-02T00:00:00.000Z" title="发表于 2026-01-02 00:00:00">2026-01-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/python.html" title="Python 精讲"><img src="/img/covers/tech-python.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 精讲"/ loading='lazy'></a><div class="content"><a class="title" href="/article/python.html" title="Python 精讲">Python 精讲</a><time datetime="2026-01-01T00:00:00.000Z" title="发表于 2026-01-01 00:00:00">2026-01-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/mcp.html" title="MCP到底是什么？"><img src="/img/covers/tech-mcp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MCP到底是什么？"/ loading='lazy'></a><div class="content"><a class="title" href="/article/mcp.html" title="MCP到底是什么？">MCP到底是什么？</a><time datetime="2025-06-23T09:12:00.000Z" title="发表于 2025-06-23 09:12:00">2025-06-23</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/covers/tech-ai-gpu.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 娄豪杰</span></div><div class="footer_custom_text"><div>嗨，欢迎来到我的博客，希望能帮助到您！</div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.0"></script><script src="/js/main.js?v=5.7.0"></script><script src="/js/tw_cn.js?v=5.7.0"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script src="/js/live2d.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([data-fancybox]):not([href="/music/"]):not([href="/no-pjax/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      if (!item.parentNode) return
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    const responseURL = e.request && e.request.responseURL
+    if (e.request && e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : responseURL && (window.location.href = responseURL)
+    } else if (responseURL) {
+      window.location.href = responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.0"></script></div></div></body></html>
