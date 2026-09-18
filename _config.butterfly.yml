@@ -154,6 +154,6 @@ lazyload:
 inject:
   head:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">
-    - <link rel="stylesheet" href="/css/custom.css">
+    - <link rel="stylesheet" href="/css/custom.css?v=20260918-compact6">
   bottom:
     - <script src="/js/live2d.js"></script>

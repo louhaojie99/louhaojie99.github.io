@@ -11,6 +11,276 @@ body {
 
 #aside-content .card-widget { background: var(--light_bg_color); }
 
+/* Compact, responsive homepage cards.
+ * Keep these overrides in the site layer so Butterfly can be upgraded safely. */
+.layout:has(> #recent-posts) {
+  --home-card-gap: 10px;
+  --home-card-radius: 10px;
+  --home-card-shadow: 0 4px 14px rgba(31, 45, 61, .065);
+  --home-card-shadow-hover: 0 8px 20px rgba(31, 45, 61, .11);
+  max-width: 1140px;
+  padding: 22px 15px 30px;
+}
+
+.layout:has(> #recent-posts) > #recent-posts {
+  width: 75%;
+}
+
+.layout:has(> #recent-posts) > #aside-content {
+  width: 25%;
+  padding-left: var(--home-card-gap);
+}
+
+#recent-posts > .recent-post-items > .recent-post-item {
+  height: 165px !important;
+  margin-bottom: var(--home-card-gap, 10px);
+  border-radius: var(--home-card-radius, 10px);
+  box-shadow: var(--home-card-shadow, 0 5px 18px rgba(31, 45, 61, .07));
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+#recent-posts > .recent-post-items > .recent-post-item:hover {
+  box-shadow: var(--home-card-shadow-hover, 0 10px 26px rgba(31, 45, 61, .12));
+  transform: translateY(-2px);
+}
+
+/* A text-only card does not need the same height as a card with a cover. */
+#recent-posts > .recent-post-items > .recent-post-item:has(.recent-post-info.no-cover) {
+  min-height: 165px;
+  height: 165px !important;
+}
+
+#recent-posts .recent-post-item .post_cover {
+  width: 28%;
+}
+
+#recent-posts .recent-post-item .post_cover .post-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#recent-posts .recent-post-item > .recent-post-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 72%;
+  padding: 16px 20px;
+}
+
+#recent-posts .recent-post-item > .recent-post-info.no-cover {
+  width: 100%;
+  padding: 16px 20px;
+}
+
+#recent-posts .recent-post-info > .article-title {
+  font-size: 1.18em;
+  line-height: 1.3;
+  -webkit-line-clamp: 1;
+}
+
+#recent-posts .recent-post-info > .article-meta-wrap {
+  margin: 2px 0 4px;
+  font-size: .76em;
+  line-height: 1.4;
+}
+
+#recent-posts .recent-post-info > .content {
+  font-size: .84em;
+  line-height: 1.55;
+  -webkit-line-clamp: 2;
+}
+
+.layout:has(> #recent-posts) #aside-content .card-widget {
+  margin-bottom: var(--home-card-gap);
+  padding: 12px 14px;
+  border-radius: var(--home-card-radius);
+  box-shadow: var(--home-card-shadow);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.layout:has(> #recent-posts) #aside-content .card-widget:hover {
+  box-shadow: var(--home-card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.layout:has(> #recent-posts) #aside-content .card-info .avatar-img {
+  width: 68px;
+  height: 68px;
+}
+
+.layout:has(> #recent-posts) #aside-content .card-info .author-info-name {
+  margin-top: 2px;
+  font-size: 1.16em;
+}
+
+.layout:has(> #recent-posts) #aside-content .card-info .site-data {
+  margin: 7px 0 0;
+  font-size: .88em;
+}
+
+.layout:has(> #recent-posts) #aside-content .card-info #card-info-btn {
+  margin-top: 7px;
+  font-size: .88em;
+  line-height: 2;
+}
+
+.layout:has(> #recent-posts) #aside-content .item-headline {
+  padding-bottom: 3px;
+  font-size: 1em;
+}
+
+.layout:has(> #recent-posts) #aside-content .aside-list > .aside-list-item {
+  padding: 4px 0;
+}
+
+.layout:has(> #recent-posts) #aside-content .aside-list > .aside-list-item .thumbnail {
+  width: 3em;
+  height: 3em;
+}
+
+.layout:has(> #recent-posts) #aside-content .aside-list > .aside-list-item .content {
+  padding-left: 8px;
+  font-size: .84em;
+}
+
+@media screen and (min-width: 901px) and (max-width: 1200px) {
+  .layout:has(> #recent-posts) {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .layout:has(> #recent-posts) > #recent-posts { width: 73%; }
+  .layout:has(> #recent-posts) > #aside-content { width: 27%; }
+
+  #recent-posts > .recent-post-items > .recent-post-item,
+  #recent-posts > .recent-post-items > .recent-post-item:has(.recent-post-info.no-cover) {
+    height: 165px !important;
+  }
+
+  #recent-posts .recent-post-item > .recent-post-info,
+  #recent-posts .recent-post-item > .recent-post-info.no-cover {
+    padding: 15px 18px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .layout:has(> #recent-posts) > #recent-posts,
+  .layout:has(> #recent-posts) > #aside-content {
+    align-self: stretch;
+    width: auto !important;
+  }
+}
+
+/* Butterfly stacks the sidebar at this width; use a compact two-column rail. */
+@media screen and (min-width: 769px) and (max-width: 900px) {
+  .layout:has(> #recent-posts) {
+    padding: 18px 18px 28px;
+  }
+
+  .layout:has(> #recent-posts) > #aside-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--home-card-gap);
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .layout:has(> #recent-posts) #aside-content .card-widget {
+    margin-bottom: 0;
+  }
+
+  .layout:has(> #recent-posts) #aside-content > .sticky_layout {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--home-card-gap);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .layout:has(> #recent-posts) {
+    --home-card-gap: 9px;
+    --home-card-radius: 9px;
+    padding: 12px 9px 24px;
+  }
+
+  #recent-posts > .recent-post-items > .recent-post-item {
+    flex-direction: row;
+    height: 118px !important;
+  }
+
+  #recent-posts > .recent-post-items > .recent-post-item:has(.recent-post-info.no-cover) {
+    height: 106px !important;
+    min-height: 106px;
+  }
+
+  #recent-posts .recent-post-item .post_cover {
+    width: 32%;
+    height: 100%;
+  }
+
+  #recent-posts .recent-post-item > .recent-post-info {
+    width: 68%;
+    padding: 11px 14px;
+  }
+
+  #recent-posts .recent-post-item > .recent-post-info.no-cover {
+    width: 100%;
+    padding: 11px 14px;
+  }
+
+  #recent-posts .recent-post-info > .article-title {
+    font-size: 1.03em;
+    line-height: 1.32;
+    -webkit-line-clamp: 2;
+  }
+
+  #recent-posts .recent-post-info > .article-meta-wrap {
+    margin: 2px 0 3px;
+    font-size: .7em;
+  }
+
+  #recent-posts .recent-post-info > .content {
+    font-size: .76em;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .layout:has(> #recent-posts) { padding-right: 7px; padding-left: 7px; }
+
+  #recent-posts > .recent-post-items > .recent-post-item { height: 104px !important; }
+  #recent-posts > .recent-post-items > .recent-post-item:has(.recent-post-info.no-cover) { height: 98px !important; min-height: 98px; }
+  #recent-posts .recent-post-item .post_cover { width: 34%; }
+
+  #recent-posts .recent-post-item > .recent-post-info {
+    width: 66%;
+    padding: 9px 11px;
+  }
+
+  #recent-posts .recent-post-item > .recent-post-info.no-cover {
+    width: 100%;
+    padding: 9px 11px;
+  }
+
+  #recent-posts .recent-post-info > .article-meta-wrap .article-meta { display: none; }
+  #recent-posts .recent-post-info:not(.no-cover) > .content { display: none; }
+  #recent-posts .recent-post-info.no-cover > .content { -webkit-line-clamp: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #recent-posts > .recent-post-items > .recent-post-item,
+  .layout:has(> #recent-posts) #aside-content .card-widget {
+    transition: none;
+  }
+
+  #recent-posts > .recent-post-items > .recent-post-item:hover,
+  .layout:has(> #recent-posts) #aside-content .card-widget:hover {
+    transform: none;
+  }
+}
+
 .card-announcement-animation {
   color: #ff4d4f;
   transform-origin: center;
