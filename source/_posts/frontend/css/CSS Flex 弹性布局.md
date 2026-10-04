@@ -2,7 +2,6 @@
 title: CSS Flex 弹性布局
 tags: css
 categories:
-  - 【基础积累】
   - css
 comments: false
 cover: /img/covers/tech-css.png

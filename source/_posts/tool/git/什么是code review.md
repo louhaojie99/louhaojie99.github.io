@@ -1,8 +1,7 @@
 ---
-title: 【规范建设】什么是code review?
+title: 什么是 code review?
 tags: git
 categories:
-  - 【规范建设】
   - git
 comments: false
 cover: /img/covers/tech-git.png

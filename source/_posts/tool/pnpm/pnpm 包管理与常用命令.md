@@ -2,7 +2,6 @@
 title: pnpm 包管理与常用命令
 tags: pnpm
 categories:
-  - 【基础积累】
   - pnpm
 comments: false
 cover: /img/covers/tech-pnpm.png

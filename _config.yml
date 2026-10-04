@@ -73,6 +73,7 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  Git: git
 tag_map:
 
 # Metadata elements

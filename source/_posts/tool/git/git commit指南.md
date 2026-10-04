@@ -1,8 +1,7 @@
 ---
-title: 【规范建设】git commit 规范化指南
+title: git commit 规范化指南
 tags: git
 categories:
-  - 【规范建设】
   - git
 comments: false
 cover: /img/covers/tech-git.png

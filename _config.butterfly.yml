@@ -3,45 +3,40 @@
 
 # Native Butterfly menu syntax: label: URL || icon; group||icon||hide: children.
 menu:
-  首页: / || fas fa-home
-  前端||fas fa-code||hide:
-    全部前端: /categories/前端/ || fas fa-folder-open
-    HTML: /categories/前端/HTML/ || fab fa-html5
-    CSS: /categories/前端/CSS/ || fab fa-css3-alt
-    JavaScript: /categories/前端/JavaScript/ || fab fa-js
-    TypeScript: /categories/前端/TypeScript/ || fas fa-code
-    Node.js: /categories/前端/Nodejs/ || fab fa-node-js
-    Next.js: /categories/前端/Nextjs/ || fas fa-code
-    工程化: /categories/前端/工程化/ || fas fa-tools
-  后端||fas fa-server||hide:
-    全部后端: /categories/后端/ || fas fa-folder-open
-    Go: /categories/后端/Go/ || fas fa-code
-    Python: /categories/后端/Python/ || fab fa-python
-    Java: /categories/后端/Java/ || fab fa-java
-    MySQL: /categories/后端/MySQL/ || fas fa-database
-    PostgreSQL: /categories/后端/PostgreSQL/ || fas fa-database
-    Linux: /categories/后端/Linux/ || fab fa-linux
-    Docker: /categories/后端/Docker/ || fab fa-docker
-  AI||fas fa-robot||hide:
-    全部 AI: /categories/AI/ || fas fa-folder-open
-    Agent / MCP: /categories/AI/Agent/ || fas fa-project-diagram
-    大模型微调: /categories/AI/大模型微调/ || fas fa-microchip
-  更多||||hide:
-    归档: /archives/ || fas fa-archive
-    标签: /tags/ || fas fa-tags
-    分类: /categories/ || fas fa-folder-open
-    相册: /photo/ || fas fa-image
-    音乐: /music/ || fas fa-music
-    电影: /movies/ || fas fa-video
-    友链: /link/ || fas fa-link
-  关于: /about/ || fas fa-heart card-announcement-animation
+  首页: /
+  前端||||hide:
+    全部: /categories/前端/
+    HTML: /categories/前端/HTML/
+    CSS: /categories/前端/CSS/
+    JavaScript: /categories/前端/JavaScript/
+    TypeScript: /categories/前端/TypeScript/
+    Node.js: /categories/前端/Nodejs/
+    Next.js: /categories/前端/Nextjs/
+  后端||||hide:
+    全部: /categories/后端/
+    Python: /categories/后端/Python/
+    Go: /categories/后端/Go/
+    Java: /categories/后端/Java/
+    MySQL: /categories/后端/MySQL/
+    PostgreSQL: /categories/后端/PostgreSQL/
+  AI||||hide:
+    全部: /categories/AI/
+    Agent / MCP: /categories/AI/Agent/
+    微调与算力: /categories/AI/大模型微调/
+  工具||||hide:
+    全部: /categories/工程实践/
+    Git: /categories/工程实践/git/
+    包管理: /categories/工程实践/包管理/
+    Linux: /categories/工程实践/Linux/
+    Docker: /categories/工程实践/Docker/
+  关于: /about/
 
 # Site archive supplements, merging native and legacy category membership.
-# These collect legacy categories without changing existing article/category URLs.
+# Keep old post/category URLs while organizing navigation by development domain.
 navigation_archives:
   - category: [前端]
-    source_prefixes: [frontend/]
-    match_categories: [Nodejs, Node.js, nodejs, node, Nextjs, Next.js, nextjs]
+    source_prefixes: [frontend/html/, frontend/css/, frontend/javascript/, frontend/typescript/, frontend/nodejs/, frontend/nextjs/]
+    match_categories: [HTML, CSS, css, JavaScript, Ajax, TypeScript, Nodejs, Node.js, nodejs, node, Nextjs, Next.js, nextjs]
   - category: [前端, HTML]
     match_categories: [HTML]
   - category: [前端, CSS]
@@ -56,10 +51,8 @@ navigation_archives:
   - category: [前端, Nextjs]
     match_categories: [Nextjs, Next.js, nextjs]
     source_prefixes: [frontend/nextjs/]
-  - category: [前端, 工程化]
-    match_categories: [pnpm]
   - category: [后端]
-    source_prefixes: [backend/, devops/]
+    source_prefixes: [backend/]
     match_categories: [MySQL, mysql, PostgreSQL, postgresql, Postgres, postgres, Java, java]
   - category: [后端, Go]
     match_categories: [Go]
@@ -74,15 +67,47 @@ navigation_archives:
   - category: [后端, PostgreSQL]
     match_categories: [PostgreSQL, postgresql, Postgres, postgres]
     source_prefixes: [backend/postgresql/]
+  - category: [AI]
+    source_prefixes: [ai/]
+  - category: [AI, Agent]
+    source_prefixes: [ai/agent/]
+  - category: [AI, 大模型微调]
+    source_prefixes: [ai/hardware/]
+  - category: [工程实践]
+    match_categories: [git, Git, pnpm, Linux, Docker]
+    source_prefixes: [engineering/, tool/git/, tool/pnpm/, devops/]
+  - category: [工程实践, Git]
+    match_categories: [git, Git]
+    source_prefixes: [tool/git/]
+  - category: [工程实践, 包管理]
+    match_categories: [pnpm]
+    source_prefixes: [tool/pnpm/]
+  - category: [工程实践, Linux]
+    match_categories: [Linux]
+    source_prefixes: [devops/linux/]
+  - category: [工程实践, Docker]
+    match_categories: [Docker]
+    source_prefixes: [devops/docker/]
+
+  # Compatibility archives retained for existing links, outside the main menu.
+  - category: [工程实践, 开发工具]
+    source_prefixes: [tool/shell/]
+  - category: [工程实践, 博客搭建]
+    match_categories: [Docs文檔]
+    source_prefixes: [blog/hexo/]
+
+  - category: [后端, Nodejs]
+    match_categories: [Nodejs, Node.js, nodejs]
+    source_prefixes: [backend/nodejs/, frontend/nodejs/]
+  - category: [前端, 工程化]
+    match_categories: [pnpm]
   - category: [后端, Linux]
     match_categories: [Linux]
   - category: [后端, Docker]
     match_categories: [Docker]
-  - category: [AI]
-  - category: [AI, Agent]
-    source_prefixes: [ai/agent/]
-  - category: [AI, 大模型微调]
-    source_prefixes: [tool/硬件算力/]
+  - category: [Git]
+    match_categories: [git, Git]
+    source_prefixes: [tool/git/]
 
 code_blocks:
   theme: light
@@ -122,7 +147,17 @@ footer:
     since: 2017
   copyright:
     enable: false
-  custom_text: <div>嗨，欢迎来到我的博客，希望能帮助到您！</div>
+  custom_text: |
+    <nav class="footer-links" aria-label="更多页面">
+      <a href="/archives/">归档</a>
+      <a href="/tags/">标签</a>
+      <a href="/categories/">分类</a>
+      <a href="/photo/">相册</a>
+      <a href="/music/">音乐</a>
+      <a href="/movies/">电影</a>
+      <a href="/link/">友链</a>
+    </nav>
+    <div>嗨，欢迎来到我的博客，希望能帮助到您！</div>
 
 subtitle:
   enable: true
@@ -221,7 +256,7 @@ inject:
   head:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">
     - <link rel="stylesheet" href="/css/custom.css?v=20260918-compact6">
-    - <link rel="stylesheet" href="/css/navigation.css?v=20261004-native">
+    - <link rel="stylesheet" href="/css/navigation.css?v=20261004-compact">
   bottom:
     - <script src="/js/live2d.js"></script>
-    - <script src="/js/navigation.js?v=20261004-native" defer></script>
+    - <script src="/js/navigation.js?v=20261004-compact" defer></script>

@@ -6,7 +6,6 @@ tags:
   - Docker
   - Docker Compose
 categories:
-  - 【开发基础】
   - Docker
 comments: false
 abbrlink: docker-common-commands

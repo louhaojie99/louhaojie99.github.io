@@ -1,11 +1,10 @@
 ---
-title: 【工作日常】Git 如何拉取仓库中的指定文件夹
+title: Git 如何拉取仓库中的指定文件夹
 date: 2026-10-04 00:00:00
 updated: 2026-10-04 00:00:00
 tags:
   - git
 categories:
-  - 【工作日常】
   - git
 comments: false
 cover: /img/covers/tech-git.png

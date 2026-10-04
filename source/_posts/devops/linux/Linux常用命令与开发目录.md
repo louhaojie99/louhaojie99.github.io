@@ -7,7 +7,6 @@ tags:
   - Shell
   - SSH
 categories:
-  - 【开发基础】
   - Linux
 comments: false
 abbrlink: 82781b43

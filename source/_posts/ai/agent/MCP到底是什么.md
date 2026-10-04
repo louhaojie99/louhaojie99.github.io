@@ -1,5 +1,5 @@
 ---
-title: MCP到底是什么？
+title: MCP 到底是什么？
 tags: AI
 categories:
   - AI

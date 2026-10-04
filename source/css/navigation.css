@@ -1,5 +1,45 @@
-/* Keep Butterfly's native typography, underline, panel colours and sidebar.
- * Visibility uses the same state for hover, click and keyboard interaction. */
+/* Compact navigation with Butterfly's native panels and sidebar. */
+#nav #menus {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#nav .menus_items {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+#nav .menus_items .menus_item { padding: 0; }
+#nav .site-page { font-size: 15px; }
+#nav .menus_items .menus_item > .group > i:last-child {
+  padding: 4px;
+  font-size: 10px;
+}
+
+#nav #search-button { padding: 0; }
+#nav #search-button .search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 16px;
+}
+#nav #search-button .search > span { display: none; }
+
+#footer .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 20px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* Share the same open state for hover, click and keyboard interaction. */
 #nav .site-navigation .group.hide + .menus_item_child,
 #sidebar-menus .site-navigation .group.hide + .menus_item_child {
   display: none;
@@ -10,6 +50,8 @@
 #nav .site-navigation .group:not(.hide) > i:last-child { transform: rotate(180deg); }
 
 .site-navigation .site-page:focus-visible,
+#search-button .search:focus-visible,
+#footer .footer-links a:focus-visible,
 #toggle-menu .site-page:focus-visible {
   outline: 2px solid var(--theme-color);
   outline-offset: 3px;

@@ -11,6 +11,19 @@
   };
 
   const setup = () => {
+    const search = document.querySelector('#search-button');
+    if (search) {
+      // Keep visual and keyboard order aligned: menus, search, mobile toggle.
+      const menus = document.querySelector('#nav .menus_items');
+      if (menus) menus.after(search);
+      const trigger = search.querySelector('.search');
+      if (trigger) {
+        trigger.setAttribute('role', 'button');
+        trigger.setAttribute('tabindex', '0');
+        trigger.setAttribute('aria-label', '搜索');
+        trigger.setAttribute('title', '搜索');
+      }
+    }
     document.querySelectorAll('#nav .menus_items, #sidebar-menus .menus_items').forEach(menu => {
       menu.classList.add('site-navigation');
     });
@@ -85,7 +98,8 @@
         }
       }
     }
-    if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('#toggle-menu .site-page')) {
+    if ((event.key === 'Enter' || event.key === ' ') &&
+        event.target.matches('#toggle-menu .site-page, #search-button .search')) {
       event.preventDefault();
       event.target.click();
     }
