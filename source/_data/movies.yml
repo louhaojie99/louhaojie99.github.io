@@ -1,0 +1,40 @@
+# 按文件顺序展示。只记录影片资料，不自动补充个人评分、短评或观看状态。
+- title: 肖申克的救赎
+  original_title: The Shawshank Redemption
+  year: 1994
+  director: 弗兰克·德拉邦特
+  description: 银行家安迪蒙冤入狱，在肖申克监狱里与瑞德建立了深厚的友谊。面对漫长而压抑的岁月，他始终没有放弃对自由的向往，也让身边的人重新看见希望。
+  poster: /img/movies/shawshank.jpg
+  url: https://movie.douban.com/subject/1292052/
+
+- title: 当幸福来敲门
+  original_title: The Pursuit of Happyness
+  year: 2006
+  director: 加布里埃莱·穆奇诺
+  description: 克里斯一边独自照顾年幼的儿子，一边争取证券公司的实习机会。即使失去住所、生活举步维艰，这对父子仍彼此支撑，努力走向一个更安稳的明天。
+  poster: /img/movies/happyness.jpg
+  url: https://movie.douban.com/subject/1849031/
+
+- title: 阿甘正传
+  original_title: Forrest Gump
+  year: 1994
+  director: 罗伯特·泽米吉斯
+  description: 阿甘从小受到母亲的鼓励，以单纯而执着的态度面对人生。从橄榄球场到越南战场，再到横跨美国的奔跑，他经历时代的变迁，也始终惦念着童年的朋友珍妮。
+  poster: /img/movies/forrest.jpg
+  url: https://movie.douban.com/subject/1292720/
+
+- title: 我不是药神
+  original_title: Dying to Survive
+  year: 2018
+  director: 文牧野
+  description: 经营保健品店的程勇，意外接触到一群负担不起高价药的白血病患者。从代购印度仿制药开始，他的生活与这些病人的命运紧紧相连，也逐渐重新理解金钱、责任与生命的重量。
+  poster: /img/movies/dying.jpg
+  url: https://movie.douban.com/subject/26752088/
+
+- title: 霸王别姬
+  original_title: Farewell My Concubine
+  year: 1993
+  director: 陈凯歌
+  description: 程蝶衣与段小楼自幼在戏班相识，凭借一出《霸王别姬》成名。半个世纪的风云变幻中，两人的舞台人生与菊仙的命运交织在一起，戏里的痴情与戏外的现实渐渐难以分开。
+  poster: /img/movies/concubine.jpg
+  url: https://movie.douban.com/subject/1291546/

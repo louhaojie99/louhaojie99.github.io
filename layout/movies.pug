@@ -1,0 +1,43 @@
+extends includes/layout.pug
+
+block content
+  - const movies = site.data.movies || []
+  #page.movies-page
+    header.cinema-heading
+      .cinema-title
+        h1 电影
+        span.cinema-count= movies.length + ' 部'
+      label.cinema-search(hidden)
+        i.fas.fa-search(aria-hidden='true')
+        span.cinema-sr-only 搜索电影、导演或简介
+        input(type='search' placeholder='搜索电影、导演或简介' autocomplete='off' aria-controls='cinema-list')
+    #cinema-list.cinema-list
+      each movie, index in movies
+        article.cinema-item(data-search=[movie.title, movie.original_title, movie.year, movie.director, movie.description].filter(Boolean).join(' '))
+          .cinema-poster
+            .cinema-poster-fallback(aria-hidden='true')
+              strong= movie.title
+            if movie.poster
+              img(src=url_for(movie.poster) alt=movie.title + '电影海报' width='300' height='450' loading=index < 2 ? 'eager' : 'lazy' decoding='async')
+          .cinema-film-content
+            h2= movie.title
+            p.cinema-meta
+              if movie.year
+                span= movie.year
+              if movie.director
+                span= movie.director + ' / 导演'
+            if movie.description
+              p.cinema-description= movie.description
+            if movie.url
+              a.cinema-detail(href=movie.url target='_blank' rel='noopener noreferrer' aria-label='查看' + movie.title + '的豆瓣资料（新窗口）')
+                | 豆瓣详情
+                span(aria-hidden='true') ↗
+    .cinema-empty(hidden=movies.length > 0 role='status')
+      p= movies.length ? '没有找到相关电影' : '暂无电影'
+      button(type='button' data-cinema-reset hidden) 清空搜索
+    .cinema-list-footer(hidden)
+      p.cinema-results(role='status' aria-live='polite' aria-atomic='true')
+      nav.cinema-pagination(aria-label='电影列表分页' hidden)
+        button(type='button' data-cinema-prev) 上一页
+        span.cinema-page-number
+        button(type='button' data-cinema-next) 下一页

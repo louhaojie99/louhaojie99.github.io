@@ -258,6 +258,8 @@ inject:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">
     - <link rel="stylesheet" href="/css/custom.css?v=20260918-compact6">
     - <link rel="stylesheet" href="/css/navigation.css?v=20261004-compact">
+    - <link rel="stylesheet" href="/css/movies.css?v=20261004-focus">
   bottom:
     - <script src="/js/live2d.js"></script>
     - <script src="/js/navigation.js?v=20261004-compact" defer></script>
+    - <script src="/js/movies.js?v=20261004-list" defer></script>
