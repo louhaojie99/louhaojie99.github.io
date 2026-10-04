@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="660" viewBox="0 0 800 660" role="img" aria-labelledby="title desc">
+<title id="title">justify-content：分配主轴剩余空间</title><desc id="desc">三个项目各宽 72px；容器宽 520px；示意不设置 gap。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="660" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">justify-content：分配主轴剩余空间</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">三个项目各宽 72px；容器宽 520px；示意不设置 gap。</text>
+<text x="32" y="146" font-size="18" fill="#172b4d" text-anchor="start" font-weight="600">flex-start</text>
+<rect x="240" y="112" width="520" height="54" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="240" y="112" width="72" height="54" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="276.0" y="146.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="312" y="112" width="72" height="54" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="348.0" y="146.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="384" y="112" width="72" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="420.0" y="146.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<text x="32" y="226" font-size="18" fill="#172b4d" text-anchor="start" font-weight="600">flex-end</text>
+<rect x="240" y="192" width="520" height="54" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="544" y="192" width="72" height="54" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="580.0" y="226.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="616" y="192" width="72" height="54" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="652.0" y="226.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="688" y="192" width="72" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="724.0" y="226.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<text x="32" y="306" font-size="18" fill="#172b4d" text-anchor="start" font-weight="600">center</text>
+<rect x="240" y="272" width="520" height="54" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="392" y="272" width="72" height="54" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="428.0" y="306.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="464" y="272" width="72" height="54" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="500.0" y="306.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="536" y="272" width="72" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="572.0" y="306.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<text x="32" y="386" font-size="18" fill="#172b4d" text-anchor="start" font-weight="600">space-between</text>
+<rect x="240" y="352" width="520" height="54" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="240" y="352" width="72" height="54" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="276.0" y="386.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="464" y="352" width="72" height="54" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="500.0" y="386.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="688" y="352" width="72" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="724.0" y="386.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<text x="32" y="466" font-size="18" fill="#172b4d" text-anchor="start" font-weight="600">space-around</text>
+<rect x="240" y="432" width="520" height="54" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="290.6666666666667" y="432" width="72" height="54" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="326.6666666666667" y="466.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="464.0" y="432" width="72" height="54" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="500.0" y="466.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="637.3333333333333" y="432" width="72" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="673.3333333333333" y="466.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<text x="32" y="546" font-size="18" fill="#172b4d" text-anchor="start" font-weight="600">space-evenly</text>
+<rect x="240" y="512" width="520" height="54" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="316.0" y="512" width="72" height="54" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="352.0" y="546.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="464.0" y="512" width="72" height="54" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="500.0" y="546.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="612.0" y="512" width="72" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="648.0" y="546.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<text x="32" y="630" font-size="18" fill="#536580" text-anchor="start" font-weight="400">浅色区域 = 可分配空间；space-around 的内部间隔是边缘间隔的两倍。</text>
+</svg>

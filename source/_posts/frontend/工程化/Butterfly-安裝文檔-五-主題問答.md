@@ -12,6 +12,7 @@ description: Butterfly安裝文檔-主題問答
 cover: /img/covers/tech-butterfly.png
 abbrlink: 98d20436
 comments: false
+published: false
 ---
 
 {% note blue 'fas fa-bullhorn' %}

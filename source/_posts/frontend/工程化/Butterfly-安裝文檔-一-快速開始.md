@@ -13,6 +13,7 @@ cover: /img/covers/tech-butterfly.png
 abbrlink: 21cfbf15
 # sticky: 100 置顶操作
 comments: false
+published: false
 ---
 
 {% note blue 'fas fa-bullhorn' %}

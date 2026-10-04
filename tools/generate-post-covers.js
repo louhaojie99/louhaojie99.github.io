@@ -38,6 +38,10 @@ const covers = {
     file: 'tech-go.png', icon: path.join(iconRoot, 'go.svg'),
     from: '#063c4c', to: '#087ea4'
   },
+  docker: {
+    file: 'tech-docker.png', icon: path.join(iconRoot, 'docker.svg'),
+    from: '#082b50', to: '#086dba'
+  },
   react: {
     file: 'tech-react.png', icon: path.join(iconRoot, 'react.svg'),
     from: '#082f49', to: '#164e63'
@@ -85,34 +89,36 @@ const postCovers = [
   ['frontend/工程化/Butterfly-安裝文檔-六-進階教程.md', 'butterfly'],
   ['frontend/工程化/Butterfly-安裝文檔-七-更新日誌.md', 'butterfly'],
   ['frontend/工程化/Butterfly-美化合集.md', 'butterfly'],
-  ['frontend/css/grid 栅格系统.md', 'css'],
-  ['frontend/工程化/01_JS基础语法.md', 'javascript'],
-  ['frontend/工程化/02_JS分支结构.md', 'javascript'],
-  ['frontend/工程化/03_JS循环结构.md', 'javascript'],
-  ['frontend/工程化/04_JS函数（上）.md', 'javascript'],
-  ['frontend/工程化/05_JS函数（下）.md', 'javascript'],
-  ['frontend/工程化/06_JS数组.md', 'javascript'],
-  ['frontend/工程化/07_JS字符串.md', 'javascript'],
-  ['frontend/工程化/08_Math和Date.md', 'javascript'],
-  ['frontend/工程化/09_BOM和DOM.md', 'javascript'],
-  ['frontend/工程化/10_DOM（下）.md', 'javascript'],
-  ['frontend/工程化/11_Event（上）.md', 'javascript'],
-  ['frontend/工程化/12_Event（下）.md', 'javascript'],
-  ['frontend/工程化/13_玩转正则-Regexp.md', 'javascript'],
-  ['frontend/工程化/14_ES5和ES6.md', 'javascript'],
-  ['frontend/工程化/15_面向对象编程.md', 'javascript'],
-  ['frontend/工程化/16_JSON和localstorage.md', 'javascript'],
-  ['backend/database/17_mysql.md', 'mysql'],
-  ['frontend/工程化/18_cookie.md', 'javascript'],
-  ['frontend/工程化/19_ajax.md', 'javascript'],
-  ['frontend/工程化/20_Promise.md', 'javascript'],
-  ['tool/git/01_玩转Git三剑客.md', 'git'],
-  ['tool/编辑器配置/01_VS Code 配置与插件.md', 'vscode'],
-  ['frontend/typescript/02_TypeScript 介绍与安装.md', 'typescript'],
-  ['frontend/typescript/03_TypeScript 基础类型.md', 'typescript'],
-  ['frontend/工程化/pnpm.md', 'pnpm'],
+  ['frontend/css/CSS Flex 弹性布局.md', 'css'],
+  ['frontend/css/CSS Grid 网格布局.md', 'css'],
+  ['frontend/工程化/一、JavaScript 基础语法.md', 'javascript'],
+  ['frontend/工程化/二、JavaScript 分支结构.md', 'javascript'],
+  ['frontend/工程化/三、JavaScript 循环结构.md', 'javascript'],
+  ['frontend/工程化/四、JavaScript 函数（上）.md', 'javascript'],
+  ['frontend/工程化/五、JavaScript 函数（下）.md', 'javascript'],
+  ['frontend/工程化/六、JavaScript 数组（Array）.md', 'javascript'],
+  ['frontend/工程化/七、JavaScript 字符串（String）.md', 'javascript'],
+  ['frontend/工程化/八、JavaScript 数学与日期对象（Math、Date）.md', 'javascript'],
+  ['frontend/工程化/九、浏览器对象模型与文档对象模型（BOM、DOM）.md', 'javascript'],
+  ['frontend/工程化/十、DOM 操作进阶.md', 'javascript'],
+  ['frontend/工程化/十一、JavaScript 事件（上）.md', 'javascript'],
+  ['frontend/工程化/十二、JavaScript 事件（下）.md', 'javascript'],
+  ['frontend/工程化/十三、JavaScript 正则表达式（RegExp）.md', 'javascript'],
+  ['frontend/工程化/十四、JavaScript ES5 与 ES6.md', 'javascript'],
+  ['frontend/工程化/十五、JavaScript 面向对象编程.md', 'javascript'],
+  ['frontend/工程化/十六、JSON 与本地存储（localStorage）.md', 'javascript'],
+  ['frontend/工程化/十七、浏览器 Cookie 基础.md', 'javascript'],
+  ['frontend/工程化/十八、Ajax 与前后端交互.md', 'javascript'],
+  ['frontend/工程化/十九、Promise 与异步编程.md', 'javascript'],
+  ['tool/git/Git 基础与常用命令.md', 'git'],
+  ['frontend/typescript/一、TypeScript 介绍与安装.md', 'typescript'],
+  ['frontend/typescript/二、TypeScript 基础类型.md', 'typescript'],
+  ['frontend/typescript/三、TypeScript 接口与类型别名.md', 'typescript'],
+  ['frontend/typescript/四、TypeScript 泛型与常用工具类型.md', 'typescript'],
+  ['frontend/工程化/pnpm 包管理与常用命令.md', 'pnpm'],
   ['backend/go/Go 基础入门.md', 'go'],
   ['devops/linux/Linux常用命令与开发目录.md', 'linux'],
+  ['devops/docker/Docker 常用命令.md', 'docker'],
   ['backend/python/python.md', 'python'],
   ['tool/硬件算力/大模型微调硬件入门.md', 'ai'],
   ['ai/agent/MCP到底是什么.md', 'mcp'],
@@ -160,12 +166,17 @@ function run(command, args) {
 }
 
 function main() {
+  const selected = process.argv.slice(2);
+  for (const key of selected) {
+    if (!Object.hasOwn(covers, key)) throw new Error(`Unknown cover: ${key}`);
+  }
+  const entries = Object.entries(covers).filter(([key]) => !selected.length || selected.includes(key));
+  const posts = postCovers.filter(([, key]) => !selected.length || selected.includes(key));
   if (!fs.existsSync(chromeBin)) throw new Error(`Chrome not found at ${chromeBin}. Set CHROME_BIN to a Chromium-compatible executable.`);
-  for (const cover of Object.values(covers)) if (cover.icon && !fs.existsSync(cover.icon)) throw new Error(`Missing cover icon: ${cover.icon}`);
+  for (const [, cover] of entries) if (cover.icon && !fs.existsSync(cover.icon)) throw new Error(`Missing cover icon: ${cover.icon}`);
 
   fs.mkdirSync(outputRoot, { recursive: true });
   const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'hj-blog-covers-'));
-  const entries = Object.entries(covers);
 
   for (const [key, cover] of entries) {
     const htmlPath = path.join(tempRoot, `${key}.html`);
@@ -179,14 +190,14 @@ function main() {
     }
   }
 
-  for (const [postFile, coverKey] of postCovers) {
+  for (const [postFile, coverKey] of posts) {
     const filePath = path.join(postsRoot, postFile);
     const markdown = fs.readFileSync(filePath, 'utf8');
     const updated = updateCover(markdown, `/img/covers/${covers[coverKey].file}`);
     if (updated !== markdown) fs.writeFileSync(filePath, updated);
   }
   fs.rmSync(tempRoot, { recursive: true, force: true });
-  console.log(`Generated ${entries.length} technology covers and updated ${postCovers.length} posts.`);
+  console.log(`Generated ${entries.length} technology covers and updated ${posts.length} posts.`);
 }
 
 main();

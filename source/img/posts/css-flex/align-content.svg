@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="435" viewBox="0 0 800 435" role="img" aria-labelledby="title desc">
+<title id="title">align-content：多条弹性行怎么分布？</title><desc id="desc">两条弹性行放在有额外高度的容器中；对比顶部聚集与两端分布。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="435" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">align-content：多条弹性行怎么分布？</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">两条弹性行放在有额外高度的容器中；对比顶部聚集与两端分布。</text>
+<text x="32" y="124" font-size="22" fill="#172b4d" text-anchor="start" font-weight="600">flex-start</text>
+<rect x="32" y="144" width="344" height="230" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="40" y="152" width="328" height="64" rx="8" fill="#dce9f8" stroke="none" stroke-width="2"/>
+<rect x="48" y="156" width="94" height="56" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="95.0" y="191.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="152" y="156" width="94" height="56" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="199.0" y="191.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="256" y="156" width="94" height="56" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="303.0" y="191.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<rect x="40" y="222" width="328" height="64" rx="8" fill="#dce9f8" stroke="none" stroke-width="2"/>
+<rect x="48" y="226" width="94" height="56" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="95.0" y="261.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">4</text>
+<rect x="152" y="226" width="94" height="56" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="199.0" y="261.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">5</text>
+<text x="424" y="124" font-size="22" fill="#172b4d" text-anchor="start" font-weight="600">space-between</text>
+<rect x="424" y="144" width="344" height="230" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="432" y="152" width="328" height="64" rx="8" fill="#dce9f8" stroke="none" stroke-width="2"/>
+<rect x="440" y="156" width="94" height="56" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="487.0" y="191.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="544" y="156" width="94" height="56" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="591.0" y="191.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="648" y="156" width="94" height="56" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="695.0" y="191.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<rect x="432" y="298" width="328" height="64" rx="8" fill="#dce9f8" stroke="none" stroke-width="2"/>
+<rect x="440" y="302" width="94" height="56" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="487.0" y="337.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">4</text>
+<rect x="544" y="302" width="94" height="56" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="591.0" y="337.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">5</text>
+<text x="32" y="412" font-size="19" fill="#536580" text-anchor="start" font-weight="400">移动的是整条弹性行；行内各项目的对齐仍由 align-items 控制。</text>
+</svg>

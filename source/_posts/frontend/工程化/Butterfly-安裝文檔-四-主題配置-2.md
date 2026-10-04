@@ -12,6 +12,7 @@ description: Butterfly安裝文檔-主題配置-2
 cover: /img/covers/tech-butterfly.png
 abbrlink: ceeb73f
 comments: false
+published: false
 ---
 
 {% note blue 'fas fa-bullhorn' %}

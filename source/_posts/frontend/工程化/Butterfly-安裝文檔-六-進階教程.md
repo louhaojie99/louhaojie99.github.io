@@ -12,6 +12,7 @@ description: Butterfly安裝文檔-進階教程
 cover: /img/covers/tech-butterfly.png
 abbrlink: 4073eda
 comments: false
+published: false
 ---
 
 {% note blue 'fas fa-bullhorn' %}
