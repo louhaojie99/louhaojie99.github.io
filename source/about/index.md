@@ -1,5 +1,5 @@
 ---
-title: 關於自己 # 【必需】页面标题
+title: 👋 關於自己 # 【必需】页面标题
 date: 2021-01-02 14:23:05 # 【必需】页面创建日期
 type: "about" # 【必需】标籤、分类和友情链接三个页面需要配置
 updated: # 【可选】页面更新日期
@@ -18,10 +18,15 @@ highlight_shrink: #【可选】配置代码框是否展开(true/false)(默认为
 <div style="font-size:1.7rem;background-image:linear-gradient(92deg,#f35626 0,#feab3a 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:myfont;margin: 0 auto;">HJ.</div>
 </div>
 
-### 个人信息
+### 💻 少年与代码
 
-`姓名`: 娄豪杰
-`就职`: 在杭州
+<p style="line-height: 1.6; margin: 0;">
+初一因游戏结缘电脑，从俄罗斯方块初识编程语言。<br>
+从初中到高中，屏幕前的热爱未曾散场。<br>
+2017 年，走进计算机专业，让好奇有了方向。<br>
+2019 年，在郑州的一家计算机网络公司实习，初入职场。<br>
+2020 年，毕业后赴杭州，正式入职一家软件网络公司。
+</p>
 
 ### 😅 博主想说的一些话
 

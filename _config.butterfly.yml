@@ -1,18 +1,88 @@
-# Site-specific overrides for hexo-theme-butterfly 5.5.3.
+# Site-specific overrides for hexo-theme-butterfly.
 # Theme defaults remain in the npm package so future upgrades stay reviewable.
 
+# Native Butterfly menu syntax: label: URL || icon; group||icon||hide: children.
 menu:
   首页: / || fas fa-home
-  阅读||fa-fw fa fa-book:
+  前端||fas fa-code||hide:
+    全部前端: /categories/前端/ || fas fa-folder-open
+    HTML: /categories/前端/HTML/ || fab fa-html5
+    CSS: /categories/前端/CSS/ || fab fa-css3-alt
+    JavaScript: /categories/前端/JavaScript/ || fab fa-js
+    TypeScript: /categories/前端/TypeScript/ || fas fa-code
+    Node.js: /categories/前端/Nodejs/ || fab fa-node-js
+    Next.js: /categories/前端/Nextjs/ || fas fa-code
+    工程化: /categories/前端/工程化/ || fas fa-tools
+  后端||fas fa-server||hide:
+    全部后端: /categories/后端/ || fas fa-folder-open
+    Go: /categories/后端/Go/ || fas fa-code
+    Python: /categories/后端/Python/ || fab fa-python
+    Java: /categories/后端/Java/ || fab fa-java
+    MySQL: /categories/后端/MySQL/ || fas fa-database
+    PostgreSQL: /categories/后端/PostgreSQL/ || fas fa-database
+    Linux: /categories/后端/Linux/ || fab fa-linux
+    Docker: /categories/后端/Docker/ || fab fa-docker
+  AI||fas fa-robot||hide:
+    全部 AI: /categories/AI/ || fas fa-folder-open
+    Agent / MCP: /categories/AI/Agent/ || fas fa-project-diagram
+    大模型微调: /categories/AI/大模型微调/ || fas fa-microchip
+  更多||||hide:
     归档: /archives/ || fas fa-archive
     标签: /tags/ || fas fa-tags
     分类: /categories/ || fas fa-folder-open
-  娱乐||fa-fw fa fa-bars:
-    相册: /photo || fas fa-image
+    相册: /photo/ || fas fa-image
     音乐: /music/ || fas fa-music
     电影: /movies/ || fas fa-video
-  友链: /link/ || fas fa-link
-  关于: /about/ || fa-fw fas fa-heart card-announcement-animation
+    友链: /link/ || fas fa-link
+  关于: /about/ || fas fa-heart card-announcement-animation
+
+# Site archive supplements, merging native and legacy category membership.
+# These collect legacy categories without changing existing article/category URLs.
+navigation_archives:
+  - category: [前端]
+    source_prefixes: [frontend/]
+    match_categories: [Nodejs, Node.js, nodejs, node, Nextjs, Next.js, nextjs]
+  - category: [前端, HTML]
+    match_categories: [HTML]
+  - category: [前端, CSS]
+    match_categories: [CSS, css]
+  - category: [前端, JavaScript]
+    match_categories: [JavaScript, Ajax]
+  - category: [前端, TypeScript]
+    match_categories: [TypeScript]
+  - category: [前端, Nodejs]
+    match_categories: [Nodejs, Node.js, nodejs, node]
+    source_prefixes: [frontend/nodejs/]
+  - category: [前端, Nextjs]
+    match_categories: [Nextjs, Next.js, nextjs]
+    source_prefixes: [frontend/nextjs/]
+  - category: [前端, 工程化]
+    match_categories: [pnpm]
+  - category: [后端]
+    source_prefixes: [backend/, devops/]
+    match_categories: [MySQL, mysql, PostgreSQL, postgresql, Postgres, postgres, Java, java]
+  - category: [后端, Go]
+    match_categories: [Go]
+  - category: [后端, Python]
+    match_categories: [Python]
+  - category: [后端, Java]
+    match_categories: [Java, java]
+    source_prefixes: [backend/java/]
+  - category: [后端, MySQL]
+    match_categories: [MySQL, mysql]
+    source_prefixes: [backend/mysql/]
+  - category: [后端, PostgreSQL]
+    match_categories: [PostgreSQL, postgresql, Postgres, postgres]
+    source_prefixes: [backend/postgresql/]
+  - category: [后端, Linux]
+    match_categories: [Linux]
+  - category: [后端, Docker]
+    match_categories: [Docker]
+  - category: [AI]
+  - category: [AI, Agent]
+    source_prefixes: [ai/agent/]
+  - category: [AI, 大模型微调]
+    source_prefixes: [tool/硬件算力/]
 
 code_blocks:
   theme: light
@@ -151,5 +221,7 @@ inject:
   head:
     - <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css">
     - <link rel="stylesheet" href="/css/custom.css?v=20260918-compact6">
+    - <link rel="stylesheet" href="/css/navigation.css?v=20261004-native">
   bottom:
     - <script src="/js/live2d.js"></script>
+    - <script src="/js/navigation.js?v=20261004-native" defer></script>

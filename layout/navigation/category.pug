@@ -1,0 +1,7 @@
+extends includes/layout.pug
+
+block content
+  #category
+    .article-sort-title= _p('page.category') + ' - ' + page.category
+    p.navigation-empty 这个分类还没有文章，敬请期待。
+    a(href=url_for('/categories/')) 浏览全部分类

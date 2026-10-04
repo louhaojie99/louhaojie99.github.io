@@ -1,0 +1,28 @@
+/* Keep Butterfly's native typography, underline, panel colours and sidebar.
+ * Visibility uses the same state for hover, click and keyboard interaction. */
+#nav .site-navigation .group.hide + .menus_item_child,
+#sidebar-menus .site-navigation .group.hide + .menus_item_child {
+  display: none;
+}
+
+#nav .site-navigation .group:not(.hide) + .menus_item_child { display: block; }
+#nav .site-navigation .group.hide > i:last-child { transform: none; }
+#nav .site-navigation .group:not(.hide) > i:last-child { transform: rotate(180deg); }
+
+.site-navigation .site-page:focus-visible,
+#toggle-menu .site-page:focus-visible {
+  outline: 2px solid var(--theme-color);
+  outline-offset: 3px;
+}
+
+#sidebar-menus .site-navigation .site-page { min-height: 44px; }
+
+@media (max-width: 768px) {
+  #nav .site-navigation { display: none; }
+  #nav #toggle-menu { display: inline-block !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #nav .site-navigation .menus_item_child { animation: none; }
+  #nav .site-navigation .group > i:last-child { transition: none; }
+}
