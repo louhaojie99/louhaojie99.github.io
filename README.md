@@ -42,7 +42,7 @@ menu:
     CSS: /categories/前端/CSS/
 ```
 
-普通入口写 `名称: 链接`；下拉分组写 `名称||||hide` 并配置子项，`hide` 表示默认折叠。顶部使用“首页、前端、后端、AI、工具、关于”，搜索以放大镜显示在右侧；归档、标签、分类、相册、音乐、电影和友链入口放在页脚 `footer.custom_text` 中。技术内容按全栈 AI 开发的使用场景分为四组：
+普通入口写 `名称: 链接`；下拉分组写 `名称||||hide` 并配置子项，`hide` 表示默认折叠。顶部使用“首页、前端、后端、AI、工具、随笔、关于”，搜索以放大镜显示在右侧；“随笔”直接进入 `/categories/生活/随笔/`，收录生活与个人成长文章。归档、标签、分类、相册、音乐、电影和友链入口放在页脚 `footer.custom_text` 中。技术内容按全栈 AI 开发的使用场景分为四组：
 
 | 导航 | 二级分类 | 归属原则 |
 | --- | --- | --- |
@@ -71,5 +71,6 @@ Git 与协作收录基础命令、提交规范、冲突处理、稀疏检出和�
 | `devops/linux/`、`devops/docker/` | Linux 与 Docker |
 | `tool/git/`、`tool/pnpm/`、`tool/shell/` | Git 协作与代码评审、包管理、命令行工具 |
 | `blog/hexo/` | Hexo / Butterfly 文档 |
+| `life/essays/` | 生活随笔，使用 `categories: [生活, 随笔]` |
 
 移动文章时保留 `abbrlink`，同步更新文内 `post_link`、封面脚本 `tools/generate-post-covers.js` 和导航配置中的路径引用。

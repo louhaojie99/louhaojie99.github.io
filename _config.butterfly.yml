@@ -29,6 +29,7 @@ menu:
     包管理: /categories/工程实践/包管理/
     Linux: /categories/工程实践/Linux/
     Docker: /categories/工程实践/Docker/
+  随笔: /categories/生活/随笔/
   关于: /about/
 
 # Site archive supplements, merging native and legacy category membership.

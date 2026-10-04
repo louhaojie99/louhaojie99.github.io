@@ -13,6 +13,10 @@ const iconRoot = path.join(projectRoot, 'tools', 'cover-icons');
 const chromeBin = process.env.CHROME_BIN || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const covers = {
+  nomad: {
+    file: 'life-nomad.png', icon: path.join(iconRoot, 'nomad.svg'),
+    from: '#16382f', to: '#386454'
+  },
   butterfly: {
     file: 'tech-butterfly.png',
     icon: path.join(projectRoot, 'node_modules', 'hexo-theme-butterfly', 'source', 'img', 'butterfly-icon.png'),
@@ -81,6 +85,7 @@ const covers = {
 };
 
 const postCovers = [
+  ['life/essays/从农耕走向游牧.md', 'nomad'],
   ['blog/hexo/Butterfly-安裝文檔-一-快速開始.md', 'butterfly'],
   ['blog/hexo/Butterfly-安裝文檔-二-主題頁面.md', 'butterfly'],
   ['blog/hexo/Butterfly-安裝文檔-三-主題配置-1.md', 'butterfly'],
@@ -199,7 +204,7 @@ function main() {
     if (updated !== markdown) fs.writeFileSync(filePath, updated);
   }
   fs.rmSync(tempRoot, { recursive: true, force: true });
-  console.log(`Generated ${entries.length} technology covers and updated ${posts.length} posts.`);
+  console.log(`Generated ${entries.length} covers and updated ${posts.length} posts.`);
 }
 
 main();
