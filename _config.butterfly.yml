@@ -30,7 +30,15 @@ menu:
     Linux: /categories/工程实践/Linux/
     Docker: /categories/工程实践/Docker/
   随笔: /categories/生活/随笔/
-  关于: /about/
+  更多||||hide:
+    归档: /archives/
+    标签: /tags/
+    分类: /categories/
+    相册: /photo/
+    音乐: /music/
+    电影: /movies/
+    友链: /link/
+    关于: /about/
 
 # Site archive supplements, merging native and legacy category membership.
 # Keep old post/category URLs while organizing navigation by development domain.
