@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="775" viewBox="0 0 800 775" role="img" aria-labelledby="title desc">
+<title id="title">align-items：同一行内，项目怎么对齐？</title><desc id="desc">主轴为 row，交叉轴向下；虚线标出对齐位置。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="775" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">align-items：同一行内，项目怎么对齐？</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">主轴为 row，交叉轴向下；虚线标出对齐位置。</text>
+<text x="32" y="167" font-size="20" fill="#172b4d" text-anchor="start" font-weight="600">flex-start</text>
+<rect x="224" y="110" width="536" height="102" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="258" y="110" width="118" height="42" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="317" y="139.0" font-size="22" fill="white" text-anchor="middle" font-weight="600">Aa</text>
+<rect x="412" y="110" width="118" height="70" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="471" y="153.0" font-size="34" fill="white" text-anchor="middle" font-weight="600">Bb</text>
+<rect x="566" y="110" width="118" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="625" y="145.0" font-size="26" fill="white" text-anchor="middle" font-weight="600">Cc</text>
+<line x1="224" y1="110" x2="760" y2="110" stroke="#b75d09" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="32" y="289" font-size="20" fill="#172b4d" text-anchor="start" font-weight="600">center</text>
+<rect x="224" y="232" width="536" height="102" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="258" y="262.0" width="118" height="42" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="317" y="291.0" font-size="22" fill="white" text-anchor="middle" font-weight="600">Aa</text>
+<rect x="412" y="248.0" width="118" height="70" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="471" y="291.0" font-size="34" fill="white" text-anchor="middle" font-weight="600">Bb</text>
+<rect x="566" y="256.0" width="118" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="625" y="291.0" font-size="26" fill="white" text-anchor="middle" font-weight="600">Cc</text>
+<line x1="224" y1="283" x2="760" y2="283" stroke="#b75d09" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="32" y="411" font-size="20" fill="#172b4d" text-anchor="start" font-weight="600">flex-end</text>
+<rect x="224" y="354" width="536" height="102" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="258" y="414" width="118" height="42" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="317" y="443.0" font-size="22" fill="white" text-anchor="middle" font-weight="600">Aa</text>
+<rect x="412" y="386" width="118" height="70" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="471" y="429.0" font-size="34" fill="white" text-anchor="middle" font-weight="600">Bb</text>
+<rect x="566" y="402" width="118" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="625" y="437.0" font-size="26" fill="white" text-anchor="middle" font-weight="600">Cc</text>
+<line x1="224" y1="456" x2="760" y2="456" stroke="#b75d09" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="32" y="533" font-size="20" fill="#172b4d" text-anchor="start" font-weight="600">stretch</text>
+<rect x="224" y="476" width="536" height="102" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="258" y="476" width="118" height="102" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="317" y="535.0" font-size="22" fill="white" text-anchor="middle" font-weight="600">Aa</text>
+<rect x="412" y="476" width="118" height="102" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="471" y="535.0" font-size="34" fill="white" text-anchor="middle" font-weight="600">Bb</text>
+<rect x="566" y="476" width="118" height="102" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="625" y="535.0" font-size="26" fill="white" text-anchor="middle" font-weight="600">Cc</text>
+<text x="32" y="655" font-size="20" fill="#172b4d" text-anchor="start" font-weight="600">baseline</text>
+<rect x="224" y="598" width="536" height="102" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="258" y="631" width="118" height="42" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="317" y="660" font-size="22" fill="white" text-anchor="middle" font-weight="600">Aa</text>
+<rect x="412" y="616" width="118" height="70" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="471" y="660" font-size="34" fill="white" text-anchor="middle" font-weight="600">Bb</text>
+<rect x="566" y="626" width="118" height="54" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="625" y="660" font-size="26" fill="white" text-anchor="middle" font-weight="600">Cc</text>
+<line x1="224" y1="660" x2="760" y2="660" stroke="#b75d09" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="32" y="752" font-size="17" fill="#536580" text-anchor="start" font-weight="400">stretch 行中的项目未设置固定高度；baseline 对齐文字基线，并非盒子底边。</text>
+</svg>

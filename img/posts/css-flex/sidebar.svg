@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" role="img" aria-labelledby="title desc">
+<title id="title">侧栏 + 正文：固定与弹性配合</title><desc id="desc">宽屏横向布局；窄屏切换 column，并重置 flex-basis。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="480" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">侧栏 + 正文：固定与弹性配合</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">宽屏横向布局；窄屏切换 column，并重置 flex-basis。</text>
+<text x="32" y="120" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">宽屏</text>
+<rect x="32" y="141" width="200" height="140" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="132.0" y="218.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">侧栏 200px</text>
+<rect x="256" y="141" width="512" height="140" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="512.0" y="218.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">正文：分配剩余空间</text>
+<text x="32" y="313" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">窄屏（≤ 640px）</text>
+<rect x="32" y="333" width="444" height="42" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="254.0" y="361.0" font-size="19" fill="white" text-anchor="middle" font-weight="600">侧栏：按内容决定高度</text>
+<rect x="32" y="387" width="444" height="60" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="254.0" y="424.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">正文</text>
+<text x="506" y="363" font-size="19" fill="#172b4d" text-anchor="start" font-weight="600">min-width: 0</text>
+<text x="506" y="395" font-size="19" fill="#536580" text-anchor="start" font-weight="400">允许正文收缩</text>
+<text x="506" y="427" font-size="18" fill="#536580" text-anchor="start" font-weight="400">防止长文本撑开布局</text>
+</svg>

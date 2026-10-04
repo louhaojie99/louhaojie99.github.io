@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470" role="img" aria-labelledby="title desc">
+<title id="title">固定头部 + 内部滚动</title><desc id="desc">纵向 Flex：头部不收缩，正文占剩余高度并独立滚动。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="470" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">固定头部 + 内部滚动</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">纵向 Flex：头部不收缩，正文占剩余高度并独立滚动。</text>
+<rect x="32" y="112" width="440" height="320" rx="8" fill="#f5f8fd" stroke="#c7d7ed" stroke-width="2"/>
+<rect x="32" y="112" width="440" height="62" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="252.0" y="150.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">固定头部 · flex: none</text>
+<rect x="56" y="194" width="360" height="24" rx="5" fill="#dce7f6" stroke="none" stroke-width="2"/>
+<rect x="56" y="236" width="360" height="24" rx="5" fill="#dce7f6" stroke="none" stroke-width="2"/>
+<rect x="56" y="278" width="360" height="24" rx="5" fill="#dce7f6" stroke="none" stroke-width="2"/>
+<rect x="56" y="320" width="360" height="24" rx="5" fill="#dce7f6" stroke="none" stroke-width="2"/>
+<rect x="56" y="362" width="360" height="24" rx="5" fill="#dce7f6" stroke="none" stroke-width="2"/>
+<rect x="442" y="190" width="8" height="222" rx="4" fill="#d6deea" stroke="none" stroke-width="2"/>
+<rect x="442" y="216" width="8" height="72" rx="4" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="508" y="165" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">外层明确高度</text>
+<text x="508" y="199" font-size="20" fill="#2864dc" text-anchor="start" font-weight="400">height: 320px</text>
+<text x="508" y="267" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">正文允许收缩</text>
+<text x="508" y="303" font-size="20" fill="#087f8c" text-anchor="start" font-weight="400">min-height: 0</text>
+<text x="508" y="340" font-size="20" fill="#087f8c" text-anchor="start" font-weight="400">overflow: auto</text>
+<text x="508" y="396" font-size="18" fill="#536580" text-anchor="start" font-weight="400">滚动发生在正文区域</text>
+</svg>

@@ -1,0 +1,619 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CSS Flex 弹性布局 | HJ BLOG</title><meta name="author" content="娄豪杰"><meta name="copyright" content="娄豪杰"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从主轴与交叉轴出发，理解 Flex 容器、对齐、换行、弹性尺寸分配，以及导航栏、卡片和页面布局中的常见问题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Flex 弹性布局">
+<meta property="og:url" content="http://example.com/article/css-flex.html">
+<meta property="og:site_name" content="HJ BLOG">
+<meta property="og:description" content="从主轴与交叉轴出发，理解 Flex 容器、对齐、换行、弹性尺寸分配，以及导航栏、卡片和页面布局中的常见问题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/covers/tech-css.png">
+<meta property="article:published_time" content="2018-01-01T16:42:28.000Z">
+<meta property="article:modified_time" content="2026-10-04T14:24:46.609Z">
+<meta property="article:author" content="娄豪杰">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/covers/tech-css.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CSS Flex 弹性布局",
+  "url": "http://example.com/article/css-flex.html",
+  "image": "http://example.com/img/covers/tech-css.png",
+  "datePublished": "2018-01-01T16:42:28.000Z",
+  "dateModified": "2026-10-04T14:24:46.609Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "娄豪杰",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/article/css-flex.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CSS Flex 弹性布局',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><link rel="stylesheet" href="/css/custom.css?v=20260918-compact6"><link rel="stylesheet" href="/css/navigation.css?v=20261004-compact"><link rel="stylesheet" href="/css/movies.css?v=20261004-focus"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 前端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><span> HTML</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><span> CSS</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><span> JavaScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/TypeScript/"><span> TypeScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nodejs/"><span> Node.js</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nextjs/"><span> Next.js</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 后端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Go/"><span> Go</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/MySQL/"><span> MySQL</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/PostgreSQL/"><span> PostgreSQL</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> AI</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/AI/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/AI/Agent/"><span> Agent / MCP</span></a></li><li><a class="site-page child" href="/categories/AI/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/"><span> 微调与算力</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/git/"><span> Git</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/%E5%8C%85%E7%AE%A1%E7%90%86/"><span> 包管理</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Linux/"><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Docker/"><span> Docker</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E7%94%9F%E6%B4%BB/%E9%9A%8F%E7%AC%94/"><span> 随笔</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 更多</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><span> 分类</span></a></li><li><a class="site-page child" href="/photo/"><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 电影</span></a></li><li><a class="site-page child" href="/link/"><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/covers/tech-css.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">HJ BLOG</span></a><a class="nav-page-title" href="/"><span class="site-name">CSS Flex 弹性布局</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 前端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><span> HTML</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><span> CSS</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><span> JavaScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/TypeScript/"><span> TypeScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nodejs/"><span> Node.js</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nextjs/"><span> Next.js</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 后端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Go/"><span> Go</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/MySQL/"><span> MySQL</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/PostgreSQL/"><span> PostgreSQL</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> AI</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/AI/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/AI/Agent/"><span> Agent / MCP</span></a></li><li><a class="site-page child" href="/categories/AI/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/"><span> 微调与算力</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/git/"><span> Git</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/%E5%8C%85%E7%AE%A1%E7%90%86/"><span> 包管理</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Linux/"><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Docker/"><span> Docker</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E7%94%9F%E6%B4%BB/%E9%9A%8F%E7%AC%94/"><span> 随笔</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 更多</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><span> 分类</span></a></li><li><a class="site-page child" href="/photo/"><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 电影</span></a></li><li><a class="site-page child" href="/link/"><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">CSS Flex 弹性布局</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-01-01T16:42:28.000Z" title="发表于 2018-01-01 16:42:28">2018-01-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-10-04T14:24:46.609Z" title="更新于 2026-10-04 14:24:46">2026-10-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/css/">css</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Flex-解决什么问题"><a href="#Flex-解决什么问题" class="headerlink" title="Flex 解决什么问题"></a>Flex 解决什么问题</h2><p>Flexbox（弹性盒布局）适合沿一个方向排列项目，并分配剩余空间。导航栏、工具栏、图文列表、卡片内部结构，都可以使用 Flex。</p>
+<p>例如，一行中有三个项目，希望它们垂直居中，并让最后一个项目靠右：</p>
+<p><img src="/img/posts/css-flex/toolbar.svg" alt="导航栏中按钮前的自动外边距吸收剩余空间" loading='lazy'></p>
+<p>不必计算按钮左侧的距离，也不必使用浮动。容器负责排列与对齐，项目负责自己的弹性尺寸。</p>
+<h3 id="Flex-与-Grid-如何选择"><a href="#Flex-与-Grid-如何选择" class="headerlink" title="Flex 与 Grid 如何选择"></a>Flex 与 Grid 如何选择</h3><table>
+<thead>
+<tr>
+<th>需求</th>
+<th>推荐方式</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一行工具栏、导航、按钮组</td>
+<td>Flex</td>
+<td>主要沿一个方向排列</td>
+</tr>
+<tr>
+<td>图标与文字并排</td>
+<td>Flex</td>
+<td>便于对齐和分配剩余宽度</td>
+</tr>
+<tr>
+<td>卡片内的标题、正文、底部按钮</td>
+<td>Flex</td>
+<td>可沿纵向排列并把按钮推到底部</td>
+</tr>
+<tr>
+<td>多行卡片需要严格对齐列宽</td>
+<td>Grid</td>
+<td>行列共同参与布局</td>
+</tr>
+<tr>
+<td>页面同时划分导航、内容、侧栏</td>
+<td>Grid</td>
+<td>适合明确的二维区域</td>
+</tr>
+</tbody></table>
+<p>Flex 可以换行，但每一行独立分配空间，不会自动与上一行共享列宽。两者也可以组合：用 <a href="/article/c5073f42.html">CSS Grid 网格布局</a> 划分页面区域，再用 Flex 排列区域内部的内容。</p>
+<h2 id="容器、项目与两条轴"><a href="#容器、项目与两条轴" class="headerlink" title="容器、项目与两条轴"></a>容器、项目与两条轴</h2><p>设置 <code>display: flex</code> 的元素称为弹性容器，参与正常文档流的直接子元素成为弹性项目。更深层的后代不会因此自动成为这个容器的弹性项目。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;toolbar&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>标识<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">nav</span>&gt;</span>导航<span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.toolbar</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">gap</span>: <span class="number">16px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.toolbar</span> &gt; <span class="selector-tag">button</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin-inline-start</span>: auto;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>display: flex</code> 创建块级弹性容器；<code>display: inline-flex</code> 创建行内级弹性容器，可与文字处于同一行。两者内部的 Flex 布局规则相同。</p>
+<p>理解对齐前，先确定两条轴：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主轴</td>
+<td>项目排列的主要方向，由 <code>flex-direction</code> 决定</td>
+</tr>
+<tr>
+<td>交叉轴</td>
+<td>与主轴垂直的方向</td>
+</tr>
+<tr>
+<td>主轴起点、终点</td>
+<td>项目排列开始和结束的位置</td>
+</tr>
+<tr>
+<td>交叉轴起点、终点</td>
+<td>项目及各行在交叉方向上的边界</td>
+</tr>
+</tbody></table>
+<p>下文示意以横排、从左到右的书写模式为例。轴的方向还受到 <code>writing-mode</code> 和 <code>direction</code> 影响，不能始终把主轴当作水平方向。</p>
+<p><img src="/img/posts/css-flex/axes.svg" alt="row 与 column 的主轴、交叉轴方向对比" loading='lazy'></p>
+<h2 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h2><h3 id="flex-direction：排列方向"><a href="#flex-direction：排列方向" class="headerlink" title="flex-direction：排列方向"></a>flex-direction：排列方向</h3><table>
+<thead>
+<tr>
+<th>值</th>
+<th>横排、从左到右书写时的效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>row</code></td>
+<td>默认值，从左向右排列</td>
+</tr>
+<tr>
+<td><code>row-reverse</code></td>
+<td>从右向左排列</td>
+</tr>
+<tr>
+<td><code>column</code></td>
+<td>从上向下排列</td>
+</tr>
+<tr>
+<td><code>column-reverse</code></td>
+<td>从下向上排列</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.stack</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>反向排列只改变视觉布局，不修改 DOM 顺序。正文、表单和导航应保持合理的源码顺序，避免视觉顺序与朗读、键盘访问顺序脱节。</p>
+<h3 id="flex-wrap：空间不足时换行"><a href="#flex-wrap：空间不足时换行" class="headerlink" title="flex-wrap：空间不足时换行"></a>flex-wrap：空间不足时换行</h3><p>默认值 <code>nowrap</code> 表示所有项目都放在同一条弹性行中。空间不足时，项目可能收缩，也可能因最小尺寸限制而溢出；并不会自动换行。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nowrap</code></td>
+<td>不换行</td>
+</tr>
+<tr>
+<td><code>wrap</code></td>
+<td>按交叉轴方向增加新行</td>
+</tr>
+<tr>
+<td><code>wrap-reverse</code></td>
+<td>换行，并翻转交叉轴起点与终点</td>
+</tr>
+</tbody></table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tags</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/posts/css-flex/wrap.svg" alt="同一容器内 nowrap 收缩与 wrap 换行对比" loading='lazy'></p>
+<p><code>flex-flow</code> 是方向与换行的简写：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tags</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-flow</span>: row wrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="justify-content：主轴对齐"><a href="#justify-content：主轴对齐" class="headerlink" title="justify-content：主轴对齐"></a>justify-content：主轴对齐</h3><p><code>justify-content</code> 分配主轴上的剩余空间。Flex 尺寸计算完成后，如果已没有剩余空间，<code>space-between</code> 等值就不会产生额外间隔。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>flex-start</code></td>
+<td>聚集在主轴起点</td>
+</tr>
+<tr>
+<td><code>flex-end</code></td>
+<td>聚集在主轴终点</td>
+</tr>
+<tr>
+<td><code>center</code></td>
+<td>整组项目居中</td>
+</tr>
+<tr>
+<td><code>space-between</code></td>
+<td>首尾项目靠两端，中间等距</td>
+</tr>
+<tr>
+<td><code>space-around</code></td>
+<td>每个项目两侧分配相等空间，内部间隔是边缘的两倍</td>
+</tr>
+<tr>
+<td><code>space-evenly</code></td>
+<td>边缘与项目之间的间隔相等</td>
+</tr>
+</tbody></table>
+<p><img src="/img/posts/css-flex/justify.svg" alt="六种 justify-content 主轴对齐方式" loading='lazy'></p>
+<p>只有一个项目时，<code>space-between</code> 会把它放在主轴起点。需要单个项目居中时，直接使用 <code>center</code>。</p>
+<h3 id="align-items：行内项目的交叉轴对齐"><a href="#align-items：行内项目的交叉轴对齐" class="headerlink" title="align-items：行内项目的交叉轴对齐"></a>align-items：行内项目的交叉轴对齐</h3><p><code>align-items</code> 控制每一条弹性行内的项目如何沿交叉轴对齐。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>stretch</code></td>
+<td>对交叉尺寸为 <code>auto</code> 的项目进行拉伸，仍受最小、最大尺寸约束</td>
+</tr>
+<tr>
+<td><code>flex-start</code></td>
+<td>对齐交叉轴起点</td>
+</tr>
+<tr>
+<td><code>flex-end</code></td>
+<td>对齐交叉轴终点</td>
+</tr>
+<tr>
+<td><code>center</code></td>
+<td>沿交叉轴居中</td>
+</tr>
+<tr>
+<td><code>baseline</code></td>
+<td>按文字基线对齐，适合不同字号的内容</td>
+</tr>
+</tbody></table>
+<p>在默认的 <code>row</code> 布局中，主轴水平、交叉轴垂直：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.toolbar</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">64px</span>;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>若改为 <code>column</code>，<code>align-items: center</code> 就变为水平方向居中。Flex 中默认的 <code>normal</code> 对齐通常表现为 <code>stretch</code>；项目显式设置了交叉方向尺寸时，不会因 <code>stretch</code> 自动撑满该方向。</p>
+<p><img src="/img/posts/css-flex/align-items.svg" alt="五种 align-items 交叉轴对齐方式，包含拉伸和基线对齐" loading='lazy'></p>
+<h3 id="align-content：多行整体对齐"><a href="#align-content：多行整体对齐" class="headerlink" title="align-content：多行整体对齐"></a>align-content：多行整体对齐</h3><p><code>align-content</code> 控制多行弹性容器中各条弹性行的分布。通常需要容器设置 <code>wrap</code>，并在交叉轴上留有额外空间，才能看出差异；它对 <code>nowrap</code> 的单行弹性容器无效。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.tag-panel</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">240px</span>;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">12px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/posts/css-flex/align-content.svg" alt="两条弹性行的顶部聚集与两端分布" loading='lazy'></p>
+<p>可用值包括 <code>flex-start</code>、<code>flex-end</code>、<code>center</code>、<code>space-between</code>、<code>space-around</code>、<code>space-evenly</code> 和 <code>stretch</code>。它移动或拉伸的是弹性行；<code>align-items</code> 则对齐行内的项目。</p>
+<h3 id="gap：项目与行之间的间距"><a href="#gap：项目与行之间的间距" class="headerlink" title="gap：项目与行之间的间距"></a>gap：项目与行之间的间距</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.list</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">  <span class="attribute">gap</span>: <span class="number">16px</span> <span class="number">24px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>row</code> 布局中，上例表示行间距为 16px、同一行项目间距为 24px；在 <code>column</code> 布局中，<code>row-gap</code> 是同一列项目的垂直间距，<code>column-gap</code> 是列间距。</p>
+<p><code>gap</code> 不给容器外边缘增加留白，外边距应通过容器的 <code>padding</code> 设置。它可以与 <code>justify-content</code> 同时使用，此时可见间隔可能还包含额外分配的空间。</p>
+<h2 id="项目属性与弹性尺寸"><a href="#项目属性与弹性尺寸" class="headerlink" title="项目属性与弹性尺寸"></a>项目属性与弹性尺寸</h2><h3 id="flex-basis：分配空间前的基准尺寸"><a href="#flex-basis：分配空间前的基准尺寸" class="headerlink" title="flex-basis：分配空间前的基准尺寸"></a>flex-basis：分配空间前的基准尺寸</h3><p><code>flex-basis</code> 指定项目在主轴方向上的初始尺寸，随后再根据 <code>flex-grow</code>、<code>flex-shrink</code> 参与空间分配。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>row</code> 中它对应初始宽度，在 <code>column</code> 中对应初始高度。默认值 <code>auto</code> 会参考主轴方向的 <code>width</code> 或 <code>height</code>；对应尺寸也为 <code>auto</code> 时，基准尺寸与内容有关。</p>
+<p>当 <code>flex-basis</code> 为明确的非 <code>auto</code> 值时，Flex 的基准尺寸优先使用它，而非主轴方向的 <code>width</code> 或 <code>height</code>。最终尺寸仍会受内容、边框、内边距和 <code>min-*</code>、<code>max-*</code> 约束。</p>
+<h3 id="flex-grow：有剩余空间时如何扩展"><a href="#flex-grow：有剩余空间时如何扩展" class="headerlink" title="flex-grow：有剩余空间时如何扩展"></a>flex-grow：有剩余空间时如何扩展</h3><p>默认值为 <code>0</code>，表示不主动扩展。常见做法是使用 1、2 等权重分配剩余空间。</p>
+<p>假设容器内容宽度为 600px，无间距、边框和内边距，三个项目的基准尺寸都是 100px，且没有最小、最大尺寸限制：</p>
+<p><img src="/img/posts/css-flex/grow.svg" alt="600px 容器中按 1 比 2 比 1 分配新增宽度" loading='lazy'></p>
+<p>计算过程：剩余空间为 <code>600 − 100 × 3 = 300px</code>，每份为 <code>300 ÷ 4 = 75px</code>；A、B、C 分别增加 75px、150px、75px，最终宽度为 175px、250px、175px。</p>
+<p>比例作用于增加的空间，并非项目的最终宽度。若增长因子之和小于 1，它们可能只使用一部分剩余空间；实际布局中还有最小、最大尺寸导致的重新分配。</p>
+<h3 id="flex-shrink：空间不足时如何收缩"><a href="#flex-shrink：空间不足时如何收缩" class="headerlink" title="flex-shrink：空间不足时如何收缩"></a>flex-shrink：空间不足时如何收缩</h3><p>默认值为 <code>1</code>。收缩并非只比较 <code>flex-shrink</code> 数值，还需要按项目的基准尺寸加权。</p>
+<p>假设容器宽 300px，两个项目的基准尺寸分别为 200px、400px，<code>flex-shrink</code> 都是 1，且允许充分收缩：</p>
+<p><img src="/img/posts/css-flex/shrink.svg" alt="按 200 比 400 的权重收缩两个项目" loading='lazy'></p>
+<p>计算过程：需要缩减 <code>600 − 300 = 300px</code>；权重为 <code>1 × 200 : 1 × 400 = 1 : 2</code>，A 缩减 100px、B 缩减 200px，最终分别为 100px、200px。</p>
+<p>需要固定尺寸的图标或侧栏，可以禁止收缩：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.icon</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex：三个属性的简写"><a href="#flex：三个属性的简写" class="headerlink" title="flex：三个属性的简写"></a>flex：三个属性的简写</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">200px</span>;</span><br><span class="line">  <span class="comment">/* flex-grow: 1; flex-shrink: 1; flex-basis: 200px; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>写法</th>
+<th>对应值</th>
+<th>适用情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>flex: initial</code></td>
+<td><code>0 1 auto</code></td>
+<td>默认行为，不增长、可收缩</td>
+</tr>
+<tr>
+<td><code>flex: auto</code></td>
+<td><code>1 1 auto</code></td>
+<td>以自身尺寸为基础增长或收缩</td>
+</tr>
+<tr>
+<td><code>flex: none</code></td>
+<td><code>0 0 auto</code></td>
+<td>保持自身尺寸，不增长、不收缩</td>
+</tr>
+<tr>
+<td><code>flex: 1</code></td>
+<td>浏览器通常展开为 <code>1 1 0%</code></td>
+<td>常用于平分空间</td>
+</tr>
+<tr>
+<td><code>flex: 0 0 160px</code></td>
+<td><code>0 0 160px</code></td>
+<td>固定主轴基准尺寸</td>
+</tr>
+</tbody></table>
+<p><code>flex: 1</code> 并不总能得到等宽项目：内容的自动最小尺寸和不同的内边距仍可能影响结果。容器主轴尺寸不确定时，<code>0%</code> 与 <code>0</code> 也可能表现不同，需要明确基准时可写为 <code>flex: 1 1 0</code>。</p>
+<h3 id="自动最小尺寸：为什么项目缩不下去"><a href="#自动最小尺寸：为什么项目缩不下去" class="headerlink" title="自动最小尺寸：为什么项目缩不下去"></a>自动最小尺寸：为什么项目缩不下去</h3><p>横向 Flex 项目默认的 <code>min-width: auto</code> 经常让长单词、地址或不换行文本撑开布局。允许正文区域收缩时，可以显式设置 <code>min-width: 0</code>：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">min-width</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">  <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>若希望长地址换行而不是省略，可使用 <code>overflow-wrap: anywhere</code>。纵向 Flex 中，内部滚动区域经常需要相应地设置 <code>min-height: 0</code>。</p>
+<h3 id="align-self：单个项目的交叉轴对齐"><a href="#align-self：单个项目的交叉轴对齐" class="headerlink" title="align-self：单个项目的交叉轴对齐"></a>align-self：单个项目的交叉轴对齐</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.toolbar</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.toolbar</span> &gt; <span class="selector-class">.special</span> &#123;</span><br><span class="line">  <span class="attribute">align-self</span>: flex-start;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>align-self</code> 覆盖该项目的 <code>align-items</code> 对齐方式，常见值包括 <code>auto</code>、<code>flex-start</code>、<code>flex-end</code>、<code>center</code>、<code>baseline</code>、<code>stretch</code>。Flex 不提供逐项主轴对齐的 <code>justify-self</code> 效果，需要通过自动外边距等方式处理。</p>
+<h3 id="auto-外边距：把项目推向一侧"><a href="#auto-外边距：把项目推向一侧" class="headerlink" title="auto 外边距：把项目推向一侧"></a>auto 外边距：把项目推向一侧</h3><p>自动外边距会在对齐计算前吸收该轴上的正剩余空间。工具栏中可以让操作区吸收左侧空间：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.actions</span> &#123;</span><br><span class="line">  <span class="attribute">margin-inline-start</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/posts/css-flex/auto-margin.svg" alt="自动外边距把操作区推向主轴终点" loading='lazy'></p>
+<p>一个项目左右都有 <code>auto</code> 外边距时，可以分配两侧剩余空间实现居中。空间不足时则没有额外空间可供吸收。</p>
+<h3 id="order：视觉排序"><a href="#order：视觉排序" class="headerlink" title="order：视觉排序"></a>order：视觉排序</h3><p><code>order</code> 默认是 0，值越小越靠前，相同值仍按源码顺序排列。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.featured</span> &#123;</span><br><span class="line">  <span class="attribute">order</span>: -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>order</code> 不会改变 DOM 顺序，也不保证键盘导航和读屏顺序同步变化。只在视觉调整确有必要时使用，不能替代合理的 HTML 结构。</p>
+<h2 id="实战：响应式卡片列表"><a href="#实战：响应式卡片列表" class="headerlink" title="实战：响应式卡片列表"></a>实战：响应式卡片列表</h2><p><img src="/img/posts/css-flex/cards.svg" alt="卡片宽屏等高排列、窄屏换行及底部链接对齐" loading='lazy'></p>
+<p>下面是可直接保存为 HTML 文件运行的示例。容器变窄时卡片自动换行；同一行的卡片高度一致，各卡片中的按钮靠底部排列。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Flex 卡片布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    * &#123; <span class="attribute">box-sizing</span>: border-box; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">font-family</span>: system-ui, sans-serif;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">line-height</span>: <span class="number">1.7</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">color</span>: <span class="number">#243247</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: <span class="number">#f3f6fa</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.cards</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex-wrap</span>: wrap;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">gap</span>: <span class="number">16px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">max-width</span>: <span class="number">960px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin-inline</span>: auto;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.card</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">240px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">min-width</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex-direction</span>: column;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">padding</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#d6deea</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">border-radius</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">background</span>: white;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">overflow-wrap</span>: anywhere;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.card</span> <span class="selector-tag">h2</span> &#123; <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">12px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.card</span> <span class="selector-tag">p</span> &#123; <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">24px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.card</span> <span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">align-self</span>: flex-start;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">margin-top</span>: auto;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">color</span>: <span class="number">#175bc2</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span> <span class="attr">class</span>=<span class="string">&quot;cards&quot;</span> <span class="attr">aria-label</span>=<span class="string">&quot;布局学习资料&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>排列方向<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>先确定主轴，再选择对齐方式。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-direction&quot;</span>&gt;</span>阅读方向说明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>弹性尺寸<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>项目以基准尺寸参与布局，再根据剩余空间增长或收缩。内容更长时，同一行的其他卡片仍可以与它保持等高。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex&quot;</span>&gt;</span>阅读尺寸说明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">article</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h2</span>&gt;</span>自动换行<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span>调窄浏览器窗口，观察卡片如何进入下一行。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-wrap&quot;</span>&gt;</span>阅读换行说明<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>外层 <code>.cards</code> 管理水平方向的排列与换行，内层 <code>.card</code> 用纵向 Flex 排列内容。<code>margin-top: auto</code> 吸收正文下方的剩余空间，使链接贴近卡片底部。</p>
+<p>这个方案会让最后一行的卡片继续增长。如果需要最后一行保持与前面相同的列宽，应考虑 Grid，或为 Flex 项目设置合适的宽度上限。</p>
+<h2 id="实战：固定侧栏与可收缩正文"><a href="#实战：固定侧栏与可收缩正文" class="headerlink" title="实战：固定侧栏与可收缩正文"></a>实战：固定侧栏与可收缩正文</h2><p><img src="/img/posts/css-flex/sidebar.svg" alt="宽屏固定侧栏与弹性正文、窄屏上下排列" loading='lazy'></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;layout&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">aside</span> <span class="attr">class</span>=<span class="string">&quot;sidebar&quot;</span>&gt;</span>目录<span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">main</span> <span class="attr">class</span>=<span class="string">&quot;main-content&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>正文标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>这里的正文占据剩余宽度，较窄屏幕下改为上下排列。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.layout</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">gap</span>: <span class="number">24px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.sidebar</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">0</span> <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.main-content</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">min-width</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">overflow-wrap</span>: anywhere;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">640px</span>) &#123;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.layout</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex-direction</span>: column;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.sidebar</span>,</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.main-content</span> &#123;</span></span><br><span class="line"><span class="language-css">      <span class="attribute">flex</span>: <span class="number">0</span> <span class="number">1</span> auto;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>切换成 <code>column</code> 后，<code>flex-basis</code> 控制的方向从宽度变为高度，所以需要重置原本的 200px 基准值，避免侧栏意外变成固定高的区域。</p>
+<h2 id="实战：固定头部与内部滚动"><a href="#实战：固定头部与内部滚动" class="headerlink" title="实战：固定头部与内部滚动"></a>实战：固定头部与内部滚动</h2><p><img src="/img/posts/css-flex/scroll.svg" alt="320px 高容器中的固定头部与独立滚动正文" loading='lazy'></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">&quot;panel&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">&quot;panel-header&quot;</span>&gt;</span>消息列表<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel-body&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>列表内容……<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>继续添加内容，超过可用高度后将在此区域内滚动。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.panel</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">flex-direction</span>: column;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">height</span>: <span class="number">320px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccd4df</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.panel-header</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">flex</span>: none;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">padding</span>: <span class="number">16px</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background</span>: <span class="number">#eef2f7</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.panel-body</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">flex</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">min-height</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">overflow</span>: auto;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">padding</span>: <span class="number">16px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>关键是外层有明确高度，内部区域允许收缩并设置滚动。嵌套多层 Flex 时，如果某一层仍被内容的最小高度撑开，也需要检查那一层的 <code>min-height</code>。</p>
+<h2 id="常见问题速查"><a href="#常见问题速查" class="headerlink" title="常见问题速查"></a>常见问题速查</h2><table>
+<thead>
+<tr>
+<th>现象</th>
+<th>检查与处理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设置 <code>align-items: center</code> 后没有垂直居中</td>
+<td>确认是否为 <code>row</code>，以及交叉轴方向是否有可用空间</td>
+</tr>
+<tr>
+<td><code>align-content</code> 没有效果</td>
+<td>检查是否设置 <code>wrap</code>、交叉轴是否有剩余空间</td>
+</tr>
+<tr>
+<td><code>space-between</code> 没有拉开距离</td>
+<td>项目增长或自动外边距可能已经吸收剩余空间</td>
+</tr>
+<tr>
+<td>固定宽度的图标被挤小</td>
+<td>默认允许收缩，可使用 <code>flex-shrink: 0</code> 或 <code>flex: none</code></td>
+</tr>
+<tr>
+<td>长文本撑破容器</td>
+<td>项目设置 <code>min-width: 0</code>，再选择换行或省略策略</td>
+</tr>
+<tr>
+<td>纵向区域无法内部滚动</td>
+<td>检查外层高度、<code>min-height: 0</code> 和 <code>overflow: auto</code></td>
+</tr>
+<tr>
+<td>三个项目设置相同宽度却提前换行</td>
+<td>把 <code>gap</code>、边框、内边距、外边距一起纳入尺寸计算</td>
+</tr>
+<tr>
+<td><code>justify-self</code> 不生效</td>
+<td>Flex 项目主轴对齐使用自动外边距或容器对齐属性</td>
+</tr>
+<tr>
+<td><code>stretch</code> 不生效</td>
+<td>检查项目是否设置了明确的交叉尺寸或自动外边距</td>
+</tr>
+<tr>
+<td>最后一行卡片被撑宽</td>
+<td>每行独立增长；需要严格列对齐时考虑 Grid</td>
+</tr>
+</tbody></table>
+<h2 id="兼容性与资料"><a href="#兼容性与资料" class="headerlink" title="兼容性与资料"></a>兼容性与资料</h2><p>基础 Flex 布局已被常见现代浏览器支持，但 Flex 容器中的 <code>gap</code>、逻辑属性和部分对齐值进入浏览器的时间不同。本文示例采用现代语法；需要兼容旧浏览器时，应分别确认这些特性的支持情况。</p>
+<p>尤其要注意：<code>@supports (gap: 1px)</code> 只能判断浏览器是否支持该声明，不能证明它支持在 Flex 中使用 <code>gap</code>，因为浏览器可能只在 Grid 中支持它。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox">MDN：Flexbox 基本概念</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex">MDN：flex</a></li>
+<li><a target="_blank" rel="noopener" href="https://caniuse.com/flexbox">Can I use：Flexbox</a></li>
+<li><a target="_blank" rel="noopener" href="https://caniuse.com/flexbox-gap">Can I use：Flexbox gap</a></li>
+<li><a href="/article/c5073f42.html">CSS Grid 网格布局</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">娄豪杰</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/article/css-flex.html">http://example.com/article/css-flex.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">HJ BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/css/">css</a></div><div class="post-share"><div class="social-share" data-image="/img/covers/tech-css.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/article/c5073f42.html" title="CSS Grid 网格布局"><img class="cover" src="/img/covers/tech-css.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">CSS Grid 网格布局</div></div><div class="info-2"><div class="info-item-1">栅格介绍名词解释CSS 网格布局(Grid Layout) 是 CSS 中最强大的布局系统。 这是一个二维系统，这意味着它可以同时处理列和行。 栅格系统与 FLEX 弹性布局有相似之处理，都是由父容器包含多个项目元素的使用。 Grid 可以同时划分行和列。下面是两行三列的网格，数字代表六个直接子元素，默认按行依次放置： 12345+---+---+---+| 1 | 2 | 3 |+---+---+---+| 4 | 5 | 6 |+---+---+---+  兼容性使用前应根据项目需要支持的浏览器版本确认兼容性。 常见现代浏览器已支持基础 Grid 布局；IE 10&#x2F;11 使用较早的语法，不能直接套用本文示例。具体版本支持情况请查看 Can I use：CSS Grid。subgrid 等扩展特性需要单独查询支持情况。 可以用特性查询为旧浏览器保留普通文档流布局： 1234567891011121314.layout &gt; * &#123;  margin-bottom: 12px;&#125;@supports (display: grid) &#123;  ....</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/article/c5073f42.html" title="CSS Grid 网格布局"><img class="cover" src="/img/covers/tech-css.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2018-01-02</div><div class="info-item-2">CSS Grid 网格布局</div></div><div class="info-2"><div class="info-item-1">栅格介绍名词解释CSS 网格布局(Grid Layout) 是 CSS 中最强大的布局系统。 这是一个二维系统，这意味着它可以同时处理列和行。 栅格系统与 FLEX 弹性布局有相似之处理，都是由父容器包含多个项目元素的使用。 Grid 可以同时划分行和列。下面是两行三列的网格，数字代表六个直接子元素，默认按行依次放置： 12345+---+---+---+| 1 | 2 | 3 |+---+---+---+| 4 | 5 | 6 |+---+---+---+  兼容性使用前应根据项目需要支持的浏览器版本确认兼容性。 常见现代浏览器已支持基础 Grid 布局；IE 10&#x2F;11 使用较早的语法，不能直接套用本文示例。具体版本支持情况请查看 Can I use：CSS Grid。subgrid 等扩展特性需要单独查询支持情况。 可以用特性查询为旧浏览器保留普通文档流布局： 1234567891011121314.layout &gt; * &#123;  margin-bottom: 12px;&#125;@supports (display: grid) &#123;  ....</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">娄豪杰</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">21</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/louhaojie99"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">常常在思考, 喜欢做的事.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Flex-%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">Flex 解决什么问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flex-%E4%B8%8E-Grid-%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9"><span class="toc-number">1.1.</span> <span class="toc-text">Flex 与 Grid 如何选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E3%80%81%E9%A1%B9%E7%9B%AE%E4%B8%8E%E4%B8%A4%E6%9D%A1%E8%BD%B4"><span class="toc-number">2.</span> <span class="toc-text">容器、项目与两条轴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%B1%9E%E6%80%A7"><span class="toc-number">3.</span> <span class="toc-text">容器属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-direction%EF%BC%9A%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91"><span class="toc-number">3.1.</span> <span class="toc-text">flex-direction：排列方向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-wrap%EF%BC%9A%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E6%97%B6%E6%8D%A2%E8%A1%8C"><span class="toc-number">3.2.</span> <span class="toc-text">flex-wrap：空间不足时换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#justify-content%EF%BC%9A%E4%B8%BB%E8%BD%B4%E5%AF%B9%E9%BD%90"><span class="toc-number">3.3.</span> <span class="toc-text">justify-content：主轴对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-items%EF%BC%9A%E8%A1%8C%E5%86%85%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90"><span class="toc-number">3.4.</span> <span class="toc-text">align-items：行内项目的交叉轴对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-content%EF%BC%9A%E5%A4%9A%E8%A1%8C%E6%95%B4%E4%BD%93%E5%AF%B9%E9%BD%90"><span class="toc-number">3.5.</span> <span class="toc-text">align-content：多行整体对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gap%EF%BC%9A%E9%A1%B9%E7%9B%AE%E4%B8%8E%E8%A1%8C%E4%B9%8B%E9%97%B4%E7%9A%84%E9%97%B4%E8%B7%9D"><span class="toc-number">3.6.</span> <span class="toc-text">gap：项目与行之间的间距</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BC%B9%E6%80%A7%E5%B0%BA%E5%AF%B8"><span class="toc-number">4.</span> <span class="toc-text">项目属性与弹性尺寸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-basis%EF%BC%9A%E5%88%86%E9%85%8D%E7%A9%BA%E9%97%B4%E5%89%8D%E7%9A%84%E5%9F%BA%E5%87%86%E5%B0%BA%E5%AF%B8"><span class="toc-number">4.1.</span> <span class="toc-text">flex-basis：分配空间前的基准尺寸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-grow%EF%BC%9A%E6%9C%89%E5%89%A9%E4%BD%99%E7%A9%BA%E9%97%B4%E6%97%B6%E5%A6%82%E4%BD%95%E6%89%A9%E5%B1%95"><span class="toc-number">4.2.</span> <span class="toc-text">flex-grow：有剩余空间时如何扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex-shrink%EF%BC%9A%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%E6%97%B6%E5%A6%82%E4%BD%95%E6%94%B6%E7%BC%A9"><span class="toc-number">4.3.</span> <span class="toc-text">flex-shrink：空间不足时如何收缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex%EF%BC%9A%E4%B8%89%E4%B8%AA%E5%B1%9E%E6%80%A7%E7%9A%84%E7%AE%80%E5%86%99"><span class="toc-number">4.4.</span> <span class="toc-text">flex：三个属性的简写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%9C%80%E5%B0%8F%E5%B0%BA%E5%AF%B8%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%BC%A9%E4%B8%8D%E4%B8%8B%E5%8E%BB"><span class="toc-number">4.5.</span> <span class="toc-text">自动最小尺寸：为什么项目缩不下去</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#align-self%EF%BC%9A%E5%8D%95%E4%B8%AA%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BA%A4%E5%8F%89%E8%BD%B4%E5%AF%B9%E9%BD%90"><span class="toc-number">4.6.</span> <span class="toc-text">align-self：单个项目的交叉轴对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-%E5%A4%96%E8%BE%B9%E8%B7%9D%EF%BC%9A%E6%8A%8A%E9%A1%B9%E7%9B%AE%E6%8E%A8%E5%90%91%E4%B8%80%E4%BE%A7"><span class="toc-number">4.7.</span> <span class="toc-text">auto 外边距：把项目推向一侧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#order%EF%BC%9A%E8%A7%86%E8%A7%89%E6%8E%92%E5%BA%8F"><span class="toc-number">4.8.</span> <span class="toc-text">order：视觉排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8D%A1%E7%89%87%E5%88%97%E8%A1%A8"><span class="toc-number">5.</span> <span class="toc-text">实战：响应式卡片列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BA%E5%AE%9A%E4%BE%A7%E6%A0%8F%E4%B8%8E%E5%8F%AF%E6%94%B6%E7%BC%A9%E6%AD%A3%E6%96%87"><span class="toc-number">6.</span> <span class="toc-text">实战：固定侧栏与可收缩正文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%EF%BC%9A%E5%9B%BA%E5%AE%9A%E5%A4%B4%E9%83%A8%E4%B8%8E%E5%86%85%E9%83%A8%E6%BB%9A%E5%8A%A8"><span class="toc-number">7.</span> <span class="toc-text">实战：固定头部与内部滚动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E9%80%9F%E6%9F%A5"><span class="toc-number">8.</span> <span class="toc-text">常见问题速查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B8%8E%E8%B5%84%E6%96%99"><span class="toc-number">9.</span> <span class="toc-text">兼容性与资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/from-farming-to-nomadism.html" title="从农耕走向游牧"><img src="/img/covers/life-nomad.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从农耕走向游牧"/ loading='lazy'></a><div class="content"><a class="title" href="/article/from-farming-to-nomadism.html" title="从农耕走向游牧">从农耕走向游牧</a><time datetime="2026-10-04T21:09:00.000Z" title="发表于 2026-10-04 21:09:00">2026-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/docker-common-commands.html" title="Docker 常用命令"><img src="/img/covers/tech-docker.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 常用命令"/ loading='lazy'></a><div class="content"><a class="title" href="/article/docker-common-commands.html" title="Docker 常用命令">Docker 常用命令</a><time datetime="2026-10-04T00:00:00.000Z" title="发表于 2026-10-04 00:00:00">2026-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/git-sparse-checkout.html" title="Git 如何拉取仓库中的指定文件夹"><img src="/img/covers/tech-git.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git 如何拉取仓库中的指定文件夹"/ loading='lazy'></a><div class="content"><a class="title" href="/article/git-sparse-checkout.html" title="Git 如何拉取仓库中的指定文件夹">Git 如何拉取仓库中的指定文件夹</a><time datetime="2026-10-04T00:00:00.000Z" title="发表于 2026-10-04 00:00:00">2026-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/golang-basics.html" title="Go 基础入门"><img src="/img/covers/tech-go.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Go 基础入门"/ loading='lazy'></a><div class="content"><a class="title" href="/article/golang-basics.html" title="Go 基础入门">Go 基础入门</a><time datetime="2026-09-18T13:16:52.000Z" title="发表于 2026-09-18 13:16:52">2026-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/llm.html" title="大模型微调硬件入门"><img src="/img/covers/tech-ai-gpu.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="大模型微调硬件入门"/ loading='lazy'></a><div class="content"><a class="title" href="/article/llm.html" title="大模型微调硬件入门">大模型微调硬件入门</a><time datetime="2026-08-10T00:00:00.000Z" title="发表于 2026-08-10 00:00:00">2026-08-10</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/covers/tech-css.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 娄豪杰</span></div><div class="footer_custom_text"><nav class="footer-links" aria-label="更多页面">
+  <a href="/archives/">归档</a>
+  <a href="/tags/">标签</a>
+  <a href="/categories/">分类</a>
+  <a href="/photo/">相册</a>
+  <a href="/music/">音乐</a>
+  <a href="/movies/">电影</a>
+  <a href="/link/">友链</a>
+</nav>
+<div>嗨，欢迎来到我的博客，希望能帮助到您！</div>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.0"></script><script src="/js/main.js?v=5.7.0"></script><script src="/js/tw_cn.js?v=5.7.0"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script src="/js/live2d.js"></script><script src="/js/navigation.js?v=20261004-compact" defer></script><script src="/js/movies.js?v=20261004-list" defer></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([data-fancybox]):not([href="/music/"]):not([href="/no-pjax/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      if (!item.parentNode) return
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    const responseURL = e.request && e.request.responseURL
+    if (e.request && e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : responseURL && (window.location.href = responseURL)
+    } else if (responseURL) {
+      window.location.href = responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.0"></script></div></div></body></html>
