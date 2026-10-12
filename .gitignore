@@ -6,3 +6,4 @@ node_modules/
 public/
 .deploy*/
 .pnpm-store/
+.claude/settings.local.json
