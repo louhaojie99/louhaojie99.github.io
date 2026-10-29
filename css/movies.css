@@ -1,0 +1,80 @@
+/* A quiet, responsive film list within the site's native navigation. */
+body:has(#body-wrap.type-movies) #live2d-widget { display: none !important; }
+#body-wrap.type-movies {
+  --cinema-bg: #f8f7f3;
+  --cinema-ink: #282c29;
+  --cinema-muted: #74786f;
+  --cinema-line: #dedfd6;
+  --cinema-accent: #6c6247;
+  --cinema-poster: #eae8df;
+  min-height: 100vh;
+  color: var(--cinema-ink);
+  background: var(--cinema-bg);
+}
+[data-theme='dark'] #body-wrap.type-movies {
+  --cinema-bg: #1a1d1b;
+  --cinema-ink: #e7e8df;
+  --cinema-muted: #aaada3;
+  --cinema-line: #3b403a;
+  --cinema-accent: #c2b590;
+  --cinema-poster: #2b312c;
+}
+.type-movies #content-inner { max-width: 1040px; padding: 28px 32px 20px; }
+.type-movies #page.movies-page { padding: 0; background: transparent; box-shadow: none; }
+.type-movies #footer { color: var(--cinema-muted); background: var(--cinema-bg); }
+.type-movies #footer::before { background: transparent; }
+.type-movies #footer-wrap { padding: 28px 20px; color: var(--cinema-muted); }
+.type-movies #footer-wrap a { color: inherit; }
+.movies-page [hidden] { display: none !important; }
+.movies-page :is(button, a):focus-visible { outline: 2px solid var(--cinema-accent); outline-offset: 4px; }
+.cinema-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--cinema-line); }
+.cinema-title { display: flex; align-items: baseline; gap: 16px; }
+.cinema-title h1 { margin: 0; color: var(--cinema-ink); font-size: 26px; font-weight: 600; line-height: 1.5; letter-spacing: 2px; }
+.cinema-count { color: var(--cinema-muted); font-size: 12px; white-space: nowrap; }
+.cinema-search { display: flex; align-items: center; gap: 10px; width: 260px; padding: 0 12px; border: 1px solid var(--cinema-line); border-radius: 6px; color: var(--cinema-muted); }
+.cinema-search:focus-within { border-color: var(--cinema-accent); box-shadow: 0 0 0 1px var(--cinema-accent); }
+.cinema-search i { font-size: 12px; }
+.cinema-search input { width: 100%; min-width: 0; height: 38px; border: 0; color: var(--cinema-ink); background: transparent; font: inherit; font-size: 12px; }
+.cinema-search input:focus { outline: none; box-shadow: none; }
+.cinema-search input::placeholder { color: var(--cinema-muted); }
+.cinema-list { scroll-margin-top: 80px; }
+.cinema-item { display: flex; gap: 22px; padding: 16px 0; border-bottom: 1px solid var(--cinema-line); }
+.cinema-poster { position: relative; flex: 0 0 96px; align-self: flex-start; width: 96px; height: 144px; overflow: hidden; border-radius: 4px; background: var(--cinema-poster); box-shadow: 0 3px 10px #2027200d; }
+.cinema-poster img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cinema-poster-fallback { display: flex; align-items: center; justify-content: center; height: 100%; padding: 16px; color: var(--cinema-muted); font-family: serif; font-size: 20px; text-align: center; }
+.cinema-film-content { display: flex; flex: 1; flex-direction: column; align-items: flex-start; min-width: 0; padding: 1px 0; }
+.cinema-film-content h2 { margin: 0; color: var(--cinema-ink); font-size: 18px; font-weight: 600; line-height: 1.5; overflow-wrap: anywhere; }
+.cinema-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 4px 0 0; color: var(--cinema-muted); font-size: 11px; line-height: 1.6; }
+.cinema-meta span + span { padding-left: 14px; border-left: 1px solid var(--cinema-line); }
+.cinema-description { max-width: 760px; margin: 9px 0 8px; color: var(--cinema-ink); font-size: 13px; line-height: 1.75; overflow-wrap: anywhere; }
+.cinema-detail { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; color: var(--cinema-accent); font-size: 12px; line-height: 2; }
+.cinema-detail:hover { color: var(--cinema-accent); text-decoration: underline; }
+.cinema-empty { padding: 60px 20px; color: var(--cinema-muted); text-align: center; }
+.cinema-empty p { margin: 0 0 16px; }
+.cinema-empty button, .cinema-pagination button { padding: 6px 14px; border: 1px solid var(--cinema-line); border-radius: 5px; color: var(--cinema-ink); background: transparent; font: inherit; font-size: 12px; cursor: pointer; }
+.cinema-pagination button:disabled { opacity: .4; cursor: default; }
+.cinema-list-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 22px; color: var(--cinema-muted); font-size: 12px; }
+.cinema-results { margin: 0; }
+.cinema-pagination { display: flex; align-items: center; gap: 14px; }
+.cinema-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 600px) {
+  .type-movies #content-inner { padding: 20px 18px 14px; }
+  .cinema-heading { flex-wrap: wrap; gap: 14px; padding-bottom: 16px; }
+  .cinema-title h1 { font-size: 24px; }
+  .cinema-search { width: 100%; }
+  .cinema-item { gap: 14px; padding: 16px 0; }
+  .cinema-poster { flex-basis: 76px; width: 76px; height: 114px; }
+  .cinema-film-content { padding: 0; }
+  .cinema-film-content h2 { font-size: 16px; }
+  .cinema-meta { gap: 2px 8px; margin-top: 5px; font-size: 11px; }
+  .cinema-meta span + span { padding-left: 0; border: 0; }
+  .cinema-description { margin: 8px 0; font-size: 12px; line-height: 1.7; }
+  .cinema-detail { font-size: 11px; }
+  .cinema-list-footer { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width: 360px) {
+  .type-movies #content-inner { padding-inline: 16px; }
+  .cinema-item { gap: 14px; }
+  .cinema-poster { flex-basis: 68px; width: 68px; height: 102px; }
+  .cinema-film-content h2 { font-size: 16px; }
+}
