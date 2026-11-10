@@ -1,0 +1,28 @@
+extends includes/layout.pug
+
+block content
+  - const books = site.data.books || []
+  #page.books-page
+    h1.books-title 书籍
+    .books-grid
+      each book, index in books
+        - const coverStyle = ['moss', 'ochre'].includes(book.cover_style) ? book.cover_style : 'moss'
+        article.book-card
+          a.book-stage(class='book-stage-' + coverStyle href=book.url || 'https://search.douban.com/book/subject_search?search_text=' + encodeURIComponent([book.title, book.author].filter(Boolean).join(' ')) target='_blank' rel='noopener noreferrer' aria-label='查看《' + book.title + '》资料（新窗口）')
+            .book-object
+              .book-cover(class='book-cover-' + coverStyle aria-hidden='true')
+                span.book-cover-rule
+                strong.book-cover-title= book.title
+                if book.author
+                  span.book-cover-author= book.author + ' 著'
+                span.book-cover-art
+              if book.cover
+                img.book-cover-image(src=url_for(book.cover) alt=book.title + '封面' width='300' height='420' loading=index < 5 ? 'eager' : 'lazy' decoding='async')
+          .book-info
+            h2= book.title
+            if book.author
+              p.book-author= book.author
+            if book.description
+              p.book-description= book.description
+    if !books.length
+      p.books-empty 暂无书籍

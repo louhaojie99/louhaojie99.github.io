@@ -18,6 +18,21 @@
   font-size: 10px;
 }
 
+/* Give every desktop dropdown room, even when its labels are short. */
+#nav .menus_items .menus_item .menus_item_child {
+  min-width: 180px;
+  padding: 6px 0;
+  border-radius: 8px;
+}
+
+#nav .menus_items .menus_item .menus_item_child > li > a {
+  display: block;
+  min-height: 44px;
+  padding: 10px 20px;
+  line-height: 24px;
+  text-align: left;
+}
+
 #nav #search-button { padding: 0; }
 #nav #search-button .search {
   display: inline-flex;

@@ -1,0 +1,13 @@
+# 按文件顺序展示；不填充阅读状态、评分或个人短评。
+# cover 可选，填写 /img/books/文件名；不填时使用原创排版封面。
+# cover_style 可选：moss（墨绿，默认）、ochre（赭红）。
+# url 可选；不填时，点击封面按书名及作者跳转豆瓣搜索。
+- title: 泥潭
+  author: 刘楚昕
+  cover_style: moss
+  description: 辛亥革命中，旗人军官、革命者与神父的命运交织，映照乱世中的暴力与良知。
+
+- title: 明朝那些事儿
+  author: 当年明月
+  cover_style: ochre
+  description: 从朱元璋起家到明朝覆亡，用通俗的故事讲述明朝近三百年的权力斗争与兴衰。
