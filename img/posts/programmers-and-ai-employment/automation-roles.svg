@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">同样的交付，重新计算人数</title>
+  <desc id="desc">左侧是逐项实现页面、组件与接口；右侧是人员把关与 AI 辅助实现。重复实现被压缩后，用人规模可能调整。此图没有固定人员替代比例。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 2 10 6 2 10" fill="none" stroke="#778981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <g id="document"><rect width="72" height="92" rx="10" fill="#fffdf8" stroke="#2f7069" stroke-width="3"/><path d="M18 26h36M18 44h36M18 62h24" stroke="#2f7069" stroke-width="4" stroke-linecap="round"/></g>
+    <g id="person"><circle cx="0" cy="-22" r="13" fill="#2f7069"/><path d="M-22 24v-13a22 22 0 0 1 44 0v13" fill="#2f7069"/></g>
+  </defs>
+  <style>
+    text {font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#263b3d}
+    .eyebrow {font-size:23px;font-weight:600;letter-spacing:3px;fill:#637975}
+    .headline {font-size:48px;font-weight:650}
+    .body {font-size:29px;fill:#637975}
+    .label {font-size:34px;font-weight:600}
+    .small {font-size:25px;fill:#637975}
+    .teal {fill:#2f7069}
+    .orange {fill:#a85b33}
+  </style>
+  <rect width="1200" height="680" rx="24" fill="#f5f1e8"/>
+  <path d="M64 551H1136" stroke="#d9ddd2" stroke-width="2"/>
+
+  <text class="eyebrow" x="64" y="56">行业观察 / 01</text>
+  <text class="headline" x="64" y="122">同样的交付，重新计算人数</text>
+  <text class="body" x="64" y="173">重复实现被压缩后，用人规模也可能调整</text>
+  <rect x="64" y="218" width="448" height="284" rx="20" fill="#fffdf8" stroke="#d9ddd2" stroke-width="2"/>
+  <text class="label" x="96" y="271">逐项手工实现</text>
+  <g transform="translate(120 366)"><use href="#person"/><text class="body" text-anchor="middle" y="88">页面</text></g>
+  <g transform="translate(288 366)"><use href="#person"/><text class="body" text-anchor="middle" y="88">组件</text></g>
+  <g transform="translate(456 366)"><use href="#person"/><text class="body" text-anchor="middle" y="88">接口</text></g>
+  <path d="M548 360H628" stroke="#778981" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="672" y="218" width="464" height="284" rx="20" fill="#e1eae1"/>
+  <text class="label" x="704" y="271">人员把关 + AI 辅助</text>
+  <g transform="translate(778 353)"><use href="#person"/></g>
+  <text class="body" x="778" y="439" text-anchor="middle">需求与验证</text>
+  <path d="M848 354H883" stroke="#778981" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="927" y="313" width="108" height="83" rx="17" fill="#2f7069"/>
+  <text x="981" y="370" text-anchor="middle" style="font-size:43px;font-weight:700;fill:#fffdf8">AI</text>
+  <text class="body" x="981" y="439" text-anchor="middle">生成与修改</text>
+  <text x="64" y="601" style="font-size:32px;font-weight:600">代码仍要交付，岗位数量却不必保持不变。</text>
+  <text class="small" x="64" y="645">工作方式示意，不代表固定替代比例。</text>
+</svg>

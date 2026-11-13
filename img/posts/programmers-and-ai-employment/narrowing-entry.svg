@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">低学历求职者面对多重门槛</title>
+  <desc id="desc">初级岗位承压影响入门，学历与经历筛选影响求职，收入和时间约束影响重返行业。这些条件叠加，可能让失业者更难回到原来的岗位。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 2 10 6 2 10" fill="none" stroke="#778981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <g id="document"><rect width="72" height="92" rx="10" fill="#fffdf8" stroke="#2f7069" stroke-width="3"/><path d="M18 26h36M18 44h36M18 62h24" stroke="#2f7069" stroke-width="4" stroke-linecap="round"/></g>
+    <g id="person"><circle cx="0" cy="-22" r="13" fill="#2f7069"/><path d="M-22 24v-13a22 22 0 0 1 44 0v13" fill="#2f7069"/></g>
+  </defs>
+  <style>
+    text {font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#263b3d}
+    .eyebrow {font-size:23px;font-weight:600;letter-spacing:3px;fill:#637975}
+    .headline {font-size:48px;font-weight:650}
+    .body {font-size:29px;fill:#637975}
+    .label {font-size:34px;font-weight:600}
+    .small {font-size:25px;fill:#637975}
+    .teal {fill:#2f7069}
+    .orange {fill:#a85b33}
+  </style>
+  <rect width="1200" height="680" rx="24" fill="#f5f1e8"/>
+  <path d="M64 551H1136" stroke="#d9ddd2" stroke-width="2"/>
+
+  <text class="eyebrow" x="64" y="56">行业观察 / 03</text>
+  <text class="headline" x="64" y="122">低学历求职者，面对的是多重门槛</text>
+  <text class="body" x="64" y="173">招聘条件、岗位数量与个人生活成本，会同时发生作用</text>
+  <path d="M86 394H1114" stroke="#c3cec3" stroke-width="3" stroke-dasharray="7 10"/>
+  <g transform="translate(219 0)">
+    <path d="M-92 394V243H92V394H54V281H-54V394Z" fill="#b7cbbd"/>
+    <path d="M-114 394H114" stroke="#637975" stroke-width="4" stroke-linecap="round"/>
+    <text class="label" y="450" text-anchor="middle">入门</text>
+    <text class="body" y="493" text-anchor="middle">初级岗位承压</text>
+  </g>
+  <g transform="translate(600 0)">
+    <path d="M-92 394V243H92V394H37V281H-37V394Z" fill="#d8b88f"/>
+    <path d="M-114 394H114" stroke="#637975" stroke-width="4" stroke-linecap="round"/>
+    <text class="label" y="450" text-anchor="middle">求职</text>
+    <text class="body" y="493" text-anchor="middle">学历与经历筛选</text>
+  </g>
+  <g transform="translate(981 0)">
+    <path d="M-92 394V243H92V394H22V281H-22V394Z" fill="#c58d6b"/>
+    <path d="M-114 394H114" stroke="#637975" stroke-width="4" stroke-linecap="round"/>
+    <text class="label" y="450" text-anchor="middle">重返</text>
+    <text class="body" y="493" text-anchor="middle">收入与时间约束</text>
+  </g>
+  <text x="64" y="604" style="font-size:36px;font-weight:600">失去一次工作，再回到原位可能更难。</text>
+  <text class="small" x="64" y="645">门宽仅用于表达处境，不代表岗位数量或通过率。</text>
+</svg>

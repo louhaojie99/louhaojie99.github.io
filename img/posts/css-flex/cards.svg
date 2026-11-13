@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="590" viewBox="0 0 800 590" role="img" aria-labelledby="title desc">
+<title id="title">响应式卡片：换行与内部纵向布局</title><desc id="desc">外层 flex-wrap: wrap；卡片内使用 column + margin-top: auto。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="590" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">响应式卡片：换行与内部纵向布局</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">外层 flex-wrap: wrap；卡片内使用 column + margin-top: auto。</text>
+<text x="32" y="119" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">宽屏：同一行等高，链接贴近底部</text>
+<rect x="32" y="142" width="232" height="230" rx="8" fill="#f5f8fd" stroke="#c7d7ed" stroke-width="2"/>
+<text x="50" y="179" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">排列方向</text>
+<rect x="50" y="201" width="170" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<rect x="50" y="224" width="135" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<text x="50" y="342" font-size="19" fill="#2864dc" text-anchor="start" font-weight="400">阅读说明 →</text>
+<rect x="284" y="142" width="232" height="230" rx="8" fill="#f5f8fd" stroke="#c7d7ed" stroke-width="2"/>
+<text x="302" y="179" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">弹性尺寸</text>
+<rect x="302" y="201" width="170" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<rect x="302" y="224" width="135" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<rect x="302" y="247" width="170" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<rect x="302" y="270" width="135" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<text x="302" y="342" font-size="19" fill="#2864dc" text-anchor="start" font-weight="400">阅读说明 →</text>
+<rect x="536" y="142" width="232" height="230" rx="8" fill="#f5f8fd" stroke="#c7d7ed" stroke-width="2"/>
+<text x="554" y="179" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">自动换行</text>
+<rect x="554" y="201" width="170" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<rect x="554" y="224" width="135" height="9" rx="4" fill="#c4d0e2" stroke="none" stroke-width="2"/>
+<text x="554" y="342" font-size="19" fill="#2864dc" text-anchor="start" font-weight="400">阅读说明 →</text>
+<line x1="32" y1="350" x2="768" y2="350" stroke="#b75d09" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="32" y="412" font-size="21" fill="#172b4d" text-anchor="start" font-weight="600">窄屏：卡片依次换行，每行独立分配宽度</text>
+<rect x="32" y="433" width="440" height="34" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="252.0" y="457.0" font-size="18" fill="white" text-anchor="middle" font-weight="600">排列方向</text>
+<rect x="32" y="477" width="440" height="34" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="252.0" y="501.0" font-size="18" fill="white" text-anchor="middle" font-weight="600">弹性尺寸</text>
+<rect x="32" y="521" width="440" height="34" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="252.0" y="545.0" font-size="18" fill="white" text-anchor="middle" font-weight="600">自动换行</text>
+<text x="502" y="474" font-size="18" fill="#536580" text-anchor="start" font-weight="400">此处为结构示意</text>
+<text x="502" y="505" font-size="18" fill="#536580" text-anchor="start" font-weight="400">实际高度由内容决定</text>
+</svg>

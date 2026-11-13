@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">能力被看见之前，先过简历筛选</title>
+  <desc id="desc">候选人的项目、经验和技能，可能先经过学历、学校及经历标签筛选，再获得技术面试机会。学校标签不等于个体能力，各企业筛选标准不同。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 2 10 6 2 10" fill="none" stroke="#778981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <g id="document"><rect width="72" height="92" rx="10" fill="#fffdf8" stroke="#2f7069" stroke-width="3"/><path d="M18 26h36M18 44h36M18 62h24" stroke="#2f7069" stroke-width="4" stroke-linecap="round"/></g>
+    <g id="person"><circle cx="0" cy="-22" r="13" fill="#2f7069"/><path d="M-22 24v-13a22 22 0 0 1 44 0v13" fill="#2f7069"/></g>
+  </defs>
+  <style>
+    text {font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;fill:#263b3d}
+    .eyebrow {font-size:23px;font-weight:600;letter-spacing:3px;fill:#637975}
+    .headline {font-size:48px;font-weight:650}
+    .body {font-size:29px;fill:#637975}
+    .label {font-size:34px;font-weight:600}
+    .small {font-size:25px;fill:#637975}
+    .teal {fill:#2f7069}
+    .orange {fill:#a85b33}
+  </style>
+  <rect width="1200" height="680" rx="24" fill="#f5f1e8"/>
+  <path d="M64 551H1136" stroke="#d9ddd2" stroke-width="2"/>
+
+  <text class="eyebrow" x="64" y="56">行业观察 / 02</text>
+  <text class="headline" x="64" y="122">能力被看见之前，先过简历筛选</text>
+  <text class="body" x="64" y="173">企业节省筛选时间，候选人可能失去验证能力的机会</text>
+  <text class="label" x="215" y="246" text-anchor="middle">候选人的简历</text>
+  <g transform="translate(115 293) rotate(-8 36 46)"><use href="#document"/></g>
+  <g transform="translate(183 281)"><use href="#document"/></g>
+  <g transform="translate(251 293) rotate(8 36 46)"><use href="#document"/></g>
+  <text class="body" x="215" y="459" text-anchor="middle">项目 / 经验 / 技能</text>
+  <path d="M366 354H423" stroke="#778981" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="464" y="218" width="302" height="284" rx="20" fill="#efe0ce"/>
+  <text class="label" x="615" y="270" text-anchor="middle">标签筛选</text>
+  <rect x="490" y="307" width="113" height="61" rx="12" fill="#fffdf8"/>
+  <text x="547" y="350" text-anchor="middle" style="font-size:36px;fill:#a85b33">985</text>
+  <rect x="625" y="307" width="113" height="61" rx="12" fill="#fffdf8"/>
+  <text x="682" y="350" text-anchor="middle" style="font-size:36px;fill:#a85b33">211</text>
+  <text class="body orange" x="615" y="415" text-anchor="middle">硕士 / 过往平台</text>
+  <text class="small" x="615" y="472" text-anchor="middle">部分企业的筛选偏好</text>
+  <path d="M800 354H857" stroke="#778981" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="895" y="281" width="241" height="145" rx="18" fill="#e1eae1"/>
+  <g transform="translate(952 352)"><use href="#person"/></g>
+  <path d="M1001 326h87M1001 349h65M1001 372h76" stroke="#2f7069" stroke-width="5" stroke-linecap="round"/>
+  <text class="label" x="1015" y="476" text-anchor="middle">技术面试</text>
+  <text x="64" y="604" style="font-size:39px;font-weight:650;fill:#2f7069">学校标签 ≠ 个体能力</text>
+  <text class="small" x="64" y="645">常见筛选逻辑示意，各企业标准不同。</text>
+</svg>

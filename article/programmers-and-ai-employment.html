@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>绝大多数程序员，终将面临失业 | HJ BLOG</title><meta name="author" content="娄豪杰"><meta name="copyright" content="娄豪杰"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一名前端开发者对岗位收缩、AI 编程与学历筛选的观察。当企业减少培养、提高门槛，低学历求职者进入行业和重新就业的路，正在变窄。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="绝大多数程序员，终将面临失业">
+<meta property="og:url" content="http://example.com/article/programmers-and-ai-employment.html">
+<meta property="og:site_name" content="HJ BLOG">
+<meta property="og:description" content="一名前端开发者对岗位收缩、AI 编程与学历筛选的观察。当企业减少培养、提高门槛，低学历求职者进入行业和重新就业的路，正在变窄。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/covers/life-programmer-employment.png">
+<meta property="article:published_time" content="2026-11-13T10:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-13T05:01:18.074Z">
+<meta property="article:author" content="娄豪杰">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="就业">
+<meta property="article:tag" content="程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/covers/life-programmer-employment.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "绝大多数程序员，终将面临失业",
+  "url": "http://example.com/article/programmers-and-ai-employment.html",
+  "image": "http://example.com/img/covers/life-programmer-employment.png",
+  "datePublished": "2026-11-13T10:00:00.000Z",
+  "dateModified": "2026-11-13T05:01:18.074Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "娄豪杰",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/article/programmers-and-ai-employment.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.3.1/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        const data = { value }
+
+        if (ttl != null) {
+          data.expiry = Date.now() + ttl * 86400000
+        }
+
+        localStorage.setItem(key, JSON.stringify(data))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return
+
+        try {
+          const data = JSON.parse(itemStr)
+
+          if (data.expiry && Date.now() > data.expiry) {
+            localStorage.removeItem(key)
+            return
+          }
+
+          return data.value
+        } catch {
+          localStorage.removeItem(key)
+        }
+      }
+    }
+
+    const scriptCache = new Map()
+    const cssCache = new Map()
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => {
+        if (scriptCache.has(url)) {
+          return scriptCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+
+          script.src = url
+          script.async = true
+
+          for (const key in attr) {
+            script.setAttribute(key, attr[key])
+          }
+
+          script.onload = resolve
+          script.onerror = reject
+
+          document.head.appendChild(script)
+        })
+
+        scriptCache.set(url, promise)
+
+        return promise
+      },
+      getCSS: (url, id) => {
+        if (cssCache.has(url)) {
+          return cssCache.get(url)
+        }
+
+        const promise = new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+
+          link.rel = 'stylesheet'
+          link.href = url
+
+          if (id) {
+            link.id = id
+          }
+
+          link.onload = resolve
+          link.onerror = reject
+
+          document.head.appendChild(link)
+        })
+
+        cssCache.set(url, promise)
+
+        return promise
+      },
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const metaThemeColor = document.querySelector('meta[name="theme-color"]')
+      const activateDarkMode = () => {
+        document.documentElement.dataset.theme = 'dark'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.dataset.theme = 'light'
+        if (metaThemeColor !== null) {
+          metaThemeColor.setAttribute('content', 'undefined')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '绝大多数程序员，终将面临失业',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/static-butterfly/dist/css/index.min.css"><link rel="stylesheet" href="/css/custom.css?v=20260918-compact6"><link rel="stylesheet" href="/css/navigation.css?v=20261110-dropdown"><link rel="stylesheet" href="/css/movies.css?v=20261004-focus"><link rel="stylesheet" href="/css/books.css?v=20261110-compact-intro"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 前端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><span> HTML</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><span> CSS</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><span> JavaScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/TypeScript/"><span> TypeScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nodejs/"><span> Node.js</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nextjs/"><span> Next.js</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 后端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Go/"><span> Go</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/MySQL/"><span> MySQL</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/PostgreSQL/"><span> PostgreSQL</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> AI</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/AI/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/AI/Agent/"><span> Agent / MCP</span></a></li><li><a class="site-page child" href="/categories/AI/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/"><span> 微调与算力</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/git/"><span> Git</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/%E5%8C%85%E7%AE%A1%E7%90%86/"><span> 包管理</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Linux/"><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Docker/"><span> Docker</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E7%94%9F%E6%B4%BB/%E9%9A%8F%E7%AC%94/"><span> 随笔</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 更多</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><span> 分类</span></a></li><li><a class="site-page child" href="/photo/"><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><span> 书籍</span></a></li><li><a class="site-page child" href="/link/"><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/covers/life-programmer-employment.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">HJ BLOG</span></a><a class="nav-page-title" href="/"><span class="site-name">绝大多数程序员，终将面临失业</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span> 首页</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 前端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/HTML/"><span> HTML</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/CSS/"><span> CSS</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/JavaScript/"><span> JavaScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/TypeScript/"><span> TypeScript</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nodejs/"><span> Node.js</span></a></li><li><a class="site-page child" href="/categories/%E5%89%8D%E7%AB%AF/Nextjs/"><span> Next.js</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 后端</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Python/"><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Go/"><span> Go</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/Java/"><span> Java</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/MySQL/"><span> MySQL</span></a></li><li><a class="site-page child" href="/categories/%E5%90%8E%E7%AB%AF/PostgreSQL/"><span> PostgreSQL</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> AI</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/AI/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/AI/Agent/"><span> Agent / MCP</span></a></li><li><a class="site-page child" href="/categories/AI/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/"><span> 微调与算力</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/"><span> 全部</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/git/"><span> Git</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/%E5%8C%85%E7%AE%A1%E7%90%86/"><span> 包管理</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Linux/"><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/Docker/"><span> Docker</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/categories/%E7%94%9F%E6%B4%BB/%E9%9A%8F%E7%AC%94/"><span> 随笔</span></a></div><div class="menus_item"><span class="site-page group hide"><span> 更多</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><span> 分类</span></a></li><li><a class="site-page child" href="/photo/"><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><span> 电影</span></a></li><li><a class="site-page child" href="/books/"><span> 书籍</span></a></li><li><a class="site-page child" href="/link/"><span> 友链</span></a></li><li><a class="site-page child" href="/about/"><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">绝大多数程序员，终将面临失业</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-13T10:00:00.000Z" title="发表于 2026-11-13 10:00:00">2026-11-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-13T05:01:18.074Z" title="更新于 2026-11-13 05:01:18">2026-11-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%94%9F%E6%B4%BB/%E9%9A%8F%E7%AC%94/">随笔</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>我是一名前端开发程序员。</p>
+<p><strong>我已经一年时间没写过一行代码。</strong></p>
+<p>把这两句话放在一起，多少有点荒诞。程序员这个职业，曾经最直观的工作内容就是写代码。如今再讨论它的前景，却越来越需要把“代码由谁写”和“公司雇多少人”分开来看。</p>
+<p>一个人的经历不能代表整个行业。但当 AI 已经能够参与页面生成、组件开发和业务逻辑实现，过去靠熟练编码支撑起来的岗位，还能留下多少，确实值得怀疑。</p>
+<p>我担心的，是大量普通程序员会陆续发现：原来的工作还在，企业却不再需要原来那么多人。</p>
+<span id="more"></span>
+
+<h2 id="大多数业务开发，并没有那么特殊"><a href="#大多数业务开发，并没有那么特殊" class="headerlink" title="大多数业务开发，并没有那么特殊"></a>大多数业务开发，并没有那么特殊</h2><p>谈到 AI 编程，总有人说，复杂业务做不了，架构设计做不了，历史系统也处理不好。</p>
+<p>这些困难确实存在。问题在于，一个普通业务开发岗位，每天有多少时间在处理这些事情？</p>
+<p>以前端为例，很多需求围绕着表单、表格、搜索、分页、弹窗、权限和接口展开。不同公司有不同规则，不同项目也有不同的历史包袱，但大量实现方式是相通的。</p>
+<p>过去，熟悉框架、会用组件库、能独立完成联调，就足以承担一份工作。这些能力需要学习和练习，也曾经构成求职门槛。</p>
+<p>现在，把需求、接口和项目约定交代清楚，AI 已经可以生成一部分实现。生成的结果需要检查，复杂交互需要调整，真实系统里的问题仍然需要人来处理。但重复编码所占用的时间，有了被压缩的可能。</p>
+<p>企业是否减少岗位，不需要等到 AI 能独立完成一整套系统。只要某些工作能由更少的人完成，用人数量就有重新计算的空间。</p>
+<p>“AI 还会犯错”，和“原来的人数仍然有必要”，之间并没有必然联系。</p>
+<p><img src="/img/posts/programmers-and-ai-employment/automation-roles.svg" alt="重复实现被压缩后，交付可能转为人员把关与 AI 辅助；示意图不代表固定人员替代比例。" loading='lazy'></p>
+<h2 id="岗位减少，未必从裁员开始"><a href="#岗位减少，未必从裁员开始" class="headerlink" title="岗位减少，未必从裁员开始"></a>岗位减少，未必从裁员开始</h2><p>企业用不用 AI，最终都要算成本。</p>
+<p>模型费用、工具订阅、代码审查、安全和维护，都有成本。AI 生成代码也可能增加返工。只有把这些算进去以后，交付成本仍然下降，企业才有持续采用的理由。</p>
+<p>一旦这种账算得过来，变化可能非常安静。</p>
+<p>有人离职，不再补招；原本计划招聘的两个岗位，先取消一个；简单需求交给现有团队消化；原本需要外包的页面，内部借助工具完成。</p>
+<p>在职的人未必立刻感受到冲击，正在找工作的人却会先遇到它：可投的岗位少了，要求更细了，面试流程更长了，薪资谈判的空间也更小了。</p>
+<p>当然，不能把所有招聘收缩都归因于 AI。业务增长放缓、项目预算减少、外包调整，同样会影响岗位数量。AI 带来的新需求，也可能在一些领域增加就业。</p>
+<p>但对依赖常规业务开发岗位的人来说，这几种变化可能同时发生：企业更谨慎地花钱，工具提高了部分工作的效率，求职者之间的竞争随之加重。</p>
+<p>行业里仍然有人拿到高薪，并不能说明普通岗位的处境没有变化。</p>
+<h2 id="为什么招普通开发，也开始看-985、211-和硕士"><a href="#为什么招普通开发，也开始看-985、211-和硕士" class="headerlink" title="为什么招普通开发，也开始看 985、211 和硕士"></a>为什么招普通开发，也开始看 985、211 和硕士</h2><p>招聘中让人感到门槛变化的，还有学历。</p>
+<p>一些岗位做的仍然是常规业务，却会写上硕士学历、985、211 院校优先，或者在简历筛选中表现出类似偏好。岗位的日常内容，未必需要研究生阶段的学术训练。</p>
+<p>这类要求的一种作用，是筛选。</p>
+<p>一份简历，很难完整证明一个人的学习能力、自律程度和解决问题的水平。企业却需要在有限时间里，从大量候选人中挑出一部分进入面试。</p>
+<p>于是，学历和学校就成了便于使用的标签。看到名校、硕士，人们容易默认：学习能力较强，能长期投入，接受新知识较快，完成任务的稳定性更高。</p>
+<p><strong>这些是对群体标签的预期，不能直接证明某个具体人的能力。</strong> 低学历的人也可能非常自律，技术扎实；高学历的人也可能不适合岗位。只是招聘筛选往往先于实际工作，个人能力还没被看见，简历就已经被分过一轮。</p>
+<p>候选人充足时，企业更有条件使用这种粗糙的办法。它未必能找到所有合适的人，却能降低初步筛选的成本。</p>
+<p>因此，学历门槛提高，有时反映的是企业拥有了更多选择，而非工作本身突然变难了。</p>
+<p><img src="/img/posts/programmers-and-ai-employment/education-screening.svg" alt="简历可能先经过学历、学校和过往经历筛选，再进入技术面试；学校标签不等于个体能力。" loading='lazy'></p>
+<h2 id="AI-降低了动手门槛，学历筛选却未必放松"><a href="#AI-降低了动手门槛，学历筛选却未必放松" class="headerlink" title="AI 降低了动手门槛，学历筛选却未必放松"></a>AI 降低了动手门槛，学历筛选却未必放松</h2><p>表面上看，AI 让更多人有机会做出页面、写出程序，低学历求职者似乎也应该更容易进入行业。</p>
+<p>但能完成一个作品，和能获得一个岗位，中间还有一整套招聘机制。</p>
+<p>当基础实现越来越容易完成，一份普通项目作品所能证明的东西，也会发生变化。招聘方更难仅凭一个后台系统、一个商城页面，判断候选人到底理解多少，出了问题能不能独立处理。</p>
+<p>技术面试当然可以继续验证，但面试需要人力和时间。企业如果先用学历、学校和过往公司缩小范围，低学历求职者甚至没有机会进入证明自己的环节。</p>
+<p>过去，一部分人可以通过培训、自学、做项目，先进入行业，再用实际交付积累经验。这条路依赖一个前提：市场愿意提供足够多的入门岗位，让经验不足的人边工作边成长。</p>
+<p>当常规实现可以更多地交给工具，企业又倾向于让少数熟悉业务的人把关时，初级岗位就可能承受压力。公司愿意招聘能够立即承担工作的人，愿意投入培养的名额却可能减少。</p>
+<p>于是，低学历求职者遇到的困难会叠加：入门机会变少，筛选门槛提高，用来证明能力的作品又更容易被质疑。</p>
+<p>“技术行业只看能力”，越来越需要补上一句：先有机会让别人看到你的能力。</p>
+<h2 id="学历不高的人，失去一次工作可能更难回来"><a href="#学历不高的人，失去一次工作可能更难回来" class="headerlink" title="学历不高的人，失去一次工作可能更难回来"></a>学历不高的人，失去一次工作可能更难回来</h2><p>对已经入行的人来说，学历问题也不一定随着工作年限消失。</p>
+<p>在原来的公司，业务经验、合作关系和长期交付记录，可以让一个人的能力被具体地认识。离开以后，这些积累需要重新向陌生的招聘方证明。</p>
+<p>如果新的岗位先卡学历、学校或过去的平台，那么一个有经验的开发者，也可能在技术面试之前被筛掉。</p>
+<p>工作年限增长，还可能伴随着更高的薪资预期和家庭支出。企业筛选时会看成本，个人却未必有足够空间长期等待，或者接受明显低于过去的收入。</p>
+<p>同样是失业，不同人的缓冲条件并不一样。有人能等待合适的机会，有人很快就必须接受降薪、转岗，或者离开原来的行业。</p>
+<p>这也是为什么，讨论程序员的未来，不能只看最优秀的一小部分人。顶尖人才仍有机会，与大量普通开发者重新就业越来越困难，可以同时成立。</p>
+<p><img src="/img/posts/programmers-and-ai-employment/narrowing-entry.svg" alt="初级岗位承压、学历与经历筛选、收入与时间约束，共同影响入门、求职和重返行业。门宽不代表岗位数量或通过率。" loading='lazy'></p>
+<h2 id="企业需要的代码，和企业提供的岗位"><a href="#企业需要的代码，和企业提供的岗位" class="headerlink" title="企业需要的代码，和企业提供的岗位"></a>企业需要的代码，和企业提供的岗位</h2><p>软件需求仍然存在，企业仍然需要系统、页面和各种业务功能。</p>
+<p>但需求有多少，并不能直接换算成需要多少程序员。当工具改变了完成工作的方式，新增需求未必会带来同比例的新增岗位。</p>
+<p>企业可以继续要求开发者懂业务、懂工程、会使用 AI，同时提高学历和经历门槛。留下的人承担更完整的工作，想进入的人面对更窄的入口，被挤出去的人则需要重新寻找收入来源。</p>
+<p>我无法断言，最终会有多少程序员失业。但对普通业务开发者，尤其是学历不占优势的人来说，岗位收缩与筛选加码叠加在一起，意味着失去一次工作之后，再回到同样位置会更加困难。</p>
+<p>代码仍然有人需要，个人也仍然可能具备完成工作的能力。只是市场提供的岗位，未必还容得下原来那么多人。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">娄豪杰</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/article/programmers-and-ai-employment.html">http://example.com/article/programmers-and-ai-employment.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">HJ BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="post-meta__tags" href="/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><a class="post-meta__tags" href="/tags/%E5%B0%B1%E4%B8%9A/">就业</a></div><div class="post-share"><div class="social-share" data-image="/img/covers/life-programmer-employment.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/article/change-yourself-first.html" title="改变自己的是神，改变别人的是神经病"><img class="cover" src="/img/covers/life-change-yourself.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">改变自己的是神，改变别人的是神经病</div></div><div class="info-2"><div class="info-item-1">以前带新人做前端，我常逐个文件 Review，语法和实现有问题就直接指出。如今 AI 能写出像样的代码，真正让我困惑的反而是：方向说了，资料给了，为什么还是看不到推进？ 我问一位新人，希望从做了多年开发的人这里得到什么。他说，刚入场时流程和技术名词都不熟，想先走一遍全流程，具体实现等用到时再深入。这个回答让我重新想了想，自己以为讲清楚的事，对方可能连全貌都还没看到。   世界是一个草台班子人容易把自己的答案当成一百分，因为我们看不见自己想不到的问题。我熟悉开发、联调和评审，却未必知道新人卡在哪里；新人借助 AI 写出代码，也未必知道它在真实场景中会怎样运行。 可能我的答案是 80 分，他的是 70 分，也可能反过来。重要的不是每次都找出最高分。为了那 10 分反复争执，事情停了，情绪却积了下来。守住质量底线后，团队能持续交出 70、60、80、90、75 分的结果，边做边修正，让平均分慢慢提高，就已经很好。 改变自己的是神，改变别人的是神经病我可以用一个真实任务带新人走过需求、开发、联调、评审和发布，指出学习方向，分享资料，也示范自己怎样验证 AI 写出的代码。但资料有没有看，下...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/article/change-yourself-first.html" title="改变自己的是神，改变别人的是神经病"><img class="cover" src="/img/covers/life-change-yourself.png" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-10-29</div><div class="info-item-2">改变自己的是神，改变别人的是神经病</div></div><div class="info-2"><div class="info-item-1">以前带新人做前端，我常逐个文件 Review，语法和实现有问题就直接指出。如今 AI 能写出像样的代码，真正让我困惑的反而是：方向说了，资料给了，为什么还是看不到推进？ 我问一位新人，希望从做了多年开发的人这里得到什么。他说，刚入场时流程和技术名词都不熟，想先走一遍全流程，具体实现等用到时再深入。这个回答让我重新想了想，自己以为讲清楚的事，对方可能连全貌都还没看到。   世界是一个草台班子人容易把自己的答案当成一百分，因为我们看不见自己想不到的问题。我熟悉开发、联调和评审，却未必知道新人卡在哪里；新人借助 AI 写出代码，也未必知道它在真实场景中会怎样运行。 可能我的答案是 80 分，他的是 70 分，也可能反过来。重要的不是每次都找出最高分。为了那 10 分反复争执，事情停了，情绪却积了下来。守住质量底线后，团队能持续交出 70、60、80、90、75 分的结果，边做边修正，让平均分慢慢提高，就已经很好。 改变自己的是神，改变别人的是神经病我可以用一个真实任务带新人走过需求、开发、联调、评审和发布，指出学习方向，分享资料，也示范自己怎样验证 AI 写出的代码。但资料有没有看，下...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">娄豪杰</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">27</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/louhaojie99"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">常常在思考, 喜欢做的事.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E5%A4%9A%E6%95%B0%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91%EF%BC%8C%E5%B9%B6%E6%B2%A1%E6%9C%89%E9%82%A3%E4%B9%88%E7%89%B9%E6%AE%8A"><span class="toc-number">1.</span> <span class="toc-text">大多数业务开发，并没有那么特殊</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B2%97%E4%BD%8D%E5%87%8F%E5%B0%91%EF%BC%8C%E6%9C%AA%E5%BF%85%E4%BB%8E%E8%A3%81%E5%91%98%E5%BC%80%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text">岗位减少，未必从裁员开始</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8B%9B%E6%99%AE%E9%80%9A%E5%BC%80%E5%8F%91%EF%BC%8C%E4%B9%9F%E5%BC%80%E5%A7%8B%E7%9C%8B-985%E3%80%81211-%E5%92%8C%E7%A1%95%E5%A3%AB"><span class="toc-number">3.</span> <span class="toc-text">为什么招普通开发，也开始看 985、211 和硕士</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E9%99%8D%E4%BD%8E%E4%BA%86%E5%8A%A8%E6%89%8B%E9%97%A8%E6%A7%9B%EF%BC%8C%E5%AD%A6%E5%8E%86%E7%AD%9B%E9%80%89%E5%8D%B4%E6%9C%AA%E5%BF%85%E6%94%BE%E6%9D%BE"><span class="toc-number">4.</span> <span class="toc-text">AI 降低了动手门槛，学历筛选却未必放松</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E5%8E%86%E4%B8%8D%E9%AB%98%E7%9A%84%E4%BA%BA%EF%BC%8C%E5%A4%B1%E5%8E%BB%E4%B8%80%E6%AC%A1%E5%B7%A5%E4%BD%9C%E5%8F%AF%E8%83%BD%E6%9B%B4%E9%9A%BE%E5%9B%9E%E6%9D%A5"><span class="toc-number">5.</span> <span class="toc-text">学历不高的人，失去一次工作可能更难回来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%81%E4%B8%9A%E9%9C%80%E8%A6%81%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%92%8C%E4%BC%81%E4%B8%9A%E6%8F%90%E4%BE%9B%E7%9A%84%E5%B2%97%E4%BD%8D"><span class="toc-number">6.</span> <span class="toc-text">企业需要的代码，和企业提供的岗位</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/article/programmers-and-ai-employment.html" title="绝大多数程序员，终将面临失业"><img src="/img/covers/life-programmer-employment.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="绝大多数程序员，终将面临失业"/ loading='lazy'></a><div class="content"><a class="title" href="/article/programmers-and-ai-employment.html" title="绝大多数程序员，终将面临失业">绝大多数程序员，终将面临失业</a><time datetime="2026-11-13T10:00:00.000Z" title="发表于 2026-11-13 10:00:00">2026-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/change-yourself-first.html" title="改变自己的是神，改变别人的是神经病"><img src="/img/covers/life-change-yourself.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="改变自己的是神，改变别人的是神经病"/ loading='lazy'></a><div class="content"><a class="title" href="/article/change-yourself-first.html" title="改变自己的是神，改变别人的是神经病">改变自己的是神，改变别人的是神经病</a><time datetime="2026-10-29T09:12:45.000Z" title="发表于 2026-10-29 09:12:45">2026-10-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/from-farming-to-nomadism.html" title="从农耕走向游牧"><img src="/img/covers/life-nomad.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从农耕走向游牧"/ loading='lazy'></a><div class="content"><a class="title" href="/article/from-farming-to-nomadism.html" title="从农耕走向游牧">从农耕走向游牧</a><time datetime="2026-10-04T21:09:00.000Z" title="发表于 2026-10-04 21:09:00">2026-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/docker-common-commands.html" title="Docker 常用命令"><img src="/img/covers/tech-docker.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docker 常用命令"/ loading='lazy'></a><div class="content"><a class="title" href="/article/docker-common-commands.html" title="Docker 常用命令">Docker 常用命令</a><time datetime="2026-10-04T00:00:00.000Z" title="发表于 2026-10-04 00:00:00">2026-10-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/article/git-sparse-checkout.html" title="Git 如何拉取仓库中的指定文件夹"><img src="/img/covers/tech-git.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git 如何拉取仓库中的指定文件夹"/ loading='lazy'></a><div class="content"><a class="title" href="/article/git-sparse-checkout.html" title="Git 如何拉取仓库中的指定文件夹">Git 如何拉取仓库中的指定文件夹</a><time datetime="2026-10-04T00:00:00.000Z" title="发表于 2026-10-04 00:00:00">2026-10-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/covers/life-programmer-employment.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2017 - 2026 By 娄豪杰</span></div><div class="footer_custom_text"><nav class="footer-links" aria-label="更多页面">
+  <a href="/archives/">归档</a>
+  <a href="/tags/">标签</a>
+  <a href="/categories/">分类</a>
+  <a href="/photo/">相册</a>
+  <a href="/music/">音乐</a>
+  <a href="/movies/">电影</a>
+  <a href="/books/">书籍</a>
+  <a href="/link/">友链</a>
+</nav>
+<div>嗨，欢迎来到我的博客，希望能帮助到您！</div>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.7.0"></script><script src="/js/main.js?v=5.7.0"></script><script src="/js/tw_cn.js?v=5.7.0"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@5.2.0/instantpage.min.js" type="module"></script><div class="js-pjax"></div><script src="/js/live2d.js"></script><script src="/js/navigation.js?v=20261004-compact" defer></script><script src="/js/movies.js?v=20261004-list" defer></script><script src="/js/books.js?v=20261110-compact" defer></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治" data-fontsize="15px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js" defer="defer"></script><script>document.addEventListener('DOMContentLoaded', () => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([data-fancybox]):not([href="/music/"]):not([href="/no-pjax/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      if (!item.parentNode) return
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || ''
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    const responseURL = e.request && e.request.responseURL
+    if (e.request && e.request.status === 404) {
+      false
+        ? pjax.loadUrl('/404.html')
+        : responseURL && (window.location.href = responseURL)
+    } else if (responseURL) {
+      window.location.href = responseURL
+    }
+  })
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.7.0"></script></div></div></body></html>
