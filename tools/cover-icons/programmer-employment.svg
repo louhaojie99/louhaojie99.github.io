@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">程序员与就业变化</title>
+  <desc id="desc">代码显示器与向下箭头，表示编码工作和就业岗位的变化。</desc>
+  <rect width="256" height="256" rx="60" fill="#E4C58D"/>
+  <g fill="none" stroke="#234A48" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="43" y="49" width="170" height="121" rx="14"/>
+    <path d="M88 88 68 108l20 20m80-40 20 20-20 20m-31-45-18 50"/>
+    <path d="M128 170v33m-31 0h62"/>
+  </g>
+  <circle cx="194" cy="194" r="38" fill="#C77D5B" stroke="#E4C58D" stroke-width="8"/>
+  <path d="M194 174v39m-15-15 15 15 15-15" fill="none" stroke="#234A48" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
