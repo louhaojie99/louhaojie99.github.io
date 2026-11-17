@@ -1,0 +1,76 @@
+/* A compact cover-first bookshelf, scoped to this page. */
+body:has(#body-wrap.type-books) #live2d-widget { display: none !important; }
+#body-wrap.type-books {
+  --books-bg: #f8f7f3;
+  --books-ink: #283c34;
+  --books-muted: #686e65;
+  --books-stage: #eeefe8;
+  --books-stage-warm: #f0eae0;
+  min-height: 100vh;
+  background: var(--books-bg);
+  color: var(--books-ink);
+}
+[data-theme='dark'] #body-wrap.type-books {
+  --books-bg: #191e1b;
+  --books-ink: #e2e7dc;
+  --books-muted: #adb6a8;
+  --books-stage: #2b362e;
+  --books-stage-warm: #39352c;
+}
+.type-books #content-inner { max-width: 1140px; padding: 32px 32px 24px; }
+.type-books #page.books-page { padding: 0; background: transparent; box-shadow: none; }
+.type-books #footer { background: var(--books-bg); }
+.type-books #footer::before { background: transparent; }
+#body-wrap.type-books #footer .footer-other { padding: 20px; color: var(--books-muted); }
+#body-wrap.type-books #footer a { color: inherit; }
+.books-page [hidden] { display: none !important; }
+.books-page .books-title { margin: 0 0 24px; color: var(--books-ink); font-size: 24px; font-weight: 500; line-height: 1.5; }
+.books-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px 24px; }
+.book-card { min-width: 0; }
+.book-stage { display: grid; place-items: center; height: 220px; border-radius: 6px; color: inherit; background: var(--books-stage); }
+.book-stage-ochre { background: var(--books-stage-warm); }
+.book-stage:focus-visible { outline: 2px solid var(--books-ink); outline-offset: 4px; }
+.book-object { position: relative; width: 116px; height: 164px; border-radius: 2px 3px 3px 2px; box-shadow: 3px 3px 0 #ddd9cc, 4px 4px 0 #c7c4b8, 8px 10px 16px #13241d24; transition: transform .2s ease; }
+.book-stage:hover .book-object { transform: translateY(-4px); }
+.book-cover { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start; overflow: hidden; padding: 18px 14px 14px 20px; border-radius: inherit; color: #faf3df; background: #244b40; }
+.book-cover::before { position: absolute; z-index: 2; top: 0; bottom: 0; left: 4px; width: 4px; border-inline: 1px solid #ffffff12; background: #00000012; content: ''; }
+.book-cover-rule { width: 20px; height: 2px; margin-bottom: 12px; background: currentColor; opacity: .65; }
+.book-cover-title { z-index: 1; font-family: 'Songti SC', SimSun, serif; font-size: 24px; font-weight: 500; line-height: 1.4; letter-spacing: 4px; }
+.book-cover-author { z-index: 1; margin-top: 8px; font-size: 9px; letter-spacing: 1px; }
+.book-cover-art { position: absolute; right: -36px; bottom: -42px; width: 150px; height: 110px; border: 1px solid #c0c59c75; border-radius: 50%; transform: rotate(-25deg); box-shadow: 0 -10px 0 #c0c59c0e, 0 -20px 0 #c0c59c14, 0 -30px 0 #c0c59c0e; }
+.book-cover-ochre { color: #59392b; background: #eaddbb; }
+.book-cover-ochre .book-cover-title { max-width: 76px; font-size: 20px; letter-spacing: 3px; }
+.book-cover-ochre .book-cover-rule { background: #a4472f; }
+.book-cover-ochre .book-cover-art { right: 12px; bottom: -25px; width: 44px; height: 86px; border: 0; border-radius: 30px 30px 0 0; background: #a4472f; box-shadow: 0 0 0 6px #a4472f1a; transform: none; }
+.book-cover-image { position: absolute; z-index: 3; inset: 0; width: 100%; height: 100%; border-radius: inherit; object-fit: cover; }
+.book-info { padding: 12px 2px 0; }
+.book-info h2 { margin: 0; color: var(--books-ink); font-size: 15px; font-weight: 500; line-height: 1.6; overflow-wrap: anywhere; }
+.books-page .book-author { margin: 4px 0 0; color: var(--books-muted); font-size: 12px; line-height: 1.6; }
+.books-page .book-description { margin: 8px 0 0; color: var(--books-muted); font-size: 12px; line-height: 1.75; overflow-wrap: anywhere; }
+.books-empty { color: var(--books-muted); }
+@media (max-width: 1100px) {
+  .books-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 850px) {
+  .books-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 18px; }
+}
+@media (max-width: 600px) {
+  .type-books #content-inner { padding: 24px 18px; }
+  .books-page .books-title { margin-bottom: 20px; font-size: 22px; }
+  .books-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+  .book-stage { height: 200px; }
+  .book-object { width: 104px; height: 148px; }
+  .book-cover { padding: 16px 10px 12px 18px; }
+  .book-cover-title { font-size: 22px; }
+  .book-cover-ochre .book-cover-title { font-size: 18px; }
+  .book-cover-author { font-size: 8px; }
+}
+@media (max-width: 360px) {
+  .type-books #content-inner { padding-inline: 14px; }
+  .books-grid { column-gap: 12px; }
+  .book-stage { height: 184px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-object { transition: none; }
+  .book-stage:hover .book-object { transform: none; }
+}

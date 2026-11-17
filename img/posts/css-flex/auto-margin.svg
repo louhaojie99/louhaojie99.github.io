@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" role="img" aria-labelledby="title desc">
+<title id="title">auto 外边距：让操作区靠右</title><desc id="desc">margin-inline-start: auto 在对齐前吸收正剩余空间。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="300" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">auto 外边距：让操作区靠右</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">margin-inline-start: auto 在对齐前吸收正剩余空间。</text>
+<rect x="32" y="118" width="736" height="88" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<rect x="48" y="134" width="80" height="56" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="88.0" y="169.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">标识</text>
+<rect x="140" y="134" width="100" height="56" rx="8" fill="#087f8c" stroke="none" stroke-width="2"/>
+<text x="190.0" y="169.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">标题</text>
+<rect x="252" y="134" width="372" height="56" rx="8" fill="#fff4df" stroke="#b75d09" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="438" y="169" font-size="21" fill="#b75d09" text-anchor="middle" font-weight="400">auto 外边距</text>
+<rect x="636" y="134" width="116" height="56" rx="8" fill="#8357c5" stroke="none" stroke-width="2"/>
+<text x="694.0" y="169.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">操作区</text>
+<line x1="270" y1="224" x2="606" y2="224" stroke="#b75d09" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="32" y="274" font-size="19" fill="#536580" text-anchor="start" font-weight="400">不是给按钮设置固定偏移量：容器变宽时，这段空间也会变宽。</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="440" viewBox="0 0 800 440" role="img" aria-labelledby="title desc">
+<title id="title">先看方向，再看对齐</title><desc id="desc">以下采用横排、从左到右的书写模式。蓝色是主轴，绿色是交叉轴。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}</style>
+<rect x="0" y="0" width="800" height="440" rx="16" fill="#fff" stroke="none" stroke-width="2"/>
+<text x="32" y="42" font-size="26" fill="#172b4d" text-anchor="start" font-weight="700">先看方向，再看对齐</text>
+<text x="32" y="74" font-size="17" fill="#536580" text-anchor="start" font-weight="400">以下采用横排、从左到右的书写模式。蓝色是主轴，绿色是交叉轴。</text>
+<rect x="32" y="108" width="344" height="280" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<text x="52" y="140" font-size="20" fill="#172b4d" text-anchor="start" font-weight="600">flex-direction: row</text>
+<rect x="424" y="108" width="344" height="280" rx="8" fill="#eef3fa" stroke="none" stroke-width="2"/>
+<text x="444" y="140" font-size="20" fill="#172b4d" text-anchor="start" font-weight="600">flex-direction: column</text>
+<line x1="72" y1="187" x2="344" y2="187" stroke="#2864dc" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="203" y="175" font-size="19" fill="#2864dc" text-anchor="middle" font-weight="400">主轴 →</text>
+<line x1="64" y1="205" x2="64" y2="357" stroke="#087f8c" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="84" y="353" font-size="18" fill="#087f8c" text-anchor="start" font-weight="400">交叉轴 ↓</text>
+<rect x="92" y="219" width="64" height="60" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="124.0" y="256.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="170" y="219" width="64" height="60" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="202.0" y="256.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="248" y="219" width="64" height="60" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="280.0" y="256.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<line x1="460" y1="184" x2="460" y2="356" stroke="#2864dc" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="482" y="356" font-size="18" fill="#2864dc" text-anchor="start" font-weight="400">主轴 ↓</text>
+<line x1="484" y1="181" x2="736" y2="181" stroke="#087f8c" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="610" y="170" font-size="18" fill="#087f8c" text-anchor="middle" font-weight="400">交叉轴 →</text>
+<rect x="550" y="204" width="100" height="40" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="600.0" y="231.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">1</text>
+<rect x="550" y="254" width="100" height="40" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="600.0" y="281.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">2</text>
+<rect x="550" y="304" width="100" height="40" rx="8" fill="#2864dc" stroke="none" stroke-width="2"/>
+<text x="600.0" y="331.0" font-size="20" fill="white" text-anchor="middle" font-weight="600">3</text>
+<text x="32" y="420" font-size="19" fill="#536580" text-anchor="start" font-weight="400">justify-content 沿主轴分配空间；align-items 沿交叉轴对齐项目。</text>
+</svg>
