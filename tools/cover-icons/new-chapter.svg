@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">旧业终章，新篇将启</title>
+  <desc id="desc">墨绿线条勾勒翻开的书页，暖金色底上升起一轮晨日，寓意带着过往积累走向新的生活。</desc>
+  <rect width="256" height="256" rx="60" fill="#E4C58D"/>
+  <g fill="none" stroke="#234A48" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M96 100a32 32 0 0 1 64 0"/>
+    <path d="M128 47v-9M91 58l-7-7m81 7 7-7M75 92h-9m115 0h9"/>
+  </g>
+  <path d="M48 119c30-9 56-4 80 12v71c-24-16-50-21-80-12Z" fill="#D5B780"/>
+  <path d="M128 131c24-16 50-21 80-12v71c-30-9-56-4-80 12Z" fill="#F4E6C8"/>
+  <g fill="none" stroke="#234A48" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M48 119c30-9 56-4 80 12 24-16 50-21 80-12v71c-30-9-56-4-80 12-24-16-50-21-80-12Z"/>
+    <path d="M128 131v71"/>
+  </g>
+  <g fill="none" stroke="#234A48" stroke-width="6" stroke-linecap="round">
+    <path d="M68 141c13-1 25 2 38 8m-38 11c13-1 25 2 38 8" opacity=".55"/>
+    <path d="M150 149c13-6 25-9 38-8m-38 27c13-6 25-9 38-8"/>
+  </g>
+</svg>

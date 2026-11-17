@@ -25,6 +25,10 @@ const covers = {
     file: 'life-programmer-employment.png', icon: path.join(iconRoot, 'programmer-employment.svg'),
     from: '#173C3C', to: '#355D57'
   },
+  chapter: {
+    file: 'life-new-chapter.png', icon: path.join(iconRoot, 'new-chapter.svg'),
+    from: '#16382F', to: '#386454'
+  },
   butterfly: {
     file: 'tech-butterfly.png',
     icon: path.join(projectRoot, 'node_modules', 'hexo-theme-butterfly', 'source', 'img', 'butterfly-icon.png'),
@@ -96,6 +100,7 @@ const postCovers = [
   ['life/essays/从农耕走向游牧.md', 'nomad'],
   ['life/essays/改变自己的是神，改变别人的是神经病.md', 'growth'],
   ['life/essays/绝大多数程序员，终将面临失业.md', 'employment'],
+  ['life/essays/是结束，也是开始！.md', 'chapter'],
   ['blog/hexo/Butterfly-安裝文檔-一-快速開始.md', 'butterfly'],
   ['blog/hexo/Butterfly-安裝文檔-二-主題頁面.md', 'butterfly'],
   ['blog/hexo/Butterfly-安裝文檔-三-主題配置-1.md', 'butterfly'],
